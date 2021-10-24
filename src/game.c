@@ -24,7 +24,6 @@ void run() {
     displayMap();
     // Display player's info
     display_player(game.player);
-
 }
 
 
