@@ -1,0 +1,3 @@
+"D:\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\Malloc_World.dir/objects.a
+D:\MinGW\mingw64\bin\ar.exe cr CMakeFiles\Malloc_World.dir/objects.a @CMakeFiles\Malloc_World.dir\objects1.rsp
+D:\MinGW\mingw64\bin\gcc.exe -g -Wl,--whole-archive CMakeFiles\Malloc_World.dir/objects.a -Wl,--no-whole-archive -o Malloc_World.exe -Wl,--out-implib,libMalloc_World.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Malloc_World.dir\linklibs.rsp

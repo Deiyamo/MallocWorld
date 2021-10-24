@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Malloc_World"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Malloc_World">
+				<Option output="D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Malloc_World.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/MinGW/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/MinGW/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/MinGW/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 Malloc_World"/>
+					<CompileFile command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Malloc_World/fast">
+				<Option output="D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Malloc_World.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/MinGW/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/MinGW/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/MinGW/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/8.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 Malloc_World/fast"/>
+					<CompileFile command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/MinGW/mingw64/bin/mingw32-make.exe -f &quot;D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/dialog.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/dialog.h">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/events.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/events.h">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/game.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/game.h">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/health.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/health.h">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.h">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/level.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/level.h">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/main.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.h">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/player.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/player.h">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/save.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/save.h">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
