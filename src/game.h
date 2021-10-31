@@ -9,6 +9,7 @@
 
 void kill_game();
 void run();
+int handlePlayerInput(Game* game);
 
 
 #endif //MALLOC_WORLD_GAME_H

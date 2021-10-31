@@ -7,13 +7,17 @@ CMakeFiles/Malloc_World.dir/src/dialog.c.obj: \
  ../src/events.h
 CMakeFiles/Malloc_World.dir/src/events.c.obj: \
  ../src/events.c \
- ../src/events.h
+ ../src/events.h \
+ ../src/map.h \
+ ../src/types.h
 CMakeFiles/Malloc_World.dir/src/game.c.obj: \
+ ../src/dialog.h \
  ../src/events.h \
  ../src/game.c \
  ../src/game.h \
  ../src/inventory.h \
  ../src/map.h \
+ ../src/npc.h \
  ../src/player.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/health.c.obj: \
@@ -30,21 +34,34 @@ CMakeFiles/Malloc_World.dir/src/level.c.obj: \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/main.c.obj: \
  ../src/dialog.h \
- ../src/events.h \
  ../src/game.h \
  ../src/main.c \
- ../src/map.h \
  ../src/save.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/map.c.obj: \
  ../src/map.c \
- ../src/map.h
+ ../src/map.h \
+ ../src/npc.h \
+ ../src/types.h
+CMakeFiles/Malloc_World.dir/src/npc.c.obj: \
+ ../src/dialog.h \
+ ../src/events.h \
+ ../src/inventory.h \
+ ../src/npc.c \
+ ../src/npc.h \
+ ../src/types.h
 CMakeFiles/Malloc_World.dir/src/player.c.obj: \
  ../src/health.h \
  ../src/inventory.h \
  ../src/level.h \
+ ../src/map.h \
  ../src/player.c \
  ../src/player.h \
+ ../src/types.h
+CMakeFiles/Malloc_World.dir/src/point.c.obj: \
+ ../src/map.h \
+ ../src/point.c \
+ ../src/point.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/save.c.obj: \
  ../src/save.c \

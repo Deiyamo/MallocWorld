@@ -7,13 +7,16 @@
 
 #include "types.h"
 
-Player new_player();
-void move_player();
+Player newPlayer();
+void movePlayer();
 void XPincrease_player();
 void levelUp_player();
 
 
 void display_player(Player player);
+void displayPlayerPosition(Point position);
+
+
 void kill_player();
 
 

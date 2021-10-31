@@ -6,37 +6,45 @@
 
 #IncludeRegexTransform: 
 
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/dialog.h
+
 D:/3eme_annee/S1/C_challenge/Malloc_World/src/events.h
 
 D:/3eme_annee/S1/C_challenge/Malloc_World/src/game.c
-game.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/game.h
-player.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/player.h
-inventory.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.h
-events.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/events.h
-map.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.h
-
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/game.h
-types.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
-
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.h
-types.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
-
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.c
-map.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.h
 stdio.h
 -
 stdlib.h
 -
+game.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/game.h
+player.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/player.h
+events.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/events.h
+map.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.h
+dialog.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/dialog.h
+npc.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/npc.h
+inventory.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.h
+
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/game.h
+types.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
+
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.h
+types.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
 
 D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.h
+types.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
+
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/npc.h
+types.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
 
 D:/3eme_annee/S1/C_challenge/Malloc_World/src/player.h
 types.h

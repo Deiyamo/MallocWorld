@@ -7,6 +7,12 @@
 
 void displayGameTitle();
 void displayMenu();
+void displayPlayerMenu();
+void displayPauseMenu();
 void displayControls();
+
+void displayHelloDialog(char* npcName);
+void displayNpcMenu();
+void displayNpcStorageMenu();
 
 #endif //MALLOC_WORLD_DIALOG_H

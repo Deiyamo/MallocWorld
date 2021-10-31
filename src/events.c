@@ -5,7 +5,17 @@
 #include "events.h"
 #include <stdlib.h>
 
+#include "map.h"
 
+
+// Clear the screen
 void clear_screen() {
     system("cls||clear");
+}
+
+
+// Clear screen and display the map
+void restore_screen() {
+    clear_screen();
+    displayMap();
 }

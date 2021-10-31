@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "save.h"
-#include "map.h"
 #include "game.h"
-#include "events.h"
 #include "dialog.h"
 
 /*

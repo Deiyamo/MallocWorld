@@ -8,6 +8,11 @@
 #include <time.h>
 
 
+typedef struct Point {
+    int X;
+    int Y;
+} Point;
+
 typedef struct Level {
     int floor; // player's level
     int XPcurrent; // Current player's XP
@@ -42,11 +47,13 @@ typedef struct Object {
     int quantity; // Object's quantity
     int durability; // Object's durability
     Property property; // Object's type
+    //Object* schema; // Craft Schema
 } Object;
 
 typedef struct Inventory {
     int maxCapacity; // max capacity of the inventory
-    Object* objects; // even possible ???
+    int currentCapacity; // current capacity of the inventory
+    Object* objects; //
 } Inventory;
 
 
@@ -55,15 +62,23 @@ typedef struct Player {
     Level level; // player's experience
     Health health; // player's health
     Inventory inventory; // player's inventory
+    Point position; // player's position
 } Player;
+
+typedef struct Npc {
+    char* name; // npc's name
+    Inventory storage;
+} Npc;
 
 typedef struct Game {
     //Map map; // ???? a voir avec Eduard ????
+    // currentMap
     Player player; // the player
+    Npc npc; // the player's storage
     //time_t started; // timestamp when the game has been started
     //time_t ended;  // timestamp when the has been ended
     //time_t paused; // the amount of seconds the game was paused
-} GAME;
+} Game;
 
 
 #endif //MALLOC_WORLD_TYPES_H

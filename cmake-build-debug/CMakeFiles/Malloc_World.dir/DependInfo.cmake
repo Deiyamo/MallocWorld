@@ -16,7 +16,9 @@ set(CMAKE_DEPENDS_CHECK_C
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/level.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/level.c.obj"
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/main.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/main.c.obj"
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/map.c.obj"
+  "D:/3eme_annee/S1/C_challenge/Malloc_World/src/npc.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/npc.c.obj"
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/player.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/player.c.obj"
+  "D:/3eme_annee/S1/C_challenge/Malloc_World/src/point.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/point.c.obj"
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/save.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/save.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

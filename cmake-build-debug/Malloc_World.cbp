@@ -119,10 +119,22 @@
 		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.h">
 			<Option target="Malloc_World"/>
 		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/npc.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/npc.h">
+			<Option target="Malloc_World"/>
+		</Unit>
 		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/player.c">
 			<Option target="Malloc_World"/>
 		</Unit>
 		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/player.h">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/point.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/point.h">
 			<Option target="Malloc_World"/>
 		</Unit>
 		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/save.c">

@@ -6,5 +6,6 @@
 #define MALLOC_WORLD_EVENTS_H
 
 void clear_screen();
+void restore_screen();
 
 #endif //MALLOC_WORLD_EVENTS_H

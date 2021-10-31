@@ -7,6 +7,7 @@
 #include "events.h"
 
 
+// Display the name of the game
 void displayGameTitle() {
     printf("\n   _____         .__  .__                   __      __            .__       .___\n"
            "  /     \\ _____  |  | |  |   ____   ____   /  \\    /  \\___________|  |    __| _/\n"
@@ -18,7 +19,9 @@ void displayGameTitle() {
     printf("\n\n");
 }
 
+// Display the starting menu
 void displayMenu() {
+    clear_screen();
     displayGameTitle();
 
     printf("1) New game \n");
@@ -29,7 +32,25 @@ void displayMenu() {
     printf(":");
 }
 
+// Display the actions that the player can do
+void displayPlayerMenu() {
+    printf("z - move up\n");
+    printf("q - move left\n");
+    printf("s - move down\n");
+    printf("d - move right\n");
+    printf("p - pause\n");
+    printf(":");
+}
 
+// Display the actions in the pause menu
+void displayPauseMenu() {
+    printf("1) Resume\n");
+    printf("2) Save\n");
+    printf("3) Back to menu\n");
+}
+
+
+// Display the controls
 void displayControls() {
     clear_screen();
 
@@ -45,4 +66,38 @@ void displayControls() {
     int enter = 0;
     while (enter != '\r' && enter != '\n') { enter = getchar(); }
     clear_screen();
+}
+
+
+
+
+/*------------------------------------------------------
+    NPC DIALOG
+------------------------------------------------------*/
+
+void displayHelloDialog(char* npcName) {
+    restore_screen();
+
+    printf("%s :\n", npcName);
+    printf("Hello, I'm %s. Be careful around here, there is a lot of monsters. ", npcName);
+    printf("Do you need something from me ?\n");
+
+    displayNpcMenu();
+}
+
+void displayNpcMenu() {
+    printf("1) Repair stuff\n");
+    printf("2) Craft item\n");
+    printf("3) Storage\n");
+    printf("4) Bye...\n");
+    printf(":");
+}
+
+void displayNpcStorageMenu() {
+    restore_screen();
+
+    printf("1) Leave items\n");
+    printf("2) Take items\n");
+    printf("3) Bye...\n");
+    printf(":");
 }

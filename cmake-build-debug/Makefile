@@ -320,6 +320,30 @@ src/map.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/map.c.s
 .PHONY : src/map.c.s
 
+src/npc.obj: src/npc.c.obj
+.PHONY : src/npc.obj
+
+# target to build an object file
+src/npc.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/npc.c.obj
+.PHONY : src/npc.c.obj
+
+src/npc.i: src/npc.c.i
+.PHONY : src/npc.i
+
+# target to preprocess a source file
+src/npc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/npc.c.i
+.PHONY : src/npc.c.i
+
+src/npc.s: src/npc.c.s
+.PHONY : src/npc.s
+
+# target to generate assembly for a file
+src/npc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/npc.c.s
+.PHONY : src/npc.c.s
+
 src/player.obj: src/player.c.obj
 .PHONY : src/player.obj
 
@@ -343,6 +367,30 @@ src/player.s: src/player.c.s
 src/player.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/player.c.s
 .PHONY : src/player.c.s
+
+src/point.obj: src/point.c.obj
+.PHONY : src/point.obj
+
+# target to build an object file
+src/point.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/point.c.obj
+.PHONY : src/point.c.obj
+
+src/point.i: src/point.c.i
+.PHONY : src/point.i
+
+# target to preprocess a source file
+src/point.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/point.c.i
+.PHONY : src/point.c.i
+
+src/point.s: src/point.c.s
+.PHONY : src/point.s
+
+# target to generate assembly for a file
+src/point.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/point.c.s
+.PHONY : src/point.c.s
 
 src/save.obj: src/save.c.obj
 .PHONY : src/save.obj
@@ -401,9 +449,15 @@ help:
 	@echo ... src/map.obj
 	@echo ... src/map.i
 	@echo ... src/map.s
+	@echo ... src/npc.obj
+	@echo ... src/npc.i
+	@echo ... src/npc.s
 	@echo ... src/player.obj
 	@echo ... src/player.i
 	@echo ... src/player.s
+	@echo ... src/point.obj
+	@echo ... src/point.i
+	@echo ... src/point.s
 	@echo ... src/save.obj
 	@echo ... src/save.i
 	@echo ... src/save.s

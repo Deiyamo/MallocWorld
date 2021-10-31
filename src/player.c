@@ -3,6 +3,7 @@
 //
 
 #include "player.h"
+#include "map.h"
 #include "level.h"
 #include "health.h"
 #include "inventory.h"
@@ -10,13 +11,14 @@
 #include <stdio.h>
 
 
-Player new_player() {
+Player newPlayer() {
     Player player = {};
 
     player.name = "Bob";
     player.level = set_level_to_zero();
     player.health = starting_health();
     player.inventory = starting_inventory();
+    player.position = getPlayerPosition();
 
     return player;
 }
@@ -28,12 +30,15 @@ void display_player(Player player) {
     printf("%dhp %dhpMax\n", player.health.HPcurrent, player.health.HPmax);
     printf("Inventaire cap. : %d\n", player.inventory.maxCapacity);
 
-    display_inventory(player.inventory);
+    displayInventoryFromMaxCapacity(player.inventory);
+    displayPlayerPosition(player.position);
 }
 
+void displayPlayerPosition(Point position) {
+    printf("{%d, %d}\n", position.X, position.Y);
+}
 
-
-void move_player() {
+void movePlayer() {
 
 }
 
@@ -49,5 +54,7 @@ void levelUp_player() {
 
 
 void kill_player() {
-
+    // kill level
+    // kill health
+    // kill inventory
 }

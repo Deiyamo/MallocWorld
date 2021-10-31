@@ -8,6 +8,13 @@
 #include "types.h"
 
 Inventory starting_inventory();
-void display_inventory(Inventory inventory);
+void displayDebugInventory(Inventory inventory);
+void displayInventoryFromMaxCapacity(Inventory inventory);
+void displayInventoryFromCurrentCapacity(Inventory inventory);
+
+Inventory npcStartingInventory();
+
+Inventory takeItemsFromStorage(Game* game);
+Inventory leaveItemsToStorage(Game* game);
 
 #endif //MALLOC_WORLD_INVENTORY_H
