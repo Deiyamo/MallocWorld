@@ -9,6 +9,7 @@
 
 Inventory starting_inventory();
 void displayDebugInventory(Inventory inventory);
+void displayLargeInventory(Inventory inventory);
 void displayInventoryFromMaxCapacity(Inventory inventory);
 void displayInventoryFromCurrentCapacity(Inventory inventory);
 

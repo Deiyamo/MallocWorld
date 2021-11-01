@@ -4,7 +4,9 @@
 CMakeFiles/Malloc_World.dir/src/dialog.c.obj: \
  ../src/dialog.c \
  ../src/dialog.h \
- ../src/events.h
+ ../src/events.h \
+ ../src/inventory.h \
+ ../src/types.h
 CMakeFiles/Malloc_World.dir/src/events.c.obj: \
  ../src/events.c \
  ../src/events.h \
@@ -27,6 +29,11 @@ CMakeFiles/Malloc_World.dir/src/health.c.obj: \
 CMakeFiles/Malloc_World.dir/src/inventory.c.obj: \
  ../src/inventory.c \
  ../src/inventory.h \
+ ../src/item.h \
+ ../src/types.h
+CMakeFiles/Malloc_World.dir/src/item.c.obj: \
+ ../src/item.c \
+ ../src/item.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/level.c.obj: \
  ../src/level.c \

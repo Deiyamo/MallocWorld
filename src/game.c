@@ -87,6 +87,10 @@ int handlePlayerInput(Game* game) {
             }
             break;
 
+        case 'i':
+            displayInventoryMenu(game->player.inventory);
+            break;
+
         case 'p': // Pause menu
             displayPauseMenu();
             playerChoice = getchar();

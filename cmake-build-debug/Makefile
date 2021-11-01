@@ -248,6 +248,30 @@ src/inventory.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/inventory.c.s
 .PHONY : src/inventory.c.s
 
+src/item.obj: src/item.c.obj
+.PHONY : src/item.obj
+
+# target to build an object file
+src/item.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/item.c.obj
+.PHONY : src/item.c.obj
+
+src/item.i: src/item.c.i
+.PHONY : src/item.i
+
+# target to preprocess a source file
+src/item.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/item.c.i
+.PHONY : src/item.c.i
+
+src/item.s: src/item.c.s
+.PHONY : src/item.s
+
+# target to generate assembly for a file
+src/item.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/item.c.s
+.PHONY : src/item.c.s
+
 src/level.obj: src/level.c.obj
 .PHONY : src/level.obj
 
@@ -440,6 +464,9 @@ help:
 	@echo ... src/inventory.obj
 	@echo ... src/inventory.i
 	@echo ... src/inventory.s
+	@echo ... src/item.obj
+	@echo ... src/item.i
+	@echo ... src/item.s
 	@echo ... src/level.obj
 	@echo ... src/level.i
 	@echo ... src/level.s

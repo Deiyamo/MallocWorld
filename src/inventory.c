@@ -3,6 +3,7 @@
 //
 
 #include "inventory.h"
+#include "item.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -17,17 +18,17 @@ Inventory starting_inventory() {
 
 
     inventory.maxCapacity = INVENTORY_CAPACITY;
-    inventory.objects = malloc(sizeof(Object) * inventory.maxCapacity);
+    inventory.objects = malloc(sizeof(Item) * inventory.maxCapacity);
     for(int i=0 ; i < inventory.maxCapacity ; i++) {
-        memset(&inventory.objects[i], 0, sizeof(Object)); // put all inventory slots to 0
+        memset(&inventory.objects[i], 0, sizeof(Item)); // put all inventory slots to 0
     }
 
 
     // Add some items to the player's inventory
-    Object sword = {1, "Wooden sword", 1, 10, {Weapon, 10, 1, 1, 0 , 0}};
-    Object pickaxe = {2, "Wooden pickaxe", 1, 10, {Tool, 10, 0, 1, 0 , 0}};
-    Object billhook = {3, "Wooden billhook", 1, 10 ,{Tool, 10, 0, 1, 0 , 0}};
-    Object axe = {4, "Wooden axe", 1, 10, {Tool, 10, 0, 1, 0 , 0}};
+    Item sword = {1, "Wooden sword", 1, 10, {Weapon, 10, 1, 1, 0 , 0}};
+    Item pickaxe = {2, "Wooden pickaxe", 1, 10, {Tool, 10, 0, 1, 0 , 0}};
+    Item billhook = {3, "Wooden billhook", 1, 10 , {Tool, 10, 0, 1, 0 , 0}};
+    Item axe = {4, "Wooden axe", 1, 10, {Tool, 10, 0, 1, 0 , 0}};
 
     inventory.objects[0] = sword; // Wooden sword
     inventory.objects[1] = pickaxe; // Wooden pickaxe
@@ -50,6 +51,18 @@ void displayDebugInventory(Inventory inventory) {
                    inventory.objects[i].id, inventory.objects[i].name, inventory.objects[i].quantity, inventory.objects[i].durability,
                    inventory.objects[i].property.type, inventory.objects[i].property.durability_max, inventory.objects[i].property.damage, inventory.objects[i].property.stack, inventory.objects[i].property.heal, inventory.objects[i].property.resistance
             );
+        }
+        printf("\n");
+    }
+}
+
+// Display debug inventory
+void displayLargeInventory(Inventory inventory) {
+    for (int i=0; i < inventory.currentCapacity; i++) {
+        if (inventory.objects[i].id == 0) {
+            printf("VOID");
+        } else {
+            checkItemTypeForDisplay(inventory.objects[i]);
         }
         printf("\n");
     }
@@ -95,13 +108,13 @@ Inventory npcStartingInventory() {
     storage.currentCapacity = 1;
     storage.maxCapacity = 1;
 
-    storage.objects = malloc(sizeof(Object) * storage.maxCapacity);
+    storage.objects = malloc(sizeof(Item) * storage.maxCapacity);
     for(int i=0 ; i < storage.maxCapacity ; i++) {
-        memset(&storage.objects[i], 0, sizeof(Object)); // set all inventory slots to 0
+        memset(&storage.objects[i], 0, sizeof(Item)); // set all inventory slots to 0
     }
 
     // Set first item
-    Object excalibur = {99, "Excalibur", 1, 10000, {Weapon, 10000, 10000, 1, 0 , 0}};
+    Item excalibur = {99, "Excalibur", 1, 10000, {Weapon, 10000, 10000, 1, 0 , 0}};
     storage.objects[0] = excalibur; // Excalibur
 
 

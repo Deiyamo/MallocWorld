@@ -33,7 +33,7 @@ typedef enum Type {
 } Type;
 
 typedef struct Property {
-    Type type; // Object type's name
+    Type type; // Item type's name
     int durability_max; // Durability before it breaks
     int damage; // Number that define how much damage it deals
     int stack; // Number of the same element can be stocked in one slot
@@ -41,19 +41,19 @@ typedef struct Property {
     int resistance; // Armor percentage
 } Property;
 
-typedef struct Object {
-    int id; // Object's ID
-    char* name; // Object's name
-    int quantity; // Object's quantity
-    int durability; // Object's durability
-    Property property; // Object's type
-    //Object* schema; // Craft Schema
-} Object;
+typedef struct Item {
+    int id; // Item's ID
+    char* name; // Item's name
+    int quantity; // Item's quantity
+    int durability; // Item's durability
+    Property property; // Item's type
+    //Item* schema; // Craft Schema
+} Item;
 
 typedef struct Inventory {
     int maxCapacity; // max capacity of the inventory
     int currentCapacity; // current capacity of the inventory
-    Object* objects; //
+    Item* objects; //
 } Inventory;
 
 

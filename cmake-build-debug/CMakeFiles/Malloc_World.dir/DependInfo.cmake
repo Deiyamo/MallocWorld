@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/game.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/game.c.obj"
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/health.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/health.c.obj"
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/inventory.c.obj"
+  "D:/3eme_annee/S1/C_challenge/Malloc_World/src/item.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/item.c.obj"
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/level.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/level.c.obj"
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/main.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/main.c.obj"
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/map.c.obj"

@@ -5,6 +5,8 @@ CMakeFiles/Malloc_World.dir/src/dialog.c.obj
  D:/3eme_annee/S1/C_challenge/Malloc_World/src/dialog.c
  D:/3eme_annee/S1/C_challenge/Malloc_World/src/dialog.h
  D:/3eme_annee/S1/C_challenge/Malloc_World/src/events.h
+ D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.h
+ D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
 CMakeFiles/Malloc_World.dir/src/events.c.obj
  D:/3eme_annee/S1/C_challenge/Malloc_World/src/events.c
  D:/3eme_annee/S1/C_challenge/Malloc_World/src/events.h
@@ -27,6 +29,11 @@ CMakeFiles/Malloc_World.dir/src/health.c.obj
 CMakeFiles/Malloc_World.dir/src/inventory.c.obj
  D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.c
  D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.h
+ D:/3eme_annee/S1/C_challenge/Malloc_World/src/item.h
+ D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
+CMakeFiles/Malloc_World.dir/src/item.c.obj
+ D:/3eme_annee/S1/C_challenge/Malloc_World/src/item.c
+ D:/3eme_annee/S1/C_challenge/Malloc_World/src/item.h
  D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
 CMakeFiles/Malloc_World.dir/src/level.c.obj
  D:/3eme_annee/S1/C_challenge/Malloc_World/src/level.c

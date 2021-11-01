@@ -5,6 +5,7 @@
 #include "dialog.h"
 #include <stdio.h>
 #include "events.h"
+#include "inventory.h"
 
 
 // Display the name of the game
@@ -38,15 +39,20 @@ void displayPlayerMenu() {
     printf("q - move left\n");
     printf("s - move down\n");
     printf("d - move right\n");
+    printf("i - open inventory\n");
     printf("p - pause\n");
     printf(":");
 }
 
 // Display the actions in the pause menu
 void displayPauseMenu() {
-    printf("1) Resume\n");
-    printf("2) Save\n");
-    printf("3) Back to menu\n");
+    clear_screen();
+
+    printf("\n\tPAUSE MENU\n\n");
+    printf("  1) Resume\n"
+           "  2) Save\n"
+           "  3) Back to menu\n"
+           "\n :");
 }
 
 
@@ -68,6 +74,19 @@ void displayControls() {
     clear_screen();
 }
 
+
+void displayInventoryMenu(Inventory inventory) {
+    clear_screen();
+
+    printf("\n\t\tINVENTORY (%d/%d)\n\n", inventory.currentCapacity, inventory.maxCapacity);
+
+    displayLargeInventory(inventory);
+
+    printf("\npress enter to go back to the game...\n");
+    int enter = 0;
+    while (enter != '\r' && enter != '\n') { enter = getchar(); }
+    restore_screen();
+}
 
 
 
