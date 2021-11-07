@@ -120,3 +120,31 @@ void displayNpcStorageMenu() {
     printf("3) Bye...\n");
     printf(":");
 }
+
+void displayLeaveItems(Inventory inventory, Inventory storage) {
+    clear_screen();
+
+    printf("\n\t\tSTORAGE (%d)\n\n", storage.currentCapacity);
+    displayLargeInventory(storage);
+
+    printf("\n");
+
+    printf("\n\t\tINVENTORY (%d/%d)\n\n", inventory.currentCapacity, inventory.maxCapacity);
+    displayLargeInventory(inventory);
+
+    printf("\nSelect an item you want to leave in the storage. Or press '-1' to go back to the storage menu.\n");
+}
+
+void displayTakeItems(Inventory inventory, Inventory storage) {
+    clear_screen();
+
+    printf("\n\t\tINVENTORY (%d/%d)\n\n", inventory.currentCapacity, inventory.maxCapacity);
+    displayLargeInventory(inventory);
+
+    printf("\n");
+
+    printf("\n\t\tSTORAGE (%d)\n\n", storage.currentCapacity);
+    displayLargeInventory(storage);
+
+    printf("\nSelect an item you want to take from the storage. Or press '-1' to go back to the storage menu.\n");
+}

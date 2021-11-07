@@ -7,8 +7,10 @@
 #include "level.h"
 #include "health.h"
 #include "inventory.h"
+#include "class.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 
 
 Player newPlayer() {
@@ -38,19 +40,37 @@ void displayPlayerPosition(Point position) {
     printf("{%d, %d}\n", position.X, position.Y);
 }
 
-void movePlayer() {
+
+/*------------------------------------------------------
+    HARVEST AND COLLECT
+------------------------------------------------------*/
+
+void harvestRock(player.inventory) {
+    // If player has a pickaxe
+    if (checkPickaxe(player.inventory)) { // 1 or 0
+        int quantityHarvested = (rand() % 4) + 1; // random between 0 and 3 then I add 1
+
+    }
+
+}
+
+void harvestPlant() {
+
+}
+
+void harvestTree() {
 
 }
 
 
-void XPincrease_player() {
-
-}
 
 
-void levelUp_player() {
 
-}
+
+
+void movePlayer() {}
+void XPincrease_player() {}
+void levelUp_player() {}
 
 
 void kill_player() {

@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Malloc_World.dir/src/class.c.obj"
   "CMakeFiles/Malloc_World.dir/src/dialog.c.obj"
   "CMakeFiles/Malloc_World.dir/src/events.c.obj"
   "CMakeFiles/Malloc_World.dir/src/game.c.obj"

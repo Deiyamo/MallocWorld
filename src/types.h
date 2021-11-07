@@ -24,16 +24,16 @@ typedef struct Health {
     int HPmax; // Max player's HP
 } Health;
 
-typedef enum Type {
+typedef enum Class {
     Weapon, // 0
     Tool, // 1
     Craft, // 2
     Armor, // 3
     Heal // 4
-} Type;
+} Class;
 
 typedef struct Property {
-    Type type; // Item type's name
+    Class type; // Item type's name
     int durability_max; // Durability before it breaks
     int damage; // Number that define how much damage it deals
     int stack; // Number of the same element can be stocked in one slot
@@ -53,7 +53,7 @@ typedef struct Item {
 typedef struct Inventory {
     int maxCapacity; // max capacity of the inventory
     int currentCapacity; // current capacity of the inventory
-    Item* objects; //
+    Item* item; //
 } Inventory;
 
 
@@ -78,6 +78,7 @@ typedef struct Game {
     //time_t started; // timestamp when the game has been started
     //time_t ended;  // timestamp when the has been ended
     //time_t paused; // the amount of seconds the game was paused
+    //char* saveFile; // Save file that contains : map, inventory, storage, player's stats, etc...
 } Game;
 
 

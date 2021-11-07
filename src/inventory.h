@@ -15,7 +15,12 @@ void displayInventoryFromCurrentCapacity(Inventory inventory);
 
 Inventory npcStartingInventory();
 
-Inventory takeItemsFromStorage(Game* game);
-Inventory leaveItemsToStorage(Game* game);
+void leaveItemsToStorage(Game* game);
+void selectItemToLeave(Game* game);
+Game leaveOneItemToStorage(Game* game, int itemNumber);
+
+void takeItemsFromStorage(Game* game);
+void selectItemToTake(Game* game);
+Game takeOneItemFromStorage(Game* game, int itemNumber);
 
 #endif //MALLOC_WORLD_INVENTORY_H

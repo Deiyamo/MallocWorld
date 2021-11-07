@@ -16,6 +16,10 @@ void levelUp_player();
 void display_player(Player player);
 void displayPlayerPosition(Point position);
 
+void harvestRock();
+void harvestPlant();
+void harvestTree();
+
 
 void kill_player();
 

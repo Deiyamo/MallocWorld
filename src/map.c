@@ -8,6 +8,7 @@
 
 // point.c
 #include "npc.h"
+#include "player.h"
 
 
 // a struct containing the map
@@ -31,7 +32,7 @@ int mapArray[ROWS][COLUMNS] = {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 5, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 12, 0, 0},
+        {0, 5, 0, 2, 0, 0, 0, -1, 0, 0, 0, 0, 12, 0, 0},
         {0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 12, 12, 0},
         {0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 12, 0},
         {0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0}
@@ -67,7 +68,7 @@ void defaultMap() {
 void displayMap() {
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLUMNS; j++) {
-            printf("%d " , mapArray[i][j]);
+            printf("%3d", mapArray[i][j]);
 //            printf("%d " , map.painting[i][j]);
         }
         printf("\n");
@@ -115,14 +116,14 @@ int checkFuturePosition(Game* game, int x, int y) {
         case 2: // Position is a npc
             *game = interactWithNpc(game);
             break;
-        case 3:
-            // Position a plant (1)
+        case 3: // Position a plant (1)
+            harvestPlant();
             break;
-        case 4:
-            // Position is a rock (1)
+        case 4: // Position is a rock (1)
+            harvestRock(); //--> check pickaxe --> collect resources random
             break;
-        case 5:
-            // Position is a tree (1)
+        case 5: // Position is a tree (1)
+            harvestTree();
             printf("Ouch this is a tree !\n");
             break;
         case 6:
@@ -156,7 +157,7 @@ int checkFuturePosition(Game* game, int x, int y) {
 }
 
 
-int isPositionWalkable(int x, int y) {
+int isPositionWalkable(int x, int y) { // Not used anymore !! see --> checkFuturePosition
     // Check map borders
     if (x < 0 || y < 0 || x >= ROWS || y >= COLUMNS) {
         return 0;

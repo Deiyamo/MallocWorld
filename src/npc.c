@@ -62,11 +62,11 @@ void npcStorageMenuInteractions(Game* game) {
     switch (npcStorageMenuChoice) {
         case '1': // Leave items
             printf("Leave items");
-            //game->player.inventory = leaveItemsToStorage(game);
+            leaveItemsToStorage(game);
             break;
         case '2': // Take items
             printf("Take items");
-            //game->player.inventory = takeItemsFromStorage(game);
+            takeItemsFromStorage(game);
             break;
         case '3': // Bye...
             break;

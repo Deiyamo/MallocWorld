@@ -128,6 +128,30 @@ Malloc_World/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/build
 .PHONY : Malloc_World/fast
 
+src/class.obj: src/class.c.obj
+.PHONY : src/class.obj
+
+# target to build an object file
+src/class.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/class.c.obj
+.PHONY : src/class.c.obj
+
+src/class.i: src/class.c.i
+.PHONY : src/class.i
+
+# target to preprocess a source file
+src/class.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/class.c.i
+.PHONY : src/class.c.i
+
+src/class.s: src/class.c.s
+.PHONY : src/class.s
+
+# target to generate assembly for a file
+src/class.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/class.c.s
+.PHONY : src/class.c.s
+
 src/dialog.obj: src/dialog.c.obj
 .PHONY : src/dialog.obj
 
@@ -449,6 +473,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Malloc_World
+	@echo ... src/class.obj
+	@echo ... src/class.i
+	@echo ... src/class.s
 	@echo ... src/dialog.obj
 	@echo ... src/dialog.i
 	@echo ... src/dialog.s

@@ -74,6 +74,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/class.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/class.h">
+			<Option target="Malloc_World"/>
+		</Unit>
 		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/dialog.c">
 			<Option target="Malloc_World"/>
 		</Unit>
