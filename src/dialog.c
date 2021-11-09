@@ -148,3 +148,12 @@ void displayTakeItems(Inventory inventory, Inventory storage) {
 
     printf("\nSelect an item you want to take from the storage. Or press '-1' to go back to the storage menu.\n");
 }
+
+
+/*------------------------------------------------------
+    COLLECT RESSOURCES DIALOG
+------------------------------------------------------*/
+
+void noRequiredEquipment(char* tool) {
+    printf("\nYou don't have the required %s or your %s needs to be repair.\n", tool, tool);
+}

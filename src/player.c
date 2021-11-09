@@ -8,6 +8,7 @@
 #include "health.h"
 #include "inventory.h"
 #include "class.h"
+#include "item.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -45,20 +46,26 @@ void displayPlayerPosition(Point position) {
     HARVEST AND COLLECT
 ------------------------------------------------------*/
 
-void harvestRock(player.inventory) {
-    // If player has a pickaxe
-    if (checkPickaxe(player.inventory)) { // 1 or 0
+int harvestPlant() {
+
+}
+
+int harvestRock(Game* game, int casePosition) {
+
+    // If player has a pickaxe in good shape
+    if ( checkPickaxeToUse(game->player.inventory, casePosition, casePosition) ) { // 1 or 0
         int quantityHarvested = (rand() % 4) + 1; // random between 0 and 3 then I add 1
 
+        // add items to inventory
+        game->player.inventory = addItemToInventory(game->player.inventory);
+        // decrease durability of tool
+        // then move player by returning -1
+        printf("HARVEST : %d", quantityHarvested);
     }
 
 }
 
-void harvestPlant() {
-
-}
-
-void harvestTree() {
+int harvestTree() {
 
 }
 

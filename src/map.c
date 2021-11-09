@@ -23,13 +23,13 @@ typedef struct Map {
 int mapArray[ROWS][COLUMNS] = {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0},
+        {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0},
         {0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 3, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {4, 0, 0, 0, 0, 4, 3, 0, 0, 0, 2, 3, 0, 0, 0},
+        {4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 5, 0, 2, 0, 0, 0, -1, 0, 0, 0, 0, 12, 0, 0},
@@ -116,33 +116,21 @@ int checkFuturePosition(Game* game, int x, int y) {
         case 2: // Position is a npc
             *game = interactWithNpc(game);
             break;
-        case 3: // Position a plant (1)
+        case 3: // Position a plant (1, 2 and 3)
+        case 6:
+        case 9:
             harvestPlant();
             break;
-        case 4: // Position is a rock (1)
-            harvestRock(); //--> check pickaxe --> collect resources random
+        case 4: // Position is a rock (1, 2 and 3)
+        case 7:
+        case 10:
+            harvestRock(game, mapArray[y][x]); // has to return a 1 to move or a 0 !!
             break;
-        case 5: // Position is a tree (1)
+        case 5: // Position is a tree (1, 2 and 3)
+        case 8:
+        case 11:
             harvestTree();
             printf("Ouch this is a tree !\n");
-            break;
-        case 6:
-            // Position a plant (2)
-            break;
-        case 7:
-            // Position is a rock (2)
-            break;
-        case 8:
-            // Position is a tree (2)
-            break;
-        case 9:
-            // Position a plant (3)
-            break;
-        case 10:
-            // Position is a rock (3)
-            break;
-        case 11:
-            // Position is a tree (3)
             break;
 
         case 99:

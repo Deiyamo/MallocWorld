@@ -4,6 +4,8 @@
 CMakeFiles/Malloc_World.dir/src/class.c.obj: \
  ../src/class.c \
  ../src/class.h \
+ ../src/dialog.h \
+ ../src/item.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/dialog.c.obj: \
  ../src/dialog.c \
@@ -65,8 +67,10 @@ CMakeFiles/Malloc_World.dir/src/npc.c.obj: \
  ../src/npc.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/player.c.obj: \
+ ../src/class.h \
  ../src/health.h \
  ../src/inventory.h \
+ ../src/item.h \
  ../src/level.h \
  ../src/map.h \
  ../src/player.c \

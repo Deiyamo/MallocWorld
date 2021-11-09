@@ -35,6 +35,7 @@ typedef enum Class {
 typedef struct Property {
     Class type; // Item type's name
     int durability_max; // Durability before it breaks
+    int quantity_max; // ???
     int damage; // Number that define how much damage it deals
     int stack; // Number of the same element can be stocked in one slot
     int heal; // Number of health point it procures

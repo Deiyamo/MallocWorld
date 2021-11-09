@@ -7,6 +7,8 @@
 
 #include "types.h"
 
-int checkPickaxe(Inventory inventory);
+
+int checkPickaxeToUse(Inventory inventory, int casePosition, int currentTool);
+int checkPickaxe(Inventory inventory, int pickaxeId, int durabilityNeeded);
 
 #endif //MALLOC_WORLD_CLASS_H
