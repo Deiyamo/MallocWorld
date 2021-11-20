@@ -60,25 +60,28 @@ int checkItemDurability(int casePosition) {
     return 0;
 }
 
-Inventory addItemToInventory(Inventory inventory) { // item to add (id) and quantity !!
 
-    if (inventory.currentCapacity <= inventory.maxCapacity) {
+/*
+ *   Get case position of the item to harvest.
+ *   Go to the case Position as the line number, cause the id starts at 3 til 11
+ *   So the file has to begin to the line 4 (0, 1, 2, 3)
+ */
+Inventory addItemToInventory(Inventory inventory, int casePosition) { // item to add (id) and quantity !!
+
+    if (inventory.currentCapacity < inventory.maxCapacity) {
 
         FILE *fp;
         int lineNumber = 0;
         fp = fopen("../resources/itemList", "r");
 
+        char line[90]; // maximum line size !
         if (fp != NULL) {
-
-            char line[90]; // maximum line size !
             while (fgets(line, sizeof line, fp) != NULL) {
-                if (lineNumber == 1) {
+                if (lineNumber == casePosition) {
                     printf("%s", line);
-                    //use line or in a function return it
-                    //in case of a return first close the file with "fclose(file);"
-                } else {
-                    lineNumber++;
+                    break;
                 }
+                lineNumber++;
             }
 
             fclose(fp);
@@ -86,8 +89,10 @@ Inventory addItemToInventory(Inventory inventory) { // item to add (id) and quan
             printf("/!\\ Error while opening itemList file...");
         }
 
-        //inventory.currentCapacity += 1;
+        printf("%s", line);
+        // {6}{Stone}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
 
+        //inventory.currentCapacity += 1;
         // insert new item to inventory
         /*for (int i = 1; i <= inventory.maxCapacity; ++i) {
             if (inventory.item[i].id == 0) {

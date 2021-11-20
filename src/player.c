@@ -57,7 +57,7 @@ int harvestRock(Game* game, int casePosition) {
         int quantityHarvested = (rand() % 4) + 1; // random between 0 and 3 then I add 1
 
         // add items to inventory
-        game->player.inventory = addItemToInventory(game->player.inventory);
+        game->player.inventory = addItemToInventory(game->player.inventory, casePosition);
         // decrease durability of tool
         // then move player by returning -1
         printf("HARVEST : %d", quantityHarvested);

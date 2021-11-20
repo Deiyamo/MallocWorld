@@ -1,2 +1,12 @@
 {ID}{Name}{Quantity}{Durability}@{Type}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
+
+--- Item Harvestable ---
 {5}{Fir}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
+{6}{Stone}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
+{7}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
+{16}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
+{17}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
+{18}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
+{27}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
+{28}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
+{29}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
