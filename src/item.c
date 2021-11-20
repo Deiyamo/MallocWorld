@@ -4,6 +4,7 @@
 
 #include "item.h"
 #include <stdio.h>
+#include <string.h>
 
 
 // Check the type of the item for display it
@@ -72,18 +73,26 @@ Inventory addItemToInventory(Inventory inventory, int casePosition) { // item to
 
         FILE *fp;
         int lineNumber = 0;
+        const char* separators = "{}"; // separators list
         fp = fopen("../resources/itemList", "r");
 
         char line[90]; // maximum line size !
         if (fp != NULL) {
-            while (fgets(line, sizeof line, fp) != NULL) {
-                if (lineNumber == casePosition) {
-                    printf("%s", line);
+            char currentLine[90]; // maximum line size !
+            while (fgets(currentLine, sizeof currentLine, fp) != NULL) {
+                if (lineNumber == 1) {
+                    printf("%s\n", currentLine);
+
+                    char* strToken = strtok(currentLine, separators);
+                    while (strToken != NULL) {
+                        printf("%s\n", strToken);
+                        strToken = strtok(NULL, separators);
+                    }
+
                     break;
                 }
                 lineNumber++;
             }
-
             fclose(fp);
         } else {
             printf("/!\\ Error while opening itemList file...");
