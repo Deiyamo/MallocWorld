@@ -1,12 +1,12 @@
 {ID}{Name}{Quantity}{Durability}@{Type}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
 
 --- Item Harvestable ---
-{5}{Fir}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
-{6}{Stone}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
-{7}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
-{16}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
-{17}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
-{18}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
-{27}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
-{28}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
-{29}{Grass}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
+{5}{Fir}{1}{0}{Craft}{0}{0}{20}{0}{0}
+{6}{Stone}{1}{0}{Craft}{0}{0}{20}{0}{0}
+{7}{Grass}{1}{0}{Craft}{0}{0}{20}{0}{0}
+{16}{Beech}{1}{0}{Craft}{0}{0}{20}{0}{0}
+{17}{Iron}{1}{0}{Craft}{0}{0}{20}{0}{0}
+{18}{Lavender}{1}{0}{Craft}{0}{0}{20}{0}{0}
+{27}{Oak}{1}{0}{Craft}{0}{0}{20}{0}{0}
+{28}{Diamond}{1}{0}{Craft}{0}{0}{20}{0}{0}
+{29}{Hemp}{1}{0}{Craft}{0}{0}{20}{0}{0}

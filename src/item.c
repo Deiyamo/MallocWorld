@@ -5,6 +5,7 @@
 #include "item.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 
 // Check the type of the item for display it
@@ -28,7 +29,7 @@ void displayWeapon(Item item) {
 }
 void displayTool(Item item) {
     printf("[%s] (%d/%d)",
-           item.name, item.durability, item.property.durability_max, item.property.damage);
+           item.name, item.durability, item.property.durability_max);
 }
 void displayCraft(Item item) {
     printf("[%s]x%d (%d/%d)",
@@ -67,7 +68,7 @@ int checkItemDurability(int casePosition) {
  *   Go to the case Position as the line number, cause the id starts at 3 til 11
  *   So the file has to begin to the line 4 (0, 1, 2, 3)
  */
-Inventory addItemToInventory(Inventory inventory, int casePosition) { // item to add (id) and quantity !!
+char** getItemPropertiesFromFile(Inventory inventory, int casePosition) { // item to add (id) and quantity !!
 
     if (inventory.currentCapacity < inventory.maxCapacity) {
 
@@ -76,17 +77,23 @@ Inventory addItemToInventory(Inventory inventory, int casePosition) { // item to
         const char* separators = "{}"; // separators list
         fp = fopen("../resources/itemList", "r");
 
+        char** properties = malloc(sizeof(char*) * 10);
+
         char line[90]; // maximum line size !
         if (fp != NULL) {
-            char currentLine[90]; // maximum line size !
-            while (fgets(currentLine, sizeof currentLine, fp) != NULL) {
-                if (lineNumber == 1) {
-                    printf("%s\n", currentLine);
+            while (fgets(line, sizeof line, fp) != NULL) {
+                if (lineNumber == casePosition) {
+                    printf("%s\n", line);
 
-                    char* strToken = strtok(currentLine, separators);
+                    char* strToken = strtok(line, separators);
+                    int j = 0;
                     while (strToken != NULL) {
-                        printf("%s\n", strToken);
+                        properties[j] = malloc(sizeof(char) * 15);
+                        strcpy(properties[j], strToken); // insert all properties of the item in an array.
+                        //properties[j] = strToken;
+
                         strToken = strtok(NULL, separators);
+                        j++;
                     }
 
                     break;
@@ -94,37 +101,20 @@ Inventory addItemToInventory(Inventory inventory, int casePosition) { // item to
                 lineNumber++;
             }
             fclose(fp);
+            for (int i = 0; i < 10 ; ++i) {
+                printf("%s\n", properties[i]);
+            }
+
+            return properties;
+
         } else {
             printf("/!\\ Error while opening itemList file...");
         }
-
-        printf("%s", line);
-        // {6}{Stone}{Quantity}{Durability}@{Craft}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
-
-        //inventory.currentCapacity += 1;
-        // insert new item to inventory
-        /*for (int i = 1; i <= inventory.maxCapacity; ++i) {
-            if (inventory.item[i].id == 0) {
-                inventory.item[i].id = ; // itemToAdd
-                inventory.item[i].name = ;
-                inventory.item[i].quantity = ;
-                inventory.item[i].durability = ;
-                inventory.item[i].property.type = ;
-                inventory.item[i].property.durability_max = ;
-                inventory.item[i].property.damage = ;
-                inventory.item[i].property.stack = ;
-                inventory.item[i].property.heal = ;
-                inventory.item[i].property.resistance = ;
-
-                break; // quit loop after the item is inserted
-            }
-        }*/
-
     } else {
         printf("Your inventory is full, you cant take more items.");
     }
 
     getchar();
 
-    return inventory;
+    return (char **) -1;
 }

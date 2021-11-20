@@ -19,6 +19,6 @@ void displayHeal(Item item);
 
 
 int checkItemDurability(int casePosition);
-Inventory addItemToInventory(Inventory inventory, int casePosition);
+char** getItemPropertiesFromFile(Inventory inventory, int casePosition);
 
 #endif //MALLOC_WORLD_ITEM_H

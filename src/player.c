@@ -54,13 +54,23 @@ int harvestRock(Game* game, int casePosition) {
 
     // If player has a pickaxe in good shape
     if ( checkPickaxeToUse(game->player.inventory, casePosition, casePosition) ) { // 1 or 0
-        int quantityHarvested = (rand() % 4) + 1; // random between 0 and 3 then I add 1
-
         // add items to inventory
-        game->player.inventory = addItemToInventory(game->player.inventory, casePosition);
+        char **properties = getItemPropertiesFromFile(game->player.inventory, casePosition); // get item properties from Itemlist
+
+        // If inventory not full
+        getchar();
+        if (properties[0] != "-1") { // if return 1
+            *game = addItemToInventory(game, properties);
+        }
+
+        free(properties);
+
+        getchar();
+
         // decrease durability of tool
         // then move player by returning -1
-        printf("HARVEST : %d", quantityHarvested);
+        // careful to random !! It's not a real random !! TO FIX
+
     }
 
 }

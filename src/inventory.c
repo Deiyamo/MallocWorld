@@ -6,6 +6,7 @@
 #include "item.h"
 #include "dialog.h"
 #include "npc.h"
+#include "class.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -28,9 +29,9 @@ Inventory starting_inventory() {
 
     // Add some items to the player's inventory
     Item sword = {1, "Wooden sword", 1, 10, {Weapon, 10, 1, 1, 0 , 0}};
-    Item pickaxe = {2, "Wooden pickaxe", 1, 10, {Tool, 10, 0, 1, 0 , 0}};
-    Item billhook = {3, "Wooden billhook", 1, 10 , {Tool, 10, 0, 1, 0 , 0}};
-    Item axe = {4, "Wooden axe", 1, 10, {Tool, 10, 0, 1, 0 , 0}};
+    Item pickaxe = {2, "Wooden pickaxe", 1, 10, {Tool, 10, 0, 0, 0 , 0}};
+    Item billhook = {3, "Wooden billhook", 1, 10 , {Tool, 10, 0, 0, 0 , 0}};
+    Item axe = {4, "Wooden axe", 1, 10, {Tool, 10, 0, 0, 0 , 0}};
 
     inventory.item[0] = sword; // Wooden sword
     inventory.item[1] = pickaxe; // Wooden pickaxe
@@ -99,6 +100,33 @@ void displayInventoryFromCurrentCapacity(Inventory inventory) {
     printf("\n");
 }
 
+
+// Insert new Item to storage
+Game addItemToInventory(Game* game, char** properties) {
+    int quantityHarvested = (rand() % 4) + 1; // random between 0 and 3 then I add 1
+    game->player.inventory.currentCapacity += 1;
+
+
+    // insert new item to inventory
+    for (int i = 1; i <= game->player.inventory.maxCapacity; ++i) {
+        if (game->player.inventory.item[i].id == 0) {
+            game->player.inventory.item[i].id = atoi(properties[0]); // itemToAdd
+            game->player.inventory.item[i].name = properties[1];
+            game->player.inventory.item[i].quantity = atoi(properties[2]) * quantityHarvested;
+            game->player.inventory.item[i].durability = atoi(properties[3]);
+            game->player.inventory.item[i].property.type = stringToEnum(properties[4]);
+            game->player.inventory.item[i].property.durability_max = atoi(properties[5]);
+            game->player.inventory.item[i].property.damage = atoi(properties[6]);
+            game->player.inventory.item[i].property.stack = atoi(properties[7]);
+            game->player.inventory.item[i].property.heal = atoi(properties[8]);
+            game->player.inventory.item[i].property.resistance = atoi(properties[9]);
+
+            break; // quit loop after the item is inserted
+        }
+    }
+
+    return *game;
+}
 
 
 /*------------------------------------------------------

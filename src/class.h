@@ -7,7 +7,7 @@
 
 #include "types.h"
 
-
+Class stringToEnum(const char* itemType);
 int checkPickaxeToUse(Inventory inventory, int casePosition, int currentTool);
 int checkPickaxe(Inventory inventory, int pickaxeId, int durabilityNeeded);
 

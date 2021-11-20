@@ -13,6 +13,8 @@ void displayLargeInventory(Inventory inventory);
 void displayInventoryFromMaxCapacity(Inventory inventory);
 void displayInventoryFromCurrentCapacity(Inventory inventory);
 
+Game addItemToInventory(Game* game, char** properties);
+
 Inventory npcStartingInventory();
 
 void leaveItemsToStorage(Game* game);

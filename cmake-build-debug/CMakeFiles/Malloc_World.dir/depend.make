@@ -33,6 +33,7 @@ CMakeFiles/Malloc_World.dir/src/health.c.obj: \
  ../src/health.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/inventory.c.obj: \
+ ../src/class.h \
  ../src/dialog.h \
  ../src/inventory.c \
  ../src/inventory.h \
