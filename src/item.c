@@ -8,44 +8,6 @@
 #include <stdlib.h>
 
 
-// Check the type of the item for display it
-void checkItemTypeForDisplay(Item item) {
-    if (item.property.type == Weapon) {
-        displayWeapon(item);
-    } else if (item.property.type == Tool) {
-        displayTool(item);
-    } else if (item.property.type == Craft) {
-        displayCraft(item);
-    } else if (item.property.type == Armor) {
-        displayArmor(item);
-    } else if (item.property.type == Heal) {
-        displayHeal(item);
-    }
-}
-
-void displayWeapon(Item item) {
-    printf("[%s] (%d/%d) - %d Attack Damage",
-           item.name, item.durability, item.property.durability_max, item.property.damage);
-}
-void displayTool(Item item) {
-    printf("[%s] (%d/%d)",
-           item.name, item.durability, item.property.durability_max);
-}
-void displayCraft(Item item) {
-    printf("[%s]x%d (%d/%d)",
-           item.name, item.quantity, item.durability, item.property.durability_max);
-}
-void displayArmor(Item item) {
-    printf("[%s] (%d/%d) - +%d Armor",
-           item.name, item.durability, item.property.durability_max, item.property.resistance);
-}
-void displayHeal(Item item) {
-    printf("[%s]x%d (%d/%d) - +%d Heal Point",
-           item.name, item.quantity, item.durability, item.property.durability_max, item.property.heal);
-}
-
-
-
 
 // Check if the item durability is up or equal than necessary for harvesting.
 int checkItemDurability(int casePosition) {
@@ -62,15 +24,29 @@ int checkItemDurability(int casePosition) {
     return 0;
 }
 
+// Decrease the durability of the tool
+Inventory decreaseItemDurability(Inventory inventory, int toolId, int casePosition) {
+    int durabilityUsed = checkItemDurability(casePosition);
+
+    for (int i = 0; i < inventory.maxCapacity; i++) {
+        if (inventory.item[i].id == toolId && inventory.item[i].durability >= durabilityUsed) {
+            inventory.item[i].durability -= durabilityUsed;
+            return inventory;
+        }
+    }
+    return inventory;
+}
+
 
 /*
  *   Get case position of the item to harvest.
  *   Go to the case Position as the line number, cause the id starts at 3 til 11
  *   So the file has to begin to the line 4 (0, 1, 2, 3)
+ *   Return item properties or "-1"
  */
-char** getItemPropertiesFromFile(Inventory inventory, int casePosition) { // item to add (id) and quantity !!
+char** getItemPropertiesFromFile(Inventory inventory, int casePosition) {
 
-    if (inventory.currentCapacity < inventory.maxCapacity) {
+    if (inventory.currentCapacity > inventory.maxCapacity) {
 
         FILE *fp;
         int lineNumber = 0;
@@ -114,7 +90,11 @@ char** getItemPropertiesFromFile(Inventory inventory, int casePosition) { // ite
         printf("Your inventory is full, you cant take more items.");
     }
 
-    getchar();
-
-    return (char **) -1;
+    // Return -1 in string array
+    char **test = malloc(1 * sizeof(char *));
+    for (int i = 0; i < 1; i++) {
+        malloc(sizeof(char) * 4);
+        sprintf(test[i], "%d", -1);
+    }
+    return test;
 }

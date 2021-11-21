@@ -10,15 +10,9 @@
 #define MAX_DURABILITY 10;
 
 
-void checkItemTypeForDisplay(Item item);
-void displayWeapon(Item item);
-void displayTool(Item item);
-void displayCraft(Item item);
-void displayArmor(Item item);
-void displayHeal(Item item);
-
-
 int checkItemDurability(int casePosition);
+Inventory decreaseItemDurability(Inventory inventory, int toolId, int casePosition);
+
 char** getItemPropertiesFromFile(Inventory inventory, int casePosition);
 
 #endif //MALLOC_WORLD_ITEM_H

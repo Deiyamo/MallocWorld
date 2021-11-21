@@ -2,11 +2,47 @@
 // Created by TimTim on 07/11/2021.
 //
 
-#include <string.h>
 #include "class.h"
 #include "dialog.h"
 #include "item.h"
+#include <string.h>
+#include <stdio.h>
 
+// Check the type of the item for display it
+void checkItemTypeForDisplay(Item item) {
+    if (item.property.type == Weapon) {
+        displayWeapon(item);
+    } else if (item.property.type == Tool) {
+        displayTool(item);
+    } else if (item.property.type == Craft) {
+        displayCraft(item);
+    } else if (item.property.type == Armor) {
+        displayArmor(item);
+    } else if (item.property.type == Heal) {
+        displayHeal(item);
+    }
+}
+
+void displayWeapon(Item item) {
+    printf("[%s] (%d/%d) - %d Attack Damage",
+           item.name, item.durability, item.property.durability_max, item.property.damage);
+}
+void displayTool(Item item) {
+    printf("[%s] (%d/%d)",
+           item.name, item.durability, item.property.durability_max);
+}
+void displayCraft(Item item) {
+    printf("[%s]x%d",
+           item.name, item.quantity);
+}
+void displayArmor(Item item) {
+    printf("[%s] (%d/%d) - +%d Armor",
+           item.name, item.durability, item.property.durability_max, item.property.resistance);
+}
+void displayHeal(Item item) {
+    printf("[%s]x%d (%d/%d) - +%d Heal Point",
+           item.name, item.quantity, item.durability, item.property.durability_max, item.property.heal);
+}
 
 // Return the enum value instead of a string
 Class stringToEnum(const char* itemType) {
@@ -29,19 +65,19 @@ Class stringToEnum(const char* itemType) {
 int checkPickaxeToUse(Inventory inventory, int casePosition, int currentTool) {
     if (currentTool == 4) {
         if ( checkPickaxe(inventory, 2, checkItemDurability(casePosition)) ) { // Wooden pickaxe
-            return 1;
+            return 2;
         } else {
             checkPickaxeToUse(inventory, casePosition, 7);
         }
     } else if (currentTool == 7) {
         if ( checkPickaxe(inventory, 12, checkItemDurability(casePosition)) ) { // Stone pickaxe
-            return 1;
+            return 12;
         } else {
             checkPickaxeToUse(inventory, casePosition, 10);
         }
     } else if(currentTool == 10) {
         if ( checkPickaxe(inventory, 23, checkItemDurability(casePosition)) ) { // Iron pickaxe
-            return 1;
+            return 23;
         }
     }
 

@@ -3,10 +3,10 @@
 //
 
 #include "inventory.h"
-#include "item.h"
 #include "dialog.h"
 #include "npc.h"
 #include "class.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

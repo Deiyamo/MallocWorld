@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 Player newPlayer() {
@@ -53,26 +54,38 @@ int harvestPlant() {
 int harvestRock(Game* game, int casePosition) {
 
     // If player has a pickaxe in good shape
-    if ( checkPickaxeToUse(game->player.inventory, casePosition, casePosition) ) { // 1 or 0
-        // add items to inventory
+    int toolId = checkPickaxeToUse(game->player.inventory, casePosition, casePosition);
+    if ( toolId != 0 ) { // get the id of the pickaxe
+        // Add items to inventory
         char **properties = getItemPropertiesFromFile(game->player.inventory, casePosition); // get item properties from Itemlist
-
-        // If inventory not full
-        getchar();
-        if (properties[0] != "-1") { // if return 1
+        if (strcmp(properties[0], "-1") != 0) { // if inventory not full
+            printf("I'm in !");
             *game = addItemToInventory(game, properties);
+            /*for(int i = 0; i < 10; i++) {
+                free(properties[i]);
+            }
+            free(properties);*/
+
+            // Decrease the tool durability
+            game->player.inventory = decreaseItemDurability(game->player.inventory, toolId, casePosition);
+        } else {
+            /*for(int i = 0; i < 1; i++) {
+                free(properties[i]);
+            }
+            free(properties);*/
         }
 
-        free(properties);
 
         getchar();
 
-        // decrease durability of tool
+        printf("does it work ?");
         // then move player by returning -1
         // careful to random !! It's not a real random !! TO FIX
-
+        // stack item when not 20 yet
+        return 1;
     }
 
+    return 0;
 }
 
 int harvestTree() {
