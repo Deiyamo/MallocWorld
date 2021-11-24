@@ -52,6 +52,7 @@ int handlePlayerInput(Game* game) {
     switch(playerChoice) {
         case 'z': // Move up
             printf("Moving up\n");
+            // checkFuturePosition => prend une game et retourne soit une game soit NULL !!
             if ( checkFuturePosition(game, game->player.position.X, game->player.position.Y - 1) ) {
                 updatePlayerPositionOnMap(game->player.position, game->player.position.X, game->player.position.Y - 1);
 

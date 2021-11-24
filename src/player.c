@@ -59,7 +59,6 @@ int harvestRock(Game* game, int casePosition) {
         // Add items to inventory
         char **properties = getItemPropertiesFromFile(game->player.inventory, casePosition); // get item properties from Itemlist
         if (properties != NULL) { // if inventory not full
-            printf("I'm in !");
             *game = addItemToInventory(game, properties);
             for(int i = 0; i < 10; i++) {
                 free(properties[i]);
@@ -68,6 +67,8 @@ int harvestRock(Game* game, int casePosition) {
 
             // Decrease the tool durability
             game->player.inventory = decreaseItemDurability(game->player.inventory, toolId, casePosition);
+            // Move player
+            
         }
 
 
