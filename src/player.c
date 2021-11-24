@@ -61,19 +61,13 @@ int harvestRock(Game* game, int casePosition) {
         if (properties != NULL) { // if inventory not full
             printf("I'm in !");
             *game = addItemToInventory(game, properties);
-            /*for(int i = 0; i < 10; i++) {
+            for(int i = 0; i < 10; i++) {
                 free(properties[i]);
             }
-            free(properties);*/
+            free(properties);
 
             // Decrease the tool durability
             game->player.inventory = decreaseItemDurability(game->player.inventory, toolId, casePosition);
-        } else {
-            printf("NULL");
-            /*for(int i = 0; i < 1; i++) {
-                free(properties[i]);
-            }
-            free(properties);*/
         }
 
 

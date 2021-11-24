@@ -124,6 +124,7 @@ int checkFuturePosition(Game* game, int x, int y) {
         case 4: // Position is a rock (1, 2 and 3)
         case 7:
         case 10:
+            //interactWithRock();
             harvestRock(game, mapArray[y][x]); // has to return a 1 to move or a 0 !!
             break;
         case 5: // Position is a tree (1, 2 and 3)
