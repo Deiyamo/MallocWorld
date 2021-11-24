@@ -46,7 +46,7 @@ Inventory decreaseItemDurability(Inventory inventory, int toolId, int casePositi
  */
 char** getItemPropertiesFromFile(Inventory inventory, int casePosition) {
 
-    if (inventory.currentCapacity > inventory.maxCapacity) {
+    if (inventory.currentCapacity < inventory.maxCapacity) {
 
         FILE *fp;
         int lineNumber = 0;
@@ -66,12 +66,10 @@ char** getItemPropertiesFromFile(Inventory inventory, int casePosition) {
                     while (strToken != NULL) {
                         properties[j] = malloc(sizeof(char) * 15);
                         strcpy(properties[j], strToken); // insert all properties of the item in an array.
-                        //properties[j] = strToken;
 
                         strToken = strtok(NULL, separators);
                         j++;
                     }
-
                     break;
                 }
                 lineNumber++;
@@ -90,11 +88,5 @@ char** getItemPropertiesFromFile(Inventory inventory, int casePosition) {
         printf("Your inventory is full, you cant take more items.");
     }
 
-    // Return -1 in string array
-    char **test = malloc(1 * sizeof(char *));
-    for (int i = 0; i < 1; i++) {
-        malloc(sizeof(char) * 4);
-        sprintf(test[i], "%d", -1);
-    }
-    return test;
+    return NULL;
 }

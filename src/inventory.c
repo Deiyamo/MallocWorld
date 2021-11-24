@@ -271,7 +271,7 @@ Game takeOneItemFromStorage(Game* game, int itemNumber) {
             for (int i = 1; i <= game->player.inventory.maxCapacity; ++i) {
                 if (game->player.inventory.item[i].id == 0) {
                     game->player.inventory.item[i].id = game->npc.storage.item[itemNumber].id;
-                    game->player.inventory.item[i].name = game->npc.storage.item[itemNumber].name;
+                    strcpy(game->player.inventory.item[i].name, game->npc.storage.item[itemNumber].name);
                     game->player.inventory.item[i].quantity = game->npc.storage.item[itemNumber].quantity;
                     game->player.inventory.item[i].durability = game->npc.storage.item[itemNumber].durability;
                     game->player.inventory.item[i].property.type = game->npc.storage.item[itemNumber].property.type;
