@@ -101,15 +101,42 @@ void displayInventoryFromCurrentCapacity(Inventory inventory) {
 }
 
 
-// Insert new Item to storage
-Game addItemToInventory(Game* game, char** properties) {
+
+// Add quantity to item already exists in the inventory OR call addItemToInventory
+Game addItemHarvested(Game* game, char** properties) {
+    srand(time(NULL));
     int quantityHarvested = (rand() % 4) + 1; // random between 0 and 3 then I add 1
-    game->player.inventory.currentCapacity += 1;
+    int slotAvailable;
 
+    printf("HARVESTED : %d", quantityHarvested);
+    // If the item already exists and is stackable
+    for (int i = 1; i <= game->player.inventory.maxCapacity; ++i) {
+        if (game->player.inventory.item[i].id == atoi(properties[0])) {
+            if (game->player.inventory.item[i].quantity + quantityHarvested <= game->player.inventory.item[i].property.stack) {
+                game->player.inventory.item[i].quantity += quantityHarvested; // Add resource harvested
+                printf("YA DEJA QLQN WSHH");
+                return *game;
+            } else if (game->player.inventory.item[i].quantity < game->player.inventory.item[i].property.stack) {
+                slotAvailable = game->player.inventory.item[i].property.stack - game->player.inventory.item[i].quantity;
+                game->player.inventory.item[i].quantity += slotAvailable;
+                quantityHarvested -= slotAvailable;
+            }
+        }
 
+    }
+
+    *game = addItemToInventory(game, properties, quantityHarvested);
+
+    return *game;
+}
+// Insert new Item to inventory on a NEW slot
+Game addItemToInventory(Game* game, char** properties, int quantityHarvested) {
     // insert new item to inventory
     for (int i = 1; i <= game->player.inventory.maxCapacity; ++i) {
         if (game->player.inventory.item[i].id == 0) {
+
+            game->player.inventory.currentCapacity += 1;
+
             game->player.inventory.item[i].id = atoi(properties[0]); // itemToAdd
             game->player.inventory.item[i].name = properties[1];
             //strcpy(game->player.inventory.item[i].name, properties[1]);

@@ -54,6 +54,7 @@ CMakeFiles/Malloc_World.dir/src/main.c.obj: \
  ../src/save.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/map.c.obj: \
+ ../src/inventory.h \
  ../src/map.c \
  ../src/map.h \
  ../src/npc.h \

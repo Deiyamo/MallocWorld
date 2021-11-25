@@ -59,7 +59,7 @@ Game harvestRock(Game* game, int casePosition, int x, int y) {
         // Add items to inventory
         char **properties = getItemPropertiesFromFile(game->player.inventory, casePosition); // get item properties from Itemlist
         if (properties != NULL) { // if inventory not full
-            *game = addItemToInventory(game, properties);
+            *game = addItemHarvested(game, properties);
             for(int i = 0; i < 10; i++) {
                 free(properties[i]);
             }
