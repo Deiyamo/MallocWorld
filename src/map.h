@@ -16,8 +16,9 @@ void displayMap();
 
 
 // will go to the point.h later
-int checkFuturePosition(Game* game, int x, int y);
+Game checkFuturePosition(Game* game, int x, int y);
 int isPositionWalkable(int x, int y);
+
 Point getPlayerPosition();
 void updatePlayerPositionOnMap(Point position, int newX, int newY);
 Point updatePlayerPosition(Point position, int newX, int newY);

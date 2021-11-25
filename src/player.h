@@ -17,7 +17,7 @@ void display_player(Player player);
 void displayPlayerPosition(Point position);
 
 int harvestPlant();
-int harvestRock(Game* game, int casePosition);
+Game harvestRock(Game* game, int casePosition, int x, int y);
 int harvestTree();
 
 

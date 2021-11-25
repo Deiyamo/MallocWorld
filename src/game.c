@@ -52,40 +52,38 @@ int handlePlayerInput(Game* game) {
     switch(playerChoice) {
         case 'z': // Move up
             printf("Moving up\n");
-            // checkFuturePosition => prend une game et retourne soit une game soit NULL !!
-            if ( checkFuturePosition(game, game->player.position.X, game->player.position.Y - 1) ) {
-                updatePlayerPositionOnMap(game->player.position, game->player.position.X, game->player.position.Y - 1);
-
-                game->player.position = updatePlayerPosition(game->player.position, game->player.position.X, game->player.position.Y - 1);
-            }
+            *game = checkFuturePosition(game, game->player.position.X, game->player.position.Y - 1);
 
             break;
 
         case 'q': // Move left
             printf("Moving left\n");
-            if ( checkFuturePosition(game, game->player.position.X - 1, game->player.position.Y) ) {
+            *game = checkFuturePosition(game, game->player.position.X - 1, game->player.position.Y);
+            /*if ( checkFuturePosition(game, game->player.position.X - 1, game->player.position.Y) ) {
                 updatePlayerPositionOnMap(game->player.position, game->player.position.X - 1, game->player.position.Y);
 
                 game->player.position = updatePlayerPosition(game->player.position, game->player.position.X - 1, game->player.position.Y);
-            }
+            }*/
             break;
 
         case 's': // Move down
             printf("Moving down\n");
-            if ( checkFuturePosition(game, game->player.position.X, game->player.position.Y + 1) ) {
+            *game = checkFuturePosition(game, game->player.position.X, game->player.position.Y + 1);
+            /*if ( checkFuturePosition(game, game->player.position.X, game->player.position.Y + 1) ) {
                 updatePlayerPositionOnMap(game->player.position, game->player.position.X, game->player.position.Y + 1);
 
                 game->player.position = updatePlayerPosition(game->player.position, game->player.position.X, game->player.position.Y + 1);
-            }
+            }*/
             break;
 
         case 'd': // Move right
+            *game = checkFuturePosition(game, game->player.position.X + 1, game->player.position.Y);
             printf("Moving right\n");
-            if ( checkFuturePosition(game, game->player.position.X + 1, game->player.position.Y) ) {
+            /*if ( checkFuturePosition(game, game->player.position.X + 1, game->player.position.Y) ) {
                 updatePlayerPositionOnMap(game->player.position, game->player.position.X + 1, game->player.position.Y);
 
                 game->player.position = updatePlayerPosition(game->player.position, game->player.position.X + 1, game->player.position.Y);
-            }
+            }*/
             break;
 
         case 'i':

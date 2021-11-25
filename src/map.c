@@ -9,6 +9,7 @@
 // point.c
 #include "npc.h"
 #include "player.h"
+#include "inventory.h"
 
 
 // a struct containing the map
@@ -25,8 +26,8 @@ int mapArray[ROWS][COLUMNS] = {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0},
         {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0},
         {0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 3, 0, 0, 0},
         {4, 0, 0, 0, 0, 4, 3, 0, 0, 0, 2, 3, 0, 0, 0},
         {4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -84,11 +85,11 @@ void displayMap() {
 ------------------------------------------------------*/
 
 // Check is future position is a portal, a monster, a walkable position, etc...
-int checkFuturePosition(Game* game, int x, int y) {
+Game checkFuturePosition(Game* game, int x, int y) {
 
     // Check map borders
     if (x < 0 || y < 0 || x >= ROWS || y >= COLUMNS) {
-        return 0;
+        return *game;
     }
 
     // Position is a monster
@@ -105,10 +106,12 @@ int checkFuturePosition(Game* game, int x, int y) {
 
     switch (mapArray[y][x]) {
         case -1: // Position is a wall
-            return 0;
+            return *game;
 
         case 0: // Position is walkable
-            return 1;
+            updatePlayerPositionOnMap(game->player.position, x, y);
+            game->player.position = updatePlayerPosition(game->player.position, x, y);
+            return *game;
 
         case 1: // Position is a player
             printf("Ups there is another player here.\nDon't disturb him, he seems lost... poor thing\n");
@@ -125,7 +128,7 @@ int checkFuturePosition(Game* game, int x, int y) {
         case 7:
         case 10:
             //interactWithRock();
-            harvestRock(game, mapArray[y][x]); // has to return a 1 to move or a 0 !!
+            *game = harvestRock(game, mapArray[y][x], x, y);
             break;
         case 5: // Position is a tree (1, 2 and 3)
         case 8:
@@ -139,10 +142,10 @@ int checkFuturePosition(Game* game, int x, int y) {
             break;
 
         default:
-            return 0;
+            return *game;
     }
 
-    return 0;
+    return *game;
 }
 
 

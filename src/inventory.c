@@ -112,6 +112,7 @@ Game addItemToInventory(Game* game, char** properties) {
         if (game->player.inventory.item[i].id == 0) {
             game->player.inventory.item[i].id = atoi(properties[0]); // itemToAdd
             game->player.inventory.item[i].name = properties[1];
+            //strcpy(game->player.inventory.item[i].name, properties[1]);
             game->player.inventory.item[i].quantity = atoi(properties[2]) * quantityHarvested;
             game->player.inventory.item[i].durability = atoi(properties[3]);
             game->player.inventory.item[i].property.type = stringToEnum(properties[4]);

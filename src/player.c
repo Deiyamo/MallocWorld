@@ -51,7 +51,7 @@ int harvestPlant() {
 
 }
 
-int harvestRock(Game* game, int casePosition) {
+Game harvestRock(Game* game, int casePosition, int x, int y) {
 
     // If player has a pickaxe in good shape
     int toolId = checkPickaxeToUse(game->player.inventory, casePosition, casePosition);
@@ -68,20 +68,18 @@ int harvestRock(Game* game, int casePosition) {
             // Decrease the tool durability
             game->player.inventory = decreaseItemDurability(game->player.inventory, toolId, casePosition);
             // Move player
-            
+            updatePlayerPositionOnMap(game->player.position, x, y);
+            game->player.position = updatePlayerPosition(game->player.position, x, y);
         }
 
 
         getchar();
-
-        printf("does it work ?");
-        // then move player by returning -1
         // careful to random !! It's not a real random !! TO FIX
         // stack item when not 20 yet
-        return 1;
+        return *game;
     }
 
-    return 0;
+    return *game;
 }
 
 int harvestTree() {
