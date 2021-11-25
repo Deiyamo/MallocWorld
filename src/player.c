@@ -47,12 +47,34 @@ void displayPlayerPosition(Point position) {
     HARVEST AND COLLECT
 ------------------------------------------------------*/
 
-int harvestPlant() {
+Game harvestPlant(Game* game, int casePosition, int x, int y) {
+    // If player has a billhook in good shape
+    int toolId = checkBillhookToUse(game->player.inventory, casePosition, casePosition);
+    if ( toolId != 0 ) { // get the id of the billhook
+        // Add items to inventory
+        char **properties = getItemPropertiesFromFile(game->player.inventory, casePosition); // get item properties from Itemlist
+        if (properties != NULL) { // if inventory not full
+            *game = addItemHarvested(game, properties);
+            for(int i = 0; i < 10; i++) {
+                free(properties[i]);
+            }
+            free(properties);
 
+            // Decrease the tool durability
+            game->player.inventory = decreaseItemDurability(game->player.inventory, toolId, casePosition);
+            // Move player
+            updatePlayerPositionOnMap(game->player.position, x, y);
+            game->player.position = updatePlayerPosition(game->player.position, x, y);
+        }
+
+        //displayDebugInventory(game->player.inventory);
+        getchar();
+    }
+
+    return *game;
 }
 
 Game harvestRock(Game* game, int casePosition, int x, int y) {
-
     // If player has a pickaxe in good shape
     int toolId = checkPickaxeToUse(game->player.inventory, casePosition, casePosition);
     if ( toolId != 0 ) { // get the id of the pickaxe
@@ -82,8 +104,30 @@ Game harvestRock(Game* game, int casePosition, int x, int y) {
     return *game;
 }
 
-int harvestTree() {
+Game harvestTree(Game* game, int casePosition, int x, int y) {
+    // If player has an axe in good shape
+    int toolId = checkAxeToUse(game->player.inventory, casePosition, casePosition);
+    if ( toolId != 0 ) { // get the id of the axe
+        // Add items to inventory
+        char **properties = getItemPropertiesFromFile(game->player.inventory, casePosition); // get item properties from Itemlist
+        if (properties != NULL) { // if inventory not full
+            *game = addItemHarvested(game, properties);
+            for(int i = 0; i < 10; i++) {
+                free(properties[i]);
+            }
+            free(properties);
 
+            // Decrease the tool durability
+            game->player.inventory = decreaseItemDurability(game->player.inventory, toolId, casePosition);
+            // Move player
+            updatePlayerPositionOnMap(game->player.position, x, y);
+            game->player.position = updatePlayerPosition(game->player.position, x, y);
+        }
+
+        getchar();
+    }
+
+    return *game;
 }
 
 

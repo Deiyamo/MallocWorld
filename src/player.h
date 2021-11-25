@@ -16,9 +16,9 @@ void levelUp_player();
 void display_player(Player player);
 void displayPlayerPosition(Point position);
 
-int harvestPlant();
+Game harvestPlant(Game* game, int casePosition, int x, int y);
 Game harvestRock(Game* game, int casePosition, int x, int y);
-int harvestTree();
+Game harvestTree(Game* game, int casePosition, int x, int y);
 
 
 void kill_player();

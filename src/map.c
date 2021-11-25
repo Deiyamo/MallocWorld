@@ -122,19 +122,17 @@ Game checkFuturePosition(Game* game, int x, int y) {
         case 3: // Position a plant (1, 2 and 3)
         case 6:
         case 9:
-            harvestPlant();
+            *game = harvestPlant(game, mapArray[y][x], x, y);
             break;
         case 4: // Position is a rock (1, 2 and 3)
         case 7:
         case 10:
-            //interactWithRock();
             *game = harvestRock(game, mapArray[y][x], x, y);
             break;
         case 5: // Position is a tree (1, 2 and 3)
         case 8:
         case 11:
-            harvestTree();
-            printf("Ouch this is a tree !\n");
+            *game = harvestTree(game, mapArray[y][x], x, y);
             break;
 
         case 99:

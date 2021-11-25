@@ -59,7 +59,7 @@ char** getItemPropertiesFromFile(Inventory inventory, int casePosition) {
         if (fp != NULL) {
             while (fgets(line, sizeof line, fp) != NULL) {
                 if (lineNumber == casePosition) {
-                    printf("%s\n", line);
+                    //printf("%s\n", line);
 
                     char* strToken = strtok(line, separators);
                     int j = 0;
@@ -75,9 +75,6 @@ char** getItemPropertiesFromFile(Inventory inventory, int casePosition) {
                 lineNumber++;
             }
             fclose(fp);
-            for (int i = 0; i < 10 ; ++i) {
-                printf("%s\n", properties[i]);
-            }
 
             return properties;
 

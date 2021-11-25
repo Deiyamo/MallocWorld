@@ -77,7 +77,8 @@ void displayInventoryFromMaxCapacity(Inventory inventory) {
         if (inventory.item[i].id == 0) {
             printf("[ ]");
         } else {
-            printf("[%s(%d)]", inventory.item[i].name, inventory.item[i].durability);
+            //printf("[%s(%d)]", inventory.item[i].name, inventory.item[i].durability);
+            checkItemTypeForDisplaySimplified(inventory.item[i]);
         }
         printf(" ");
     }
@@ -108,13 +109,11 @@ Game addItemHarvested(Game* game, char** properties) {
     int quantityHarvested = (rand() % 4) + 1; // random between 0 and 3 then I add 1
     int slotAvailable;
 
-    printf("HARVESTED : %d", quantityHarvested);
     // If the item already exists and is stackable
     for (int i = 1; i <= game->player.inventory.maxCapacity; ++i) {
         if (game->player.inventory.item[i].id == atoi(properties[0])) {
             if (game->player.inventory.item[i].quantity + quantityHarvested <= game->player.inventory.item[i].property.stack) {
                 game->player.inventory.item[i].quantity += quantityHarvested; // Add resource harvested
-                printf("YA DEJA QLQN WSHH");
                 return *game;
             } else if (game->player.inventory.item[i].quantity < game->player.inventory.item[i].property.stack) {
                 slotAvailable = game->player.inventory.item[i].property.stack - game->player.inventory.item[i].quantity;
@@ -138,8 +137,9 @@ Game addItemToInventory(Game* game, char** properties, int quantityHarvested) {
             game->player.inventory.currentCapacity += 1;
 
             game->player.inventory.item[i].id = atoi(properties[0]); // itemToAdd
-            game->player.inventory.item[i].name = properties[1];
-            //strcpy(game->player.inventory.item[i].name, properties[1]);
+            //game->player.inventory.item[i].name = properties[1];
+            game->player.inventory.item[i].name = malloc(sizeof(char) * 15);
+            strcpy(game->player.inventory.item[i].name, properties[1]);
             game->player.inventory.item[i].quantity = atoi(properties[2]) * quantityHarvested;
             game->player.inventory.item[i].durability = atoi(properties[3]);
             game->player.inventory.item[i].property.type = stringToEnum(properties[4]);
@@ -182,16 +182,6 @@ Inventory npcStartingInventory() {
     return storage;
 }
 
-// https://stackoverflow.com/questions/39985106/dynamically-increase-size-of-array-int-in-c/39985567
-/*Inventory addItemIntoStorage(Inventory inventory) {
-
-    if (dynmax >= dunsz) {
-        // Oops array too small, expand it by 100 more integers!
-        dynsz += 100;
-        dynarray = realloc( dynarray, dynsz * sizeof (int) );
-    }
-
-}*/
 
 // Process to leave an item to the storage
 void leaveItemsToStorage(Game* game) {
