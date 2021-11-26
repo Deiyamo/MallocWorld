@@ -37,7 +37,9 @@ void npcMenuInteractions(Game* game) {
 
     switch (npcMenuChoice) {
         case '1': // Repair stuff
-            printf("Repair stuff");
+            repairInventoryStuff(game);
+            printf("*** Your stuff has been repaired ! ***\n");
+            getchar();
             break;
         case '2': // Craft item
             printf("Craft item");

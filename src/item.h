@@ -13,6 +13,9 @@
 int checkItemDurability(int casePosition);
 Inventory decreaseItemDurability(Inventory inventory, int toolId, int casePosition);
 
+int isItemRepairable(Item item);
+Item repairItem(Item item);
+
 char** getItemPropertiesFromFile(Inventory inventory, int casePosition);
 
 #endif //MALLOC_WORLD_ITEM_H

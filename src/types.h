@@ -67,6 +67,7 @@ typedef struct Player {
 
 typedef struct Npc {
     char* name; // npc's name
+    //int zone; // On which map the npc is
     Inventory storage;
 } Npc;
 

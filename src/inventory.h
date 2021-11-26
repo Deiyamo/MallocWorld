@@ -18,6 +18,8 @@ Game addItemToInventory(Game* game, char** properties, int quantityHarvested);
 
 Inventory npcStartingInventory();
 
+void repairInventoryStuff(Game* game);
+
 void leaveItemsToStorage(Game* game);
 void selectItemToLeave(Game* game);
 Game leaveOneItemToStorage(Game* game, int itemNumber);

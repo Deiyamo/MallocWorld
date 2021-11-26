@@ -6,6 +6,7 @@
 #include "dialog.h"
 #include "npc.h"
 #include "class.h"
+#include "item.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -182,6 +183,19 @@ Inventory npcStartingInventory() {
     return storage;
 }
 
+// Repair all the weapons and the tools present in the inventory
+void repairInventoryStuff(Game* game) {
+
+    for (int i = 0; i < game->player.inventory.maxCapacity; i++) {
+        if (game->player.inventory.item[i].id != 0) {
+            if (isItemRepairable(game->player.inventory.item[i])) {
+                game->player.inventory.item[i] = repairItem(game->player.inventory.item[i]);
+            }
+        }
+    }
+
+}
+
 
 // Process to leave an item to the storage
 void leaveItemsToStorage(Game* game) {
@@ -250,6 +264,7 @@ Game leaveOneItemToStorage(Game* game, int itemNumber) {
 }
 
 
+// Process to take an item to the storage
 void takeItemsFromStorage(Game* game){
     displayTakeItems(game->player.inventory, game->npc.storage); // display the take items menu
     selectItemToTake(game); // take one item

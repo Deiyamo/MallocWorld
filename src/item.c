@@ -38,6 +38,20 @@ Inventory decreaseItemDurability(Inventory inventory, int toolId, int casePositi
 }
 
 
+int isItemRepairable(Item item) {
+    if (item.property.type == Weapon || item.property.type == Tool) {
+        return 1;
+    }
+    return 0;
+}
+
+Item repairItem(Item item) {
+    item.durability = item.property.durability_max;
+
+    return item;
+}
+
+
 /*
  *   Get case position of the item to harvest.
  *   Go to the case Position as the line number, cause the id starts at 3 til 11
