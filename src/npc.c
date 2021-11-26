@@ -13,7 +13,7 @@
 
 // Create the game's npc (will be present in all zones)
 Npc newNpc() {
-    Npc npc = {};
+    Npc npc;
     npc.name = "Bob";
     npc.storage = npcStartingInventory();
 
@@ -23,7 +23,7 @@ Npc newNpc() {
 
 Game interactWithNpc(Game* game) {
     // Restore screen and display the hello dialog
-    displayHelloDialog(game->npc.name); // with displayNpcMenu() in it
+    displayHelloDialog(game->npc.name, game); // with displayNpcMenu() in it
     // Display the npc menu interactions
     npcMenuInteractions(game);
 
@@ -43,13 +43,13 @@ void npcMenuInteractions(Game* game) {
             printf("Craft item");
             break;
         case '3': // Storage
-            displayNpcStorageMenu();
+            displayNpcStorageMenu(game);
             npcStorageMenuInteractions(game);
             break;
         case '4': // Bye...
             break;
         default:
-            restore_screen();
+            restore_screen(game);
             displayNpcMenu();
             npcMenuInteractions(game);
     }
@@ -71,7 +71,7 @@ void npcStorageMenuInteractions(Game* game) {
         case '3': // Bye...
             break;
         default:
-            displayNpcStorageMenu();
+            displayNpcStorageMenu(game);
             npcStorageMenuInteractions(game);
     }
 }

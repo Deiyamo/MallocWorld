@@ -8,17 +8,11 @@
 
 Level set_level_to_zero() {
 
-    Level level = {};
+    Level level;
 
     level.floor = 1;
     level.XPcurrent = 0;
     level.XPmax = STARTING_XP;
 
     return level;
-}
-
-
-Level upgrade_experience(Level level, int amount) {
-
-
 }

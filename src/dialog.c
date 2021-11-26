@@ -75,7 +75,7 @@ void displayControls() {
 }
 
 
-void displayInventoryMenu(Inventory inventory) {
+void displayInventoryMenu(Inventory inventory, Game* game) {
     clear_screen();
 
     printf("\n\t\tINVENTORY (%d/%d)\n\n", inventory.currentCapacity, inventory.maxCapacity);
@@ -85,7 +85,7 @@ void displayInventoryMenu(Inventory inventory) {
     printf("\npress enter to go back to the game...\n");
     int enter = 0;
     while (enter != '\r' && enter != '\n') { enter = getchar(); }
-    restore_screen();
+    restore_screen(game);
 }
 
 
@@ -94,8 +94,8 @@ void displayInventoryMenu(Inventory inventory) {
     NPC DIALOG
 ------------------------------------------------------*/
 
-void displayHelloDialog(char* npcName) {
-    restore_screen();
+void displayHelloDialog(char* npcName, Game *game) {
+    restore_screen(game);
 
     printf("%s :\n", npcName);
     printf("Hello, I'm %s. Be careful around here, there is a lot of monsters. ", npcName);
@@ -112,8 +112,8 @@ void displayNpcMenu() {
     printf(":");
 }
 
-void displayNpcStorageMenu() {
-    restore_screen();
+void displayNpcStorageMenu(Game *game) {
+    restore_screen(game);
 
     printf("1) Leave items\n");
     printf("2) Take items\n");

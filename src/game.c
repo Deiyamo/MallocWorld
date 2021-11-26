@@ -14,12 +14,26 @@
 
 
 
-void run() {
+void run(int choice) {
     clear_screen();
 
     Game* game = malloc( sizeof(Game) );
-    game->player = newPlayer();
     game->npc = newNpc();
+    game->map = malloc(sizeof(Map*)*3);
+    for (int i = 0; i < 3; ++i) {
+        game->map = malloc(sizeof(Map));
+        switch (choice) {
+            case '1':
+                game->map = generate();
+                break;
+            case '2':
+                game->map = load();
+                break;
+            default:
+                break;
+        }
+    }
+    game->player = newPlayer(game);
 
 
 
@@ -30,7 +44,7 @@ void run() {
         //displayPlayerPosition(game->player.position);
 
         // Display the map
-        displayMap();
+        displayMap(game->map);
         // Display player's inventory
         displayInventoryFromMaxCapacity(game->player.inventory);
         // Display actions that the player can do
@@ -53,7 +67,8 @@ int handlePlayerInput(Game* game) {
         case 'z': // Move up
             printf("Moving up\n");
             if ( checkFuturePosition(game, game->player.position.X, game->player.position.Y - 1) ) {
-                updatePlayerPositionOnMap(game->player.position, game->player.position.X, game->player.position.Y - 1);
+                updatePlayerPositionOnMap(game->player.position, game->player.position.X, game->player.position.Y - 1,
+                                          game->map[game->player.currentMap]);
 
                 game->player.position = updatePlayerPosition(game->player.position, game->player.position.X, game->player.position.Y - 1);
             }
@@ -63,7 +78,8 @@ int handlePlayerInput(Game* game) {
         case 'q': // Move left
             printf("Moving left\n");
             if ( checkFuturePosition(game, game->player.position.X - 1, game->player.position.Y) ) {
-                updatePlayerPositionOnMap(game->player.position, game->player.position.X - 1, game->player.position.Y);
+                updatePlayerPositionOnMap(game->player.position, game->player.position.X - 1, game->player.position.Y,
+                                          game->map[game->player.currentMap]);
 
                 game->player.position = updatePlayerPosition(game->player.position, game->player.position.X - 1, game->player.position.Y);
             }
@@ -72,7 +88,8 @@ int handlePlayerInput(Game* game) {
         case 's': // Move down
             printf("Moving down\n");
             if ( checkFuturePosition(game, game->player.position.X, game->player.position.Y + 1) ) {
-                updatePlayerPositionOnMap(game->player.position, game->player.position.X, game->player.position.Y + 1);
+                updatePlayerPositionOnMap(game->player.position, game->player.position.X, game->player.position.Y + 1,
+                                          game->map[game->player.currentMap]);
 
                 game->player.position = updatePlayerPosition(game->player.position, game->player.position.X, game->player.position.Y + 1);
             }
@@ -81,14 +98,15 @@ int handlePlayerInput(Game* game) {
         case 'd': // Move right
             printf("Moving right\n");
             if ( checkFuturePosition(game, game->player.position.X + 1, game->player.position.Y) ) {
-                updatePlayerPositionOnMap(game->player.position, game->player.position.X + 1, game->player.position.Y);
+                updatePlayerPositionOnMap(game->player.position, game->player.position.X + 1, game->player.position.Y,
+                                          game->map[game->player.currentMap]);
 
                 game->player.position = updatePlayerPosition(game->player.position, game->player.position.X + 1, game->player.position.Y);
             }
             break;
 
         case 'i':
-            displayInventoryMenu(game->player.inventory);
+            displayInventoryMenu(game->player.inventory, game);
             break;
 
         case 'p': // Pause menu

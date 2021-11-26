@@ -14,15 +14,16 @@
 #include <stdlib.h>
 
 
-Player newPlayer() {
-    Player player = {};
+Player newPlayer(Game *game) {
+    Player player;
 
     player.name = "Bob";
     player.level = set_level_to_zero();
     player.health = starting_health();
     player.inventory = starting_inventory();
-    player.position = getPlayerPosition();
-
+    player.position = getPlayerPosition(game->map[0]);
+    printf("\n %d %d \n", player.position.X, player.position.Y);
+    player.currentMap = 0;
     return player;
 }
 

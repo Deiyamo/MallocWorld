@@ -7,7 +7,7 @@
 
 #include "types.h"
 
-Player newPlayer();
+Player newPlayer(Game *game);
 void movePlayer();
 void XPincrease_player();
 void levelUp_player();

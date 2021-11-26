@@ -8,7 +8,7 @@
 
 Health starting_health() {
 
-    Health health = {};
+    Health health;
 
     health.HPcurrent = 0;
     health.HPmax = STARTING_HP;

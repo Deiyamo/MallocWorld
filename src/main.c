@@ -25,12 +25,12 @@ int main(int argc, char **argv) {
         switch(choice) {
             case '1': // New game
                 //createMap();
-                run();
+                run(choice);
 
                 break;
 
             case '2': // Load game
-                printf("Load game from save\n");
+                run(choice);
                 break;
 
             case '3': // Display controls

@@ -5,73 +5,34 @@
 #include "map.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // point.c
 #include "npc.h"
 #include "player.h"
 
-
-// a struct containing the map
-typedef struct Map {
-    int** painting;
-    int rows;
-    int columns;
-} Map;
-
-
-
-int mapArray[ROWS][COLUMNS] = {
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0},
-        {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0},
-        {0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 3, 0, 0, 0},
-        {4, 0, 0, 0, 0, 4, 3, 0, 0, 0, 2, 3, 0, 0, 0},
-        {4, 4, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 5, 0, 2, 0, 0, 0, -1, 0, 0, 0, 0, 12, 0, 0},
-        {0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 12, 12, 0},
-        {0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 12, 0},
-        {0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0}
-};
-
-void createMap() {
-    Map map = {};
-
-    map.painting = malloc(sizeof(int) * ROWS);
-    for(int i=0 ; i<ROWS ; i++) {
-        map.painting[i] = malloc(sizeof(int) * COLUMNS);
+void initMap(Map *map, int type) {
+    map->rows = ROWS;
+    map->columns = COLUMNS;
+    map->type = type;
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLUMNS; ++j) {
+            map->painting[i][j] = 0;
+        }
     }
-
-    map.rows = ROWS;
-    map.columns = COLUMNS;
-}
-
-void defaultMap() {
-    //printf("%d %d \n", map.rows, map.columns);
-
-    /*for (int i = 0; i < map.rows; i++) {
-        for (int j = 0; j < map.columns; j++) {
-            map.painting[i][j] = 0;
-
-            printf("%d " , map.painting[i][j]);
-        }
-        printf("\n");
-    }*/
-
 }
 
 
-void displayMap() {
-    for (int i = 0; i < ROWS; i++) {
-        for (int j = 0; j < COLUMNS; j++) {
-            printf("%3d", mapArray[i][j]);
-//            printf("%d " , map.painting[i][j]);
+void displayMap(Map **map) {
+    for (int i = 0; i < 3; ++i) {
+        printf("---------------------------------ZONE %d---------------------------------\n", map[i]->type);
+        for (int j = 0; j < ROWS; j++) {
+            for (int k = 0; k < COLUMNS; k++) {
+                printf("%3d", map[i]->painting[j][k]);
+    //            printf("%d " , map.painting[k][k]);
+            }
+            printf("\n");
         }
-        printf("\n");
     }
 }
 
@@ -84,7 +45,8 @@ void displayMap() {
 ------------------------------------------------------*/
 
 // Check is future position is a portal, a monster, a walkable position, etc...
-int checkFuturePosition(Game* game, int x, int y) {
+
+int checkFuturePosition(Game *game, int x, int y) {
 
     // Check map borders
     if (x < 0 || y < 0 || x >= ROWS || y >= COLUMNS) {
@@ -92,18 +54,18 @@ int checkFuturePosition(Game* game, int x, int y) {
     }
 
     // Position is a monster
-    if (mapArray[y][x] >= 12 && mapArray[y][x] <= 98) {
+    if (game->map[game->player.currentMap]->painting[y][x] >= 12 && game->map[game->player.currentMap]->painting[y][x] <= 98) {
         // start the fight with a monster
     }
     // Position is a portal
-    if (mapArray[y][x] == -2 || mapArray[y][x] == -3) {
+    if (game->map[game->player.currentMap]->painting[y][x] == -2 || game->map[game->player.currentMap]->painting[y][x] == -3) {
         // teleport the player
-        //teleportPlayer(portalType, currentZone); --> mapArray[y][x] , player zone
+        //teleportPlayer(portalType, currentZone); --> game->map[game->player.currentMap]->painting[y][x] , player zone
         printf("Do you want to go to the next/precedent zone\n");
         getchar();
     }
 
-    switch (mapArray[y][x]) {
+    switch (game->map[game->player.currentMap]->painting[y][x]) {
         case -1: // Position is a wall
             return 0;
 
@@ -124,7 +86,7 @@ int checkFuturePosition(Game* game, int x, int y) {
         case 4: // Position is a rock (1, 2 and 3)
         case 7:
         case 10:
-            harvestRock(game, mapArray[y][x]); // has to return a 1 to move or a 0 !!
+            harvestRock(game,game->map[game->player.currentMap]->painting[y][x]); // has to return a 1 to move or a 0 !!
             break;
         case 5: // Position is a tree (1, 2 and 3)
         case 8:
@@ -145,20 +107,20 @@ int checkFuturePosition(Game* game, int x, int y) {
 }
 
 
-int isPositionWalkable(int x, int y) { // Not used anymore !! see --> checkFuturePosition
+int isPositionWalkable(Map *map, int x, int y) { // Not used anymore !! see --> checkFuturePosition
     // Check map borders
     if (x < 0 || y < 0 || x >= ROWS || y >= COLUMNS) {
         return 0;
     }
-    return mapArray[y][x] == 0 || mapArray[y][x] == -2 || mapArray[y][x] == -3;
+    return map->painting[y][x] == 0 || map->painting[y][x] == -2 || map->painting[y][x] == -3;
 }
 
 // Set player's position on his structure
-Point getPlayerPosition() {
+Point getPlayerPosition(Map *map) {
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLUMNS; j++) {
-            if (mapArray[i][j] == 1) {
-                Point position = {};
+            if (map->painting[i][j] == 1) {
+                Point position;
                 position.X = j;
                 position.Y = i;
                 return position;
@@ -167,15 +129,15 @@ Point getPlayerPosition() {
     }
 }
 
-void updatePlayerPositionOnMap(Point position, int newX, int newY) {
+void updatePlayerPositionOnMap(Point position, int newX, int newY, Map *map) {
     // reset last position
     //printf("\n%d %d = %d\n", position.X, position.Y, mapArray[position.X][position.Y]);
-    mapArray[position.Y][position.X] = 0;
+    map->painting[position.Y][position.X] = 0;
 
 
     // update new position
     //printf("\n%d %d = %d\n", newX, newY, mapArray[newX][newY]);
-    mapArray[newY][newX] = 1;
+    map->painting[newY][newX] = 1;
 
 }
 

@@ -15,7 +15,7 @@ void clear_screen() {
 
 
 // Clear screen and display the map
-void restore_screen() {
+void restore_screen(Game *game) {
     clear_screen();
-    displayMap();
+    displayMap(game->map);
 }
