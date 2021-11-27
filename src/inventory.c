@@ -151,7 +151,7 @@ Inventory leaveItemsToStorage(Game* game) {
 ------------------------------------------------------*/
 
 
-int nbItemInInventory(Player *player, Type type) {
+int nbItemInInventory(Player *player, Class type) {
     int nbItemOfType = 0;
     for (int i=0; i < player->inventory.currentCapacity; i++) {
         if(isItemOfType(player->inventory.objects[i],type)){
@@ -163,7 +163,7 @@ int nbItemInInventory(Player *player, Type type) {
 }
 
 
-void displayWeaponInInventoryForFight(Player *player, Type type) {
+void displayWeaponInInventoryForFight(Player *player, Class type) {
     int isWeaponInInventory = 0;
     for (int i=0; i < player->inventory.currentCapacity; i++) {
         if (isItemOfType(player->inventory.objects[i],type)) {

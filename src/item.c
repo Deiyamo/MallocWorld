@@ -55,7 +55,7 @@ void displayWeapon(Item item) {
            item.name, item.durability, item.property.durability_max, item.property.damage);
 }
 
-int isItemOfType(Item item, Type type) {
+int isItemOfType(Item item, Class type) {
     if (item.property.type == type) {
         return 1;
     } else {

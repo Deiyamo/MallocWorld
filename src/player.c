@@ -40,7 +40,7 @@ void displayPlayer(Player *player) {
     printf("\nPlayer : %s\n", player->name);
     printf("Lvl : %d\n", player->level.floor);
     printf("%d / %d XP\n", player->level.XpCurrent, player->level.XpMax);
-    printf("%d / %d HP\n", player->health.HPcurrent, player->health.HPmax);
+    printf("%d / %d HP\n", player->health.currentHp, player->health.maxHp);
     printf("Inventaire cap. : %d\n", player->inventory.maxCapacity);
 
     displayInventoryFromMaxCapacity(player->inventory);
@@ -51,7 +51,7 @@ void displayPlayer(Player *player) {
 void displayPlayerFight(Fight *fight) {
     printf("\nPlayer : %s\n", fight->player->name);
     printf("Lvl : %d\n", fight->player->level.floor);
-    printf("%d / %d HP\n", fight->player->health.HPcurrent, fight->player->health.HPmax);
+    printf("%d / %d HP\n", fight->player->health.currentHp, fight->player->health.maxHp);
     printf("%d / %d XP\n", fight->player->level.XpCurrent, fight->player->level.XpMax);
 }
 
@@ -107,7 +107,7 @@ int chooseWeaponFight(Player *player){
         clear_screen();
         printf("CHOOSE YOUR WEAPON\n\n");
 
-        displayWeaponInInventoryForFight(player,0);
+        displayWeaponInInventoryForFight(player,Weapon);
         printf("\npress q to go back to the game...\n");
 
         printf("YOUR CHOICE : ");
@@ -152,12 +152,12 @@ void actionPlayer(Fight *fight, int action) {
 /* Le joueur attaque avec inventory.objects[0] */
 void attack(Player *player, Monster *monster) {
     printf("Atttack with : %s",player->hands.name);
-    if(monster->health.HPcurrent - player->hands.property.damage <= 0){
-        monster->health.HPcurrent = 0;
+    if(monster->health.currentHp - player->hands.property.damage <= 0){
+        monster->health.currentHp = 0;
         killMonster(monster, player);
         return;
     } else {
-        monster->health.HPcurrent -= player->hands.property.damage;
+        monster->health.currentHp -= player->hands.property.damage;
     }
 }
 
@@ -166,12 +166,12 @@ void attack(Player *player, Monster *monster) {
 } */
 
 void damage(Player *player, int damage) {
-    if(player->health.HPcurrent - damage == 0){
-        player->health.HPcurrent -= 1;
+    if(player->health.currentHp - damage == 0){
+        player->health.currentHp -= 1;
         int win = 1; //player lose, he is dead
         endFight(player, win);
     } else {
-        player->health.HPcurrent -= damage;
+        player->health.currentHp -= damage;
     }
 }
 

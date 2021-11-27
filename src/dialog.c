@@ -105,7 +105,7 @@ void displayFightProposal() {
 //display fight
 void displayFight(Fight *fight) {
     clear_screen();
-    int endFight = 0;
+    //int endFight = 0;
 
     /* tant que le combat est en cours */
     displayFightLarge(fight);

@@ -29,7 +29,7 @@ Monster createMonster() {
 void displayMonster(Monster *monster) {
     //use in display_fight
     printf("Monster : %s\n", monster->name);
-    printf("%d / %d HP\n", monster->health.HPcurrent, monster->health.HPmax);
+    printf("%d / %d HP\n", monster->health.currentHp, monster->health.maxHp);
 }
 
 void displayActionMonster(Fight *fight) {

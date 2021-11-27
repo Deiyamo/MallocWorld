@@ -21,20 +21,20 @@ typedef struct Level {
 } Level;
 
 typedef struct Health {
-    int HPcurrent; // Current player's HP
-    int HPmax; // Max player's HP
+    int currentHp; // Current player's HP
+    int maxHp; // Max player's HP
 } Health;
 
-typedef enum Type {
+typedef enum Class {
     Weapon, // 0
     Tool, // 1
     Craft, // 2
     Armor, // 3
     Heal // 4
-} Type;
+} Class;
 
 typedef struct Property {
-    Type type; // Item type's name
+    Class type; // Item type's name
     int durability_max; // Durability before it breaks
     int damage; // Number that define how much damage it deals
     int stack; // Number of the same element can be stocked in one slot
@@ -56,16 +56,6 @@ typedef struct Inventory {
     int currentCapacity; // current capacity of the inventory
     Item* objects; //
 } Inventory;
-
-typedef struct Potion {
-    int id; // potion's ID
-    char* name; // potion's name
-    int quantity; // potion's quantity
-    int effect; // potion effect
-    Property property; // Item's type
-    //Item* schema; // Craft Schema
-} Potion;
-
 
 
 
