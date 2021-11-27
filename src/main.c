@@ -46,7 +46,7 @@ int main(int argc, char **argv) {
                 exit(0); // terminates the complete program execution
 
             default:
-                printf("This value is not a choice... Please try again");
+                printf("This value is not a choice... Please try again\n");
                 break;
         }
 

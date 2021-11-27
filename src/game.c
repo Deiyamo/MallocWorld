@@ -22,7 +22,6 @@ void run() {
     game->npc = newNpc();
 
 
-
     int playerChoice;
     do {
         clear_screen();
@@ -35,7 +34,6 @@ void run() {
         displayInventoryFromMaxCapacity(game->player.inventory);
         // Display actions that the player can do
         displayPlayerMenu();
-
 
         // Switch (player's actions)
         playerChoice = handlePlayerInput(game);
@@ -102,16 +100,13 @@ int handlePlayerInput(Game* game) {
             break;
 
         default:
-            printf("This value is not a choice... Please try again");
+            printf("This value is not a choice... Please try again\n");
             break;
     }
 
     return playerChoice;
 }
 
-
-
-
 void kill_game() {
-    kill_player();
+    killPlayer();
 }

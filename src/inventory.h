@@ -18,4 +18,9 @@ Inventory npcStartingInventory();
 Inventory takeItemsFromStorage(Game* game);
 Inventory leaveItemsToStorage(Game* game);
 
+int nbItemInInventory();
+void displayWeaponInInventoryForFight();
+Item takeItemInInventory();
+void placeItemInHand();
+
 #endif //MALLOC_WORLD_INVENTORY_H

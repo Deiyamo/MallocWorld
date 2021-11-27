@@ -15,8 +15,9 @@ typedef struct Point {
 
 typedef struct Level {
     int floor; // player's level
-    int XPcurrent; // Current player's XP
-    int XPmax; // Max level's XP before the next one
+    int maxFloor; // player's level
+    int XpCurrent; // Current player's XP
+    int XpMax; // Max level's XP before the next one
 } Level;
 
 typedef struct Health {
@@ -56,14 +57,50 @@ typedef struct Inventory {
     Item* objects; //
 } Inventory;
 
+typedef struct Potion {
+    int id; // potion's ID
+    char* name; // potion's name
+    int quantity; // potion's quantity
+    int effect; // potion effect
+    Property property; // Item's type
+    //Item* schema; // Craft Schema
+} Potion;
+
+
+
 
 typedef struct Player {
     char* name; // player's name
     Level level; // player's experience
+    int maxXp; // player's max xp
     Health health; // player's health
     Inventory inventory; // player's inventory
     Point position; // player's position
+    Item hands; // item grab in them hands
 } Player;
+
+typedef struct Monster {
+    int id; // monster's ID
+    char* name; // monster's name
+    Health health; // monster's health
+    int damage; // Number that define how much damage it deals
+    int xpDrop; // Number that define how much experience it drop when kill
+    int respawn; // Number that define how many turn is left before he can reaper
+    Point position; // monster's position
+} Monster;
+
+typedef struct Fight {
+    Monster *monster; // monster's ID
+    Player *player; // player's ID
+    int laps; // nb laps
+    int end; // the fight is over ?
+    Point position; // fight's position (monster's position)
+} Fight;
+
+
+
+
+
 
 typedef struct Npc {
     char* name; // npc's name

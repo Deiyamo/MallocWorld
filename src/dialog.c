@@ -6,6 +6,10 @@
 #include <stdio.h>
 #include "events.h"
 #include "inventory.h"
+#include "monster.h"
+#include "player.h"
+#include "monster.h"
+#include "fight.h"
 
 
 // Display the name of the game
@@ -88,6 +92,24 @@ void displayInventoryMenu(Inventory inventory) {
     restore_screen();
 }
 
+/*------------------------------------------------------
+    Nicolas update
+------------------------------------------------------*/
+/* 
+void displayFightProposal() {
+    clear_screen();
+    displayWeaponChoice();
+    restore_screen();
+} */
+
+//display fight
+void displayFight(Fight *fight) {
+    clear_screen();
+    int endFight = 0;
+
+    /* tant que le combat est en cours */
+    displayFightLarge(fight);
+}
 
 
 /*------------------------------------------------------

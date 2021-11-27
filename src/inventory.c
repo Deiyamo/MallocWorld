@@ -132,10 +132,60 @@ Inventory npcStartingInventory() {
 
 }*/
 
-Inventory takeItemsFromStorage(Game* game){
 
+/*
+Inventory takeItemsFromStorage(Game* game){
+    return;
 }
 
 Inventory leaveItemsToStorage(Game* game) {
+    return;
+}*/
 
+
+
+
+
+/*------------------------------------------------------
+    Nicolas update
+------------------------------------------------------*/
+
+
+int nbItemInInventory(Player *player, Type type) {
+    int nbItemOfType = 0;
+    for (int i=0; i < player->inventory.currentCapacity; i++) {
+        if(isItemOfType(player->inventory.objects[i],type)){
+            nbItemOfType +=1;
+        }
+    }
+
+    return nbItemOfType;
+}
+
+
+void displayWeaponInInventoryForFight(Player *player, Type type) {
+    int isWeaponInInventory = 0;
+    for (int i=0; i < player->inventory.currentCapacity; i++) {
+        if (isItemOfType(player->inventory.objects[i],type)) {
+            printf("%d - ", i);
+            displayWeapon(player->inventory.objects[i]);
+            isWeaponInInventory = 1;
+        }
+        printf("\n");
+    }
+
+    printf("\n\n");
+
+    if(!isWeaponInInventory){
+        printf("There is no weapon in your inventory \n");
+    }
+}
+
+Item takeItemInInventory(Player *player, int idItemInInventory) {
+    Item item = player->inventory.objects[idItemInInventory];
+    return item;
+}
+
+void placeItemInHand(Player *player, int idItemInInventory){
+    player->hands = player->inventory.objects[idItemInInventory];
 }

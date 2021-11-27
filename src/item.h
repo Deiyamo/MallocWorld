@@ -13,4 +13,6 @@ void displayTool(Item item);
 void displayCraft(Item item);
 void displayArmor(Item item);
 void displayHeal(Item item);
+
+int isItemOfType();
 #endif //MALLOC_WORLD_ITEM_H

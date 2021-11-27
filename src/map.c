@@ -8,6 +8,9 @@
 
 // point.c
 #include "npc.h"
+#include "dialog.h"
+#include "monster.h"
+#include "fight.h"
 
 
 // a struct containing the map
@@ -23,16 +26,16 @@ int mapArray[ROWS][COLUMNS] = {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0},
-        {0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 0},
+        {0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 3, 0, 0, 0},
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 15, 0, 0, 0, 2, 3, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 5, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 12, 0, 0},
-        {0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 12, 12, 0},
+        {0, 0, 1, 13, 0, 0, 0, -1, 0, 0, 0, 0, 12, 12, 0},
         {0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 12, 0},
         {0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0}
 };
@@ -68,14 +71,11 @@ void displayMap() {
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLUMNS; j++) {
             printf("%d " , mapArray[i][j]);
-//            printf("%d " , map.painting[i][j]);
+            //printf("%d " , map.painting[i][j]);
         }
         printf("\n");
     }
 }
-
-
-
 
 
 /*------------------------------------------------------
@@ -93,6 +93,10 @@ int checkFuturePosition(Game* game, int x, int y) {
     // Position is a monster
     if (mapArray[y][x] >= 12 && mapArray[y][x] <= 98) {
         // start the fight with a monster
+        printf("Do you want to go to the next/precedent zone\n");
+        Monster zombie = createMonster();
+        startFight(&game->player,&zombie);
+
     }
     // Position is a portal
     if (mapArray[y][x] == -2 || mapArray[y][x] == -3) {
@@ -166,16 +170,18 @@ int isPositionWalkable(int x, int y) {
 
 // Set player's position on his structure
 Point getPlayerPosition() {
+    Point position = {};
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLUMNS; j++) {
             if (mapArray[i][j] == 1) {
-                Point position = {};
                 position.X = j;
                 position.Y = i;
                 return position;
             }
         }
     }
+    return position;
+
 }
 
 void updatePlayerPositionOnMap(Point position, int newX, int newY) {

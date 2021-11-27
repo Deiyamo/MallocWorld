@@ -8,7 +8,7 @@
 
 // Check the type of the item for display it
 void checkItemTypeForDisplay(Item item) {
-    if (item.property.type == Weapon) {
+    /*if (item.property.type == Weapon) {
         displayWeapon(item);
     } else if (item.property.type == Tool) {
         displayTool(item);
@@ -18,9 +18,11 @@ void checkItemTypeForDisplay(Item item) {
         displayArmor(item);
     } else if (item.property.type == Heal) {
         displayHeal(item);
-    }
+    }*/
 }
 
+
+/*
 void displayWeapon(Item item) {
     printf("[%s] (%d/%d) - %d Attack Damage",
            item.name, item.durability, item.property.durability_max, item.property.damage);
@@ -34,10 +36,29 @@ void displayCraft(Item item) {
            item.name, item.quantity, item.durability, item.property.durability_max);
 }
 void displayArmor(Item item) {
-    printf("[%s] (%d/%d) - +%d Armor",
+    printf("[%s] (%d/%d) - +%s Armor",
            item.name, item.durability, item.property.durability_max, item.property.resistance);
 }
 void displayHeal(Item item) {
     printf("[%s]x%d (%d/%d) - +%d Heal Point",
            item.name, item.quantity, item.durability, item.property.durability_max, item.property.heal);
+}
+*/
+
+
+/*------------------------------------------------------
+    Nicolas update
+------------------------------------------------------*/
+
+void displayWeapon(Item item) {
+    printf("[%s] (%d/%d) - %d Attack Damage",
+           item.name, item.durability, item.property.durability_max, item.property.damage);
+}
+
+int isItemOfType(Item item, Type type) {
+    if (item.property.type == type) {
+        return 1;
+    } else {
+        return 0;
+    }
 }

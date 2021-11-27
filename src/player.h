@@ -8,16 +8,18 @@
 #include "types.h"
 
 Player newPlayer();
-void movePlayer();
-void XPincrease_player();
-void levelUp_player();
+int chooseWeaponFight();
+void attack();
+void damage();
+void escapeFight();
+void actionPlayer();
+void openPortail();
+void killPlayer();
 
-
-void display_player(Player player);
-void displayPlayerPosition(Point position);
-
-
-void kill_player();
+void displayPlayer();
+void displayPlayerFight();
+void displayPlayerPosition();
+void displayInteractionPlayer();
 
 
 #endif //MALLOC_WORLD_PLAYER_H

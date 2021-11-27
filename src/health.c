@@ -6,12 +6,12 @@
 
 #define STARTING_HP 10
 
-Health starting_health() {
+Health starting_health(int currentHealth, int maxHealth) {
 
     Health health = {};
 
-    health.HPcurrent = 0;
-    health.HPmax = STARTING_HP;
+    health.HPcurrent = currentHealth;
+    health.HPmax = maxHealth;
 
     set_health_to_max(health);
 
@@ -21,6 +21,5 @@ Health starting_health() {
 Health set_health_to_max(Health health) {
 
     health.HPcurrent = health.HPmax;
-
     return health;
 }
