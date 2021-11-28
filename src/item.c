@@ -51,8 +51,12 @@ void displayHeal(Item item) {
 ------------------------------------------------------*/
 
 void displayWeapon(Item item) {
-    printf("[%s] (%d/%d) - %d Attack Damage",
+    printf("[%s] Durability : (%d/%d) - Damage : %d",
            item.name, item.durability, item.property.durability_max, item.property.damage);
+}
+void displayPotion(Item item) {
+    printf("[%s]  Quantity : %d - Heal : %d",
+           item.name, item.quantity, item.property.heal);
 }
 
 int isItemOfType(Item item, Class type) {

@@ -15,7 +15,6 @@ void displayActionMonster();
 void attackMonster();
 void dropXpMonster();
 void killMonster();
-void respawnMonster();
 
 
 #endif //MALLOC_WORLD_MONSTER_H

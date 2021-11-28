@@ -83,7 +83,7 @@ typedef struct Fight {
     Monster *monster; // monster's ID
     Player *player; // player's ID
     int laps; // nb laps
-    int end; // the fight is over ?
+    int status; // the fight is over ? 0 = en cour , 1 = win , 2 = lose , 3 = escape
     Point position; // fight's position (monster's position)
 } Fight;
 

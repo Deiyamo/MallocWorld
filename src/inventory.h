@@ -19,8 +19,9 @@ Inventory takeItemsFromStorage(Game* game);
 Inventory leaveItemsToStorage(Game* game);
 
 int nbItemInInventory();
-void displayWeaponInInventoryForFight();
+void displayItemInInventoryForFight();
 Item takeItemInInventory();
 void placeItemInHand();
+int findArmor();
 
 #endif //MALLOC_WORLD_INVENTORY_H

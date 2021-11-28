@@ -25,18 +25,20 @@ Inventory starting_inventory() {
 
 
     // Add some items to the player's inventory
-    Item sword = {1, "Wooden sword", 1, 10, {Weapon, 10, 1, 1, 0 , 0}};
+    Item sword = {1, "Wooden sword", 1, 10, {Weapon, 10, 10, 1, 0 , 0}};
     Item pickaxe = {2, "Wooden pickaxe", 1, 10, {Tool, 10, 0, 1, 0 , 0}};
     Item billhook = {3, "Wooden billhook", 1, 10 , {Tool, 10, 0, 1, 0 , 0}};
     Item axe = {4, "Wooden axe", 1, 10, {Tool, 10, 0, 1, 0 , 0}};
+    Item potion = {5, "Potion lvl1", 1, 10, {Heal, 10, 0, 1, 20, 0}};
 
     inventory.objects[0] = sword; // Wooden sword
     inventory.objects[1] = pickaxe; // Wooden pickaxe
     inventory.objects[2] = billhook; // Wooden billhook
     inventory.objects[3] = axe; // Wooden axe
+    inventory.objects[4] = potion; // Potion
 
     // Slots not empty
-    inventory.currentCapacity = 4;
+    inventory.currentCapacity = 5;
 
     return inventory;
 }
@@ -158,28 +160,37 @@ int nbItemInInventory(Player *player, Class type) {
             nbItemOfType +=1;
         }
     }
-
     return nbItemOfType;
 }
 
 
-void displayWeaponInInventoryForFight(Player *player, Class type) {
-    int isWeaponInInventory = 0;
+void displayItemInInventoryForFight(Player *player, Class type) {
+    int isItemInInventory = 0;
     for (int i=0; i < player->inventory.currentCapacity; i++) {
         if (isItemOfType(player->inventory.objects[i],type)) {
             printf("%d - ", i);
-            displayWeapon(player->inventory.objects[i]);
-            isWeaponInInventory = 1;
+
+            switch (type) {
+                case Weapon:
+                    displayWeapon(player->inventory.objects[i]);
+                    break;
+
+                case Heal:
+                    displayPotion(player->inventory.objects[i]);
+                    break;
+                
+                default:
+                    break;
+            }
+            isItemInInventory = 1;
         }
-        printf("\n");
     }
-
     printf("\n\n");
-
-    if(!isWeaponInInventory){
-        printf("There is no weapon in your inventory \n");
+    if(!isItemInInventory){
+        printf("There is no %c in your inventory \n",type);
     }
 }
+
 
 Item takeItemInInventory(Player *player, int idItemInInventory) {
     Item item = player->inventory.objects[idItemInInventory];
@@ -188,4 +199,14 @@ Item takeItemInInventory(Player *player, int idItemInInventory) {
 
 void placeItemInHand(Player *player, int idItemInInventory){
     player->hands = player->inventory.objects[idItemInInventory];
+}
+
+int findArmor(Player *player) {
+    int nbItemOfType = 0;
+    for (int i=0; i < player->inventory.currentCapacity; i++) {
+        if(isItemOfType(player->inventory.objects[i],Armor)){
+            nbItemOfType = i;
+        }
+    }
+    return nbItemOfType;
 }

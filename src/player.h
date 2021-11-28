@@ -10,12 +10,16 @@
 Player newPlayer();
 int chooseWeaponFight();
 void attack();
-void damage();
+void damagePlayer();
 void escapeFight();
-void actionPlayer();
-void openPortail();
+void actionPlayer(); 
 void killPlayer();
 
+void healthPlayer();
+void displayChoosePotion();
+int choosePotionFight();
+
+void displayChooseWeapon();
 void displayPlayer();
 void displayPlayerFight();
 void displayPlayerPosition();

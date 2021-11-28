@@ -10,16 +10,14 @@ Health starting_health(int currentHealth, int maxHealth) {
 
     Health health = {};
 
-    health.HPcurrent = currentHealth;
-    health.HPmax = maxHealth;
+    health.currentHp = currentHealth;
+    health.maxHp = maxHealth;
 
-    set_health_to_max(health);
+    set_health_to_max(&health);
 
     return health;
 }
 
-Health set_health_to_max(Health health) {
-
-    health.HPcurrent = health.HPmax;
-    return health;
+void set_health_to_max(Health *health) {
+    health->currentHp = health->maxHp;
 }

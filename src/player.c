@@ -11,10 +11,13 @@
 #include "monster.h"
 #include "game.h"
 #include "events.h"
+#include "item.h"
+#include "game.h"
 
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define STARTING_XP 100
 
@@ -70,33 +73,94 @@ void displayInteractionPlayer(Fight *fight) {
     printf("Player action: \n 2. Attack \n 3. Potion \n 4. Escape \n\n");
     printf("Press the action you want to do : ");
 
-    int action = 0;
+    char action;
     do{
-        action = getchar();
-        switch (action)
+        scanf("%c",&action);
+        getchar();
+        action -= 48;
+    }
+    while (action != 2 && action != 3 && action != 4);
+
+    switch (action)
         {
-        case '2':
-            actionPlayer(fight, 2);
-            
+        case 2:
+            actionPlayer(fight, 2);    
             displayFightLarge(fight);
             break;
 
-        case '3':
+        case 3:
             actionPlayer(fight, 3);
-            fight->laps++;
-            displayFightLarge(fight);
             break;
 
-        case '4':
+        case 4:
             actionPlayer(fight, 4);
+            displayFightLarge(fight);
             break;
         
         default:
             break;
         }
+}
+
+/*  */
+void healthPlayer(Player *player, int heal){
+    if (player->health.currentHp == player->health.maxHp) {
+        printf("You already have full health\n");
+    } else {
+        if((player->health.currentHp + heal) >= player->health.maxHp) {
+            player->health.currentHp = player->health.maxHp;
+        } else {
+            player->health.currentHp += heal;
+        }
     }
-    while (action != '2' || action != '3' ||action != '4');
-    printf("\n\n");
+}
+
+/* Affichage du menu de choix de potion */
+void displayChoosePotion(Player *player){
+    clear_screen();
+    printf("CHOOSE YOUR POTION\n\n");
+
+    displayItemInInventoryForFight(player,Heal);
+    printf("\npress q to go back to the fight...\n\n");
+
+    printf("YOUR CHOICE : ");
+}
+
+/* Choix de la potion à utiliser */
+int choosePotionFight(Player *player){
+    int nbPotion = nbItemInInventory(player, 4);
+
+    if(nbPotion > 0){
+        char potion;
+        do {
+            displayChoosePotion(player);
+            scanf("%c",&potion);
+            getchar();
+        }while (isItemOfType(player->inventory.objects[potion-48],Heal) != 1 && potion != 'q');
+
+        if(potion == 'q'){
+            return 0;
+        } else {
+            healthPlayer(player,player->inventory.objects[potion-48].property.heal);
+            //player->inventory.objects[potion-48].quantity -= 1;
+            memset(&player->inventory.objects[potion-48], 0, sizeof(Item));
+            player->inventory.currentCapacity -= 1;
+            return 1;
+        }
+    } else {
+        printf("You do not have any potion on your inventory\n");
+        return 0;
+    }
+}
+
+/* Affichage du menu de choix de l'arme */
+void displayChooseWeapon(Player *player){
+    clear_screen();
+    printf("CHOOSE YOUR WEAPON\n\n");
+
+    displayItemInInventoryForFight(player,Weapon);
+    printf("\npress q to go back to the game...\n\n");
+    printf("YOUR CHOICE : ");
 }
 
 /* Choix de l'arme pour le combat */
@@ -104,42 +168,43 @@ int chooseWeaponFight(Player *player){
     int nbWeapon = nbItemInInventory(player, 0);
 
     if(nbWeapon > 0){
-        clear_screen();
-        printf("CHOOSE YOUR WEAPON\n\n");
-
-        displayWeaponInInventoryForFight(player,Weapon);
-        printf("\npress q to go back to the game...\n");
-
-        printf("YOUR CHOICE : ");
-
-        int weapon = 0;
-        weapon = getchar();
-
-        int noWeaponCoice = 0;
-        //while (weapon > nbWeapon || weapon != 'q' || noWeaponCoice) { weapon = getchar(); }
+        char weapon;
+        do {
+            displayChooseWeapon(player);
+            scanf("%c",&weapon);
+            getchar();
+        }while (isItemOfType(player->inventory.objects[weapon-48],Weapon) != 1 && weapon != 'q');
 
         if(weapon == 'q'){
             return 0;
         } else {
-            //placeItemInHand(player, weapon);
+            placeItemInHand(player, weapon-48);
             return 1;
         }
     } else {
-        printf("You do not have any weapon on your inventory %d\n",player->inventory.objects[0].property.type);
+        printf("You do not have any weapon on your inventory\n");
         return 0;
     }
-
 }
 
 /* Action du joueur en combat */
 void actionPlayer(Fight *fight, int action) {
+    int choosePotion;
     switch (action)
     {
     case 2:
-        attack(fight->player, fight->monster);
-        fight->laps++;
+        attack(fight);
         break;
 
+    case 3:
+        choosePotion = choosePotionFight(fight->player);
+        if(choosePotion == 1){
+            fight->laps++;
+            displayFightLarge(fight);
+        } else {
+            displayFightLarge(fight);
+        }
+        break;
     case 4:
         escapeFight(fight);
         break;
@@ -150,31 +215,35 @@ void actionPlayer(Fight *fight, int action) {
 }
 
 /* Le joueur attaque avec inventory.objects[0] */
-void attack(Player *player, Monster *monster) {
-    printf("Atttack with : %s",player->hands.name);
-    if(monster->health.currentHp - player->hands.property.damage <= 0){
-        monster->health.currentHp = 0;
-        killMonster(monster, player);
-        return;
+void attack(Fight *fight) {
+    printf("Atttack with : %s\n",fight->player->hands.name);
+    if(fight->monster->health.currentHp - fight->player->hands.property.damage <= 0){
+        killMonster(fight);
     } else {
-        monster->health.currentHp -= player->hands.property.damage;
+        fight->monster->health.currentHp -= fight->player->hands.property.damage;
+        fight->laps++;
+    }
+    fight->player->hands.durability -= 1;
+}
+
+/* Degat subit par le joueur */
+void damagePlayer(Fight *fight, int damage) {
+    if(fight->player->health.currentHp - damage <= 0){
+        fight->player->health.currentHp = 0;
+        fight->status = 2;
+    } else {
+        if(nbItemInInventory(fight->player, 3)){
+            int idArmor = findArmor(fight->player);
+            int resistanceDamage = ((damage * fight->player->inventory.objects[idArmor].property.resistance) / 100);
+            fight->player->health.currentHp = damage - resistanceDamage;
+        } else {
+            fight->player->health.currentHp -= damage;
+            fight->laps++;
+        }
     }
 }
 
-/* void potion(Player player) {
-    choice of potion
-} */
-
-void damage(Player *player, int damage) {
-    if(player->health.currentHp - damage == 0){
-        player->health.currentHp -= 1;
-        int win = 1; //player lose, he is dead
-        endFight(player, win);
-    } else {
-        player->health.currentHp -= damage;
-    }
-}
-
+/* Tentative de fuite du combat par le joueur */
 void escapeFight(Fight *fight) {
     time_t t;
 
@@ -182,16 +251,12 @@ void escapeFight(Fight *fight) {
     int chance = rand() % 99;
     if (chance < 30) {
         fight->monster->respawn = 0;
-        //endFight(fight->player,3);
+        fight->status = 3;
     } else {
-        printf("You try to escape, but you failed, you miss your turn...");
+        fight->status = 0;
+        fight->laps ++;
+        printf("You try to escape, but you failed, you miss your turn...\n");
     }
-}
-
-
-/* Rendre un portail accessible */
-void openPortail(Player *player) {
-    //test niveau du joueur (lancé à chaque fin de combat) -> si possible débloque portail
 }
 
 /* Tuer le joueur */
@@ -201,4 +266,5 @@ void killPlayer(Player *player) {
     // kill inventory
     // free(player);
     //kill_game();
+    //runMain();
 }

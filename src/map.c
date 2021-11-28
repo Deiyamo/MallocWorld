@@ -11,6 +11,7 @@
 #include "dialog.h"
 #include "monster.h"
 #include "fight.h"
+#include "events.h"
 
 
 // a struct containing the map
@@ -34,7 +35,7 @@ int mapArray[ROWS][COLUMNS] = {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {0, 5, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 12, 0, 0},
+        {0, 5, 0, 99, 0, 0, 0, -1, 0, 0, 0, 0, 12, 0, 0},
         {0, 0, 1, 13, 0, 0, 0, -1, 0, 0, 0, 0, 12, 12, 0},
         {0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 12, 0},
         {0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0}
@@ -84,6 +85,7 @@ void displayMap() {
 
 // Check is future position is a portal, a monster, a walkable position, etc...
 int checkFuturePosition(Game* game, int x, int y) {
+    char fightBoss;
 
     // Check map borders
     if (x < 0 || y < 0 || x >= ROWS || y >= COLUMNS) {
@@ -92,10 +94,9 @@ int checkFuturePosition(Game* game, int x, int y) {
 
     // Position is a monster
     if (mapArray[y][x] >= 12 && mapArray[y][x] <= 98) {
-        // start the fight with a monster
         printf("Do you want to go to the next/precedent zone\n");
-        Monster zombie = createMonster();
-        startFight(&game->player,&zombie);
+        //Monster monster = createMonster(mapArray[y][x]);
+        startFight(&game->player,mapArray[y][x]);
 
     }
     // Position is a portal
@@ -150,6 +151,7 @@ int checkFuturePosition(Game* game, int x, int y) {
 
         case 99:
             // Position is the end boss
+                startFight(&game->player,99);
             break;
 
         default:

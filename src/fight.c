@@ -21,25 +21,28 @@ Fight newFight(Player *player ,Monster *monster) {
     fight.monster = monster;
     fight.player = player;
     fight.laps = 0;
-    fight.end = 0;
+    fight.status = 0;
     Point position;
 
     return fight;
 }
 
 void displayFightLarge(Fight *fight) {
-    printf("Monster: %s VS Player : %s \n",
-        fight->monster->name,
-        fight->player->name
-    );
-    printf("\n");
-    displayMonster(fight->monster);
-    printf("\n\n");
-    displayPlayerFight(fight);
-    printf("\n\n");
+    if(fight->status == 0){
+        printf("Monster: %s VS Player : %s \n",
+            fight->monster->name,
+            fight->player->name
+        );
+        printf("\n");
+        displayMonster(fight->monster);
+        printf("\n\n");
+        displayPlayerFight(fight);
+        printf("\n\n");
 
-    whoIsTurn(fight);
-    //displayInteractionPlayer(fight);
+        whoIsTurn(fight);
+    } else {
+        endFight(fight,fight->status);
+    }
 }
 
 void whoIsTurn(Fight *fight){
@@ -50,39 +53,38 @@ void whoIsTurn(Fight *fight){
     }
 }
 
-void startFight(Player *player, Monster *monster) {
+void startFight(Player *player, int idMonster) {
     int weapon = chooseWeaponFight(player);
-    /* if dont wna to fight exit else if displayFight */
     if(weapon){
-        Fight fight = newFight(player, monster);
+        Monster monster = createMonster(idMonster);
+        Fight fight = newFight(player,&monster);
         displayFight(&fight);
     } else {
         restore_screen();
     }
 }
 
-void displayEndFight(Fight *fight, int win) {
-    printf("The fight with a lose, LOSER\n");
-    printf("\n\n");
-    restore_screen();
-}
-
-void endFight(Fight *fight, int win) {
-    switch (win)
+void endFight(Fight *fight, int status) {
+    switch (status)
     {
     case 1:
         /* win */
-        increaseXpPlayer(fight->player, fight->monster->xpDrop);
-        displayEndFight(fight, win);
+        printf("You win the fight\n");
+        printf("\n\n");
+        clear_screen();
+        /* restore_screen(); */
         break;
 
     case 2:
         /* lose */
-        displayEndFight(fight, win);
+        printf("Your die\n");
+        printf("\n\n");
         killPlayer(fight->player);
+        //restore_screen();
     
     case 3:
         /* escape */
+        printf("You escape the fight, good job...\n");
         restore_screen();
         //escapeFight(fight);
     

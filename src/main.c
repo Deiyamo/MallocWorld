@@ -15,7 +15,9 @@
 
 int main(int argc, char **argv) {
 
-    int choice;
+    runMain();
+
+    /* int choice;
 
     do {
         displayMenu(); // Display the text menu
@@ -50,7 +52,7 @@ int main(int argc, char **argv) {
                 break;
         }
 
-    } while(1);
+    } while(1); */
 
 
     // SAVE GAME

@@ -95,19 +95,10 @@ void displayInventoryMenu(Inventory inventory) {
 /*------------------------------------------------------
     Nicolas update
 ------------------------------------------------------*/
-/* 
-void displayFightProposal() {
-    clear_screen();
-    displayWeaponChoice();
-    restore_screen();
-} */
 
 //display fight
 void displayFight(Fight *fight) {
     clear_screen();
-    //int endFight = 0;
-
-    /* tant que le combat est en cours */
     displayFightLarge(fight);
 }
 
