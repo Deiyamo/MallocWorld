@@ -90,7 +90,6 @@ CMakeFiles/Malloc_World.dir/src/player.c.obj: \
  ../src/player.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/point.c.obj: \
- ../src/map.h \
  ../src/point.c \
  ../src/point.h \
  ../src/types.h

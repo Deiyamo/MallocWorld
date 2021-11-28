@@ -102,7 +102,7 @@ int checkClass(Inventory inventory, Class type) {
     if (type == Weapon) {
         res = checkIfItemIsWeapon(inventory, type);
     } else if (type == Armor) {
-        res = checkIfItemIsWeapon(inventory, type);
+        res = checkIfItemIsArmor(inventory, type);
     }
     return res;
 }
