@@ -110,6 +110,12 @@
 		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/game.h">
 			<Option target="Malloc_World"/>
 		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/generate.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/generate.h">
+			<Option target="Malloc_World"/>
+		</Unit>
 		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/health.c">
 			<Option target="Malloc_World"/>
 		</Unit>
@@ -132,6 +138,12 @@
 			<Option target="Malloc_World"/>
 		</Unit>
 		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/level.h">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/load.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/load.h">
 			<Option target="Malloc_World"/>
 		</Unit>
 		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/main.c">

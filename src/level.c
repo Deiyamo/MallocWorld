@@ -9,8 +9,9 @@
 #define STARTING_XP 100
 #define LEVELUP
 
+
 Level setLevelToZero() {
-    Level level = {};
+    Level level;
 
     level.floor = 1;
     level.maxFloor = 10;

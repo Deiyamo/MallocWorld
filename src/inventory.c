@@ -17,7 +17,7 @@
 // Create the player's inventory (4 items and the other slots empty)
 Inventory starting_inventory() {
 
-    Inventory inventory = {};
+    Inventory inventory;
     memset(&inventory, 0, sizeof(Inventory));
 
 
@@ -188,7 +188,7 @@ Game deleteItem(Game* game, int itemNumber) {
 
 Inventory npcStartingInventory() {
 
-    Inventory storage = {};
+    Inventory storage;
     memset(&storage, 0, sizeof(Inventory));
 
     storage.currentCapacity = 1;
@@ -242,7 +242,7 @@ void selectItemToLeave(Game* game) {
 
             displayLeaveItems(game->player.inventory, game->npc.storage);
         } else if ( playerChoice == -1 ) {
-            displayNpcStorageMenu();
+            displayNpcStorageMenu(game);
             npcStorageMenuInteractions(game);
         } else {
             displayLeaveItems(game->player.inventory, game->npc.storage);
@@ -307,7 +307,7 @@ void selectItemToTake(Game* game) {
 
             displayTakeItems(game->player.inventory, game->npc.storage);
         } else if ( playerChoice == -1 ) {
-            displayNpcStorageMenu();
+            displayNpcStorageMenu(game);
             npcStorageMenuInteractions(game);
         } else {
             displayTakeItems(game->player.inventory, game->npc.storage);

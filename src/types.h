@@ -5,7 +5,18 @@
 #ifndef MALLOC_WORLD_TYPES_H
 #define MALLOC_WORLD_TYPES_H
 
+#define ROWS 15
+#define COLUMNS 15
+
 #include <time.h>
+// a struct containing the map
+typedef struct Map {
+    int type;
+    int painting[ROWS][COLUMNS];
+    int rows;
+    int columns;
+} Map;
+
 
 
 typedef struct Point {
@@ -94,8 +105,7 @@ typedef struct Npc {
 } Npc;
 
 typedef struct Game {
-    //Map map; // ???? a voir avec Eduard ????
-    // currentMap
+    Map** map;
     Player player; // the player
     Npc npc; // the player's storage
     //time_t started; // timestamp when the game has been started
@@ -104,5 +114,9 @@ typedef struct Game {
     //char* saveFile; // Save file that contains : map, inventory, storage, player's stats, etc...
 } Game;
 
-
+typedef struct Save {
+    int id;
+    char name[100];
+} Save;
 #endif //MALLOC_WORLD_TYPES_H
+

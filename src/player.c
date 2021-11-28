@@ -22,8 +22,8 @@
 #define STARTING_XP 100
 
 
-Player newPlayer() {
-    Player player = {};
+Player newPlayer(Game *game) {
+    Player player;
 
     Item sword = {1, "Wooden sword", 1, 10, {Weapon, 10, 3, 1, 0 , 0}};
 
@@ -31,9 +31,10 @@ Player newPlayer() {
     player.level = setLevelToZero();
     player.health = starting_health(100,100);
     player.inventory = starting_inventory();
-    player.position = getPlayerPosition();
     player.currentMap = 0;
+    player.position = getPlayerPosition(game->map[0]);
     player.hands = sword;
+    //printf("\n %d %d \n", player.position.X, player.position.Y);
 
     return player;
 }
@@ -59,7 +60,7 @@ Game harvestPlant(Game* game, int casePosition, int x, int y) {
             // Decrease the tool durability
             game->player.inventory = decreaseItemDurability(game->player.inventory, toolId, casePosition);
             // Move player
-            updatePlayerPositionOnMap(game->player.position, x, y);
+            updatePlayerPositionOnMap(game->player.position, x, y, game->map[game->player.currentMap]);
             game->player.position = updatePlayerPosition(game->player.position, x, y);
         }
 
@@ -86,7 +87,7 @@ Game harvestRock(Game* game, int casePosition, int x, int y) {
             // Decrease the tool durability
             game->player.inventory = decreaseItemDurability(game->player.inventory, toolId, casePosition);
             // Move player
-            updatePlayerPositionOnMap(game->player.position, x, y);
+            updatePlayerPositionOnMap(game->player.position, x, y, game->map[game->player.currentMap]);
             game->player.position = updatePlayerPosition(game->player.position, x, y);
         }
 
@@ -116,7 +117,7 @@ Game harvestTree(Game* game, int casePosition, int x, int y) {
             // Decrease the tool durability
             game->player.inventory = decreaseItemDurability(game->player.inventory, toolId, casePosition);
             // Move player
-            updatePlayerPositionOnMap(game->player.position, x, y);
+            updatePlayerPositionOnMap(game->player.position, x, y, game->map[game->player.currentMap]);
             game->player.position = updatePlayerPosition(game->player.position, x, y);
         }
 
@@ -158,7 +159,8 @@ void displayPlayerPosition(Point position) {
 
 
 /* Affichage des actions possibles du joueur pendant un combat */
-void displayInteractionPlayer(Fight *fight) {
+
+void displayInteractionPlayer(Game *game, Fight *fight) {
     printf("\n\n");
     printf("Player action: \n 2. Attack \n 3. Potion \n 4. Escape \n\n");
     printf("Press the action you want to do : ");
@@ -172,24 +174,24 @@ void displayInteractionPlayer(Fight *fight) {
     while (action != 2 && action != 3 && action != 4);
 
     switch (action)
-        {
+    {
         case 2:
-            actionPlayer(fight, 2);    
-            displayFightLarge(fight);
+            actionPlayer(game, fight, 2);
+            displayFightLarge(game, fight);
             break;
 
         case 3:
-            actionPlayer(fight, 3);
+            actionPlayer(game, fight, 3);
             break;
 
         case 4:
-            actionPlayer(fight, 4);
-            displayFightLarge(fight);
+            actionPlayer(game, fight, 4);
+            displayFightLarge(game, fight);
             break;
-        
+
         default:
             break;
-        }
+    }
 }
 
 /*  */
@@ -278,7 +280,7 @@ int chooseWeaponFight(Player *player) {
 }
 
 /* Action du joueur en combat */
-void actionPlayer(Fight *fight, int action) {
+void actionPlayer(Game* game, Fight *fight, int action) {
     int choosePotion;
     switch (action)
     {
@@ -289,9 +291,9 @@ void actionPlayer(Fight *fight, int action) {
         choosePotion = choosePotionFight(fight->player);
         if(choosePotion == 1){
             fight->laps++;
-            displayFightLarge(fight);
+            displayFightLarge(game, fight);
         } else {
-            displayFightLarge(fight);
+            displayFightLarge(game, fight);
         }
         break;
     case 4:

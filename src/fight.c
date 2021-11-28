@@ -15,23 +15,22 @@
     Nicolas update
 ------------------------------------------------------*/
 
-Fight newFight(Player *player ,Monster *monster) {
+Fight newFight(Player *player, Monster *monster) {
     Fight fight = {};
 
     fight.monster = monster;
     fight.player = player;
     fight.laps = 0;
     fight.status = 0;
-    Point position;
 
     return fight;
 }
 
-void displayFightLarge(Fight *fight) {
-    if(fight->status == 0){
+void displayFightLarge(Game *game, Fight *fight) {
+    if (fight->status == 0) {
         printf("Monster: %s VS Player : %s \n",
-            fight->monster->name,
-            fight->player->name
+               fight->monster->name,
+               fight->player->name
         );
         printf("\n");
         displayMonster(fight->monster);
@@ -39,56 +38,55 @@ void displayFightLarge(Fight *fight) {
         displayPlayerFight(fight);
         printf("\n\n");
 
-        whoIsTurn(fight);
+        whoIsTurn(game, fight);
     } else {
-        endFight(fight,fight->status);
+        endFight(game, fight, fight->status);
     }
 }
 
-void whoIsTurn(Fight *fight){
-    if(fight->laps % 2 == 0){
-        displayInteractionPlayer(fight);
-    } else{
-        displayActionMonster(fight);
+void whoIsTurn(Game* game, Fight *fight) {
+    if (fight->laps % 2 == 0) {
+        displayInteractionPlayer(game, fight);
+    } else {
+        displayActionMonster(game, fight);
     }
 }
 
-void startFight(Player *player, int idMonster) {
-    int weapon = chooseWeaponFight(player);
-    if(weapon){
+void startFight(Game *game, int idMonster) {
+    int weapon = chooseWeaponFight(&game->player);
+    if (weapon) {
         Monster monster = createMonster(idMonster);
-        Fight fight = newFight(player,&monster);
-        displayFight(&fight);
+        Fight fight = newFight(&game->player, &monster);
+        displayFight(game, &fight);
     } else {
-        restore_screen();
+        restore_screen(game);
     }
 }
 
-void endFight(Fight *fight, int status) {
-    switch (status)
-    {
-    case 1:
-        /* win */
-        printf("You win the fight\n");
-        printf("\n\n");
-        clear_screen();
-        /* restore_screen(); */
-        break;
+void endFight(Game *game, Fight *fight, int status) {
+    switch (status) {
+        case 1:
+            /* win */
+            printf("You win the fight\n");
+            printf("\n\n");
+            clear_screen();
+            /* restore_screen(); */
+            break;
 
-    case 2:
-        /* lose */
-        printf("Your die\n");
-        printf("\n\n");
-        killPlayer(fight->player);
-        //restore_screen();
-    
-    case 3:
-        /* escape */
-        printf("You escape the fight, good job...\n");
-        restore_screen();
-        //escapeFight(fight);
-    
-    default:
-        break;
+        case 2:
+            /* lose */
+            printf("Your die\n");
+            printf("\n\n");
+            killPlayer(fight->player);
+            //restore_screen();
+
+        case 3:
+            /* escape */
+            printf("You escaped the fight, good job...\n");
+            restore_screen(game);
+            //escapeFight(fight);
+
+        default:
+            break;
     }
 }

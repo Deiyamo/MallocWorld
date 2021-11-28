@@ -12,12 +12,13 @@ void displayMenu();
 void displayPlayerMenu();
 void displayPauseMenu();
 void displayControls();
-void displayFight();
-void displayInventoryMenu(Inventory inventory);
+void displayFight(Game* game, Fight* fight);
 
-void displayHelloDialog(char* npcName);
+void displayInventoryMenu(Inventory inventory, Game *game);
+
+void displayHelloDialog(char* npcName, Game *game);
 void displayNpcMenu();
-void displayNpcStorageMenu();
+void displayNpcStorageMenu(Game *game);
 void displayLeaveItems(Inventory inventory, Inventory storage);
 void displayTakeItems(Inventory inventory, Inventory storage);
 

@@ -125,17 +125,17 @@ void displayMonster(Monster *monster) {
     printf("%d / %d HP\n", monster->health.currentHp, monster->health.maxHp);
 }
 
-void displayActionMonster(Fight *fight) {
+void displayActionMonster(Game* game, Fight *fight) {
     printf("\n\n");
     printf("Monster attack: %d dmg\n" , fight->monster->damage);
-    attackMonster(fight);
+    attackMonster(game, fight);
     printf("\n\n");
 }
 
 /* Le monstre attaque le joueur */
-void attackMonster(Fight *fight) {
+void attackMonster(Game* game, Fight *fight) {
     damagePlayer(fight,fight->monster->damage);
-    displayFightLarge(fight);
+    displayFightLarge(game, fight);
 }
 
 /* Xp drop par le monstre lorsqu'il est tué */

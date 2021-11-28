@@ -10,7 +10,7 @@
 Monster createMonster();
 
 void displayMonster();
-void displayActionMonster();
+void displayActionMonster(Game* game, Fight *fight);
 
 void attackMonster();
 void dropXpMonster();

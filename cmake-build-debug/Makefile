@@ -272,6 +272,30 @@ src/game.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/game.c.s
 .PHONY : src/game.c.s
 
+src/generate.obj: src/generate.c.obj
+.PHONY : src/generate.obj
+
+# target to build an object file
+src/generate.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/generate.c.obj
+.PHONY : src/generate.c.obj
+
+src/generate.i: src/generate.c.i
+.PHONY : src/generate.i
+
+# target to preprocess a source file
+src/generate.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/generate.c.i
+.PHONY : src/generate.c.i
+
+src/generate.s: src/generate.c.s
+.PHONY : src/generate.s
+
+# target to generate assembly for a file
+src/generate.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/generate.c.s
+.PHONY : src/generate.c.s
+
 src/health.obj: src/health.c.obj
 .PHONY : src/health.obj
 
@@ -367,6 +391,30 @@ src/level.s: src/level.c.s
 src/level.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/level.c.s
 .PHONY : src/level.c.s
+
+src/load.obj: src/load.c.obj
+.PHONY : src/load.obj
+
+# target to build an object file
+src/load.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/load.c.obj
+.PHONY : src/load.c.obj
+
+src/load.i: src/load.c.i
+.PHONY : src/load.i
+
+# target to preprocess a source file
+src/load.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/load.c.i
+.PHONY : src/load.c.i
+
+src/load.s: src/load.c.s
+.PHONY : src/load.s
+
+# target to generate assembly for a file
+src/load.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/load.c.s
+.PHONY : src/load.c.s
 
 src/main.obj: src/main.c.obj
 .PHONY : src/main.obj
@@ -563,6 +611,9 @@ help:
 	@echo ... src/game.obj
 	@echo ... src/game.i
 	@echo ... src/game.s
+	@echo ... src/generate.obj
+	@echo ... src/generate.i
+	@echo ... src/generate.s
 	@echo ... src/health.obj
 	@echo ... src/health.i
 	@echo ... src/health.s
@@ -575,6 +626,9 @@ help:
 	@echo ... src/level.obj
 	@echo ... src/level.i
 	@echo ... src/level.s
+	@echo ... src/load.obj
+	@echo ... src/load.i
+	@echo ... src/load.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

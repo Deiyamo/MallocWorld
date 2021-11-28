@@ -6,9 +6,12 @@
 #define MALLOC_WORLD_GAME_H
 
 #include "types.h"
+#include "generate.h"
+#include "load.h"
+
 
 void runMain();
-void run();
+void run(int choice);
 void kill_game(Game* game);
 int handlePlayerInput(Game* game);
 

@@ -8,7 +8,7 @@
 
 Health starting_health(int currentHealth, int maxHealth) {
 
-    Health health = {};
+    Health health;
 
     health.currentHp = currentHealth;
     health.maxHp = maxHealth;

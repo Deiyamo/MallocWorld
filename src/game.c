@@ -7,10 +7,10 @@
 #include "game.h"
 #include "player.h"
 #include "events.h"
-#include "map.h"
 #include "dialog.h"
-#include "npc.h"
-#include "inventory.h"
+#include "generate.h"
+#include "load.h"
+#include "save.h"
 
 void runMain() {
     int choice;
@@ -20,14 +20,15 @@ void runMain() {
         choice = getchar();
         getchar();
 
-        switch(choice) {
+        switch (choice) {
             case '1': // New game
                 //createMap();
-                run();
+                run(choice);
 
                 break;
 
             case '2': // Load game
+                run(choice);
                 printf("Load game from save\n");
                 break;
 
@@ -48,17 +49,31 @@ void runMain() {
                 break;
         }
 
-    } while(1);
+    } while (1);
 
 }
 
-void run() {
+void run(int choice) {
     clear_screen();
 
-    Game* game = malloc( sizeof(Game) );
-    game->player = newPlayer();
-    game->npc = newNpc();
+    Game * game = malloc(sizeof(Game));
 
+    game->map = malloc(sizeof(Map *) * 3);
+    for (int i = 0; i < 3; ++i) {
+        game->map[i] = malloc(sizeof(Map));
+    }
+    switch (choice) {
+        case '1':
+            game->map = generate();
+            game->npc = newNpc();
+            game->player = newPlayer(game);
+            break;
+        case '2':
+            game = load();
+            break;
+        default:
+            break;
+    }
 
     int playerChoice;
     do {
@@ -67,7 +82,7 @@ void run() {
         //displayPlayerPosition(game->player.position);
 
         // Display the map
-        displayMap();
+        displayMap(game);
         // Display player's inventory
         displayInventoryFromMaxCapacity(game->player.inventory);
         // Display actions that the player can do
@@ -76,54 +91,74 @@ void run() {
         // Switch (player's actions)
         playerChoice = handlePlayerInput(game);
 
-    } while(playerChoice != '3');
+    } while (playerChoice != '3');
 
 }
 
 
-int handlePlayerInput(Game* game) {
+int handlePlayerInput(Game *game) {
     int playerChoice = getchar();
     getchar();
 
-    switch(playerChoice) {
+    switch (playerChoice) {
         case 'z': // Move up
             printf("Moving up\n");
             *game = checkFuturePosition(game, game->player.position.X, game->player.position.Y - 1);
 
+            /*if ( checkFuturePosition(game, game->player.position.X, game->player.position.Y - 1) ) {
+                updatePlayerPositionOnMap(game->player.position, game->player.position.X, game->player.position.Y - 1,
+                                          game->map[game->player.currentMap]);
+
+                game->player.position = updatePlayerPosition(game->player.position, game->player.position.X, game->player.position.Y - 1);
+            }*/
             break;
 
         case 'q': // Move left
             printf("Moving left\n");
             *game = checkFuturePosition(game, game->player.position.X - 1, game->player.position.Y);
+
             /*if ( checkFuturePosition(game, game->player.position.X - 1, game->player.position.Y) ) {
                 updatePlayerPositionOnMap(game->player.position, game->player.position.X - 1, game->player.position.Y);
-
                 game->player.position = updatePlayerPosition(game->player.position, game->player.position.X - 1, game->player.position.Y);
+
+            if ( checkFuturePosition(game, game->player.position.X - 1, game->player.position.Y) ) {
+                updatePlayerPositionOnMap(game->player.position, game->player.position.X - 1, game->player.position.Y,
+                                          game->map[game->player.currentMap]);
+
             }*/
             break;
 
         case 's': // Move down
             printf("Moving down\n");
+
             *game = checkFuturePosition(game, game->player.position.X, game->player.position.Y + 1);
             /*if ( checkFuturePosition(game, game->player.position.X, game->player.position.Y + 1) ) {
                 updatePlayerPositionOnMap(game->player.position, game->player.position.X, game->player.position.Y + 1);
+                 game->player.position = updatePlayerPosition(game->player.position, game->player.position.X, game->player.position.Y + 1);
 
-                game->player.position = updatePlayerPosition(game->player.position, game->player.position.X, game->player.position.Y + 1);
+
+            if ( checkFuturePosition(game, game->player.position.X, game->player.position.Y + 1) ) {
+                updatePlayerPositionOnMap(game->player.position, game->player.position.X, game->player.position.Y + 1,
+                                          game->map[game->player.currentMap]);
+
             }*/
             break;
 
         case 'd': // Move right
-            *game = checkFuturePosition(game, game->player.position.X + 1, game->player.position.Y);
             printf("Moving right\n");
+            *game = checkFuturePosition(game, game->player.position.X + 1, game->player.position.Y);
+
             /*if ( checkFuturePosition(game, game->player.position.X + 1, game->player.position.Y) ) {
-                updatePlayerPositionOnMap(game->player.position, game->player.position.X + 1, game->player.position.Y);
+                updatePlayerPositionOnMap(game->player.position, game->player.position.X + 1, game->player.position.Y,
+                                          game->map[game->player.currentMap]);
+
 
                 game->player.position = updatePlayerPosition(game->player.position, game->player.position.X + 1, game->player.position.Y);
             }*/
             break;
 
         case 'i':
-            displayInventoryMenu(game->player.inventory);
+            displayInventoryMenu(game->player.inventory, game);
             break;
 
         case 'p': // Pause menu
@@ -132,7 +167,7 @@ int handlePlayerInput(Game* game) {
             getchar();
 
             if (playerChoice == '2') { // Save choice
-                printf("Saving game...\n");
+                saveGame(game);
             }
             break;
 

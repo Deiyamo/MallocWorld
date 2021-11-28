@@ -7,12 +7,11 @@
 
 #include "types.h"
 
-Fight newFight();
-void displayFightLarge();
-void whoIsTurn();
-void startFight();
-void displayEndFight();
-void endFight();
+Fight newFight(Player* player, Monster* monster);
+void displayFightLarge(Game* game, Fight* fight);
+void whoIsTurn(Game* game, Fight* fight);
+void startFight(Game* game, int idMonster);
+void endFight(Game* game, Fight *fight, int status);
 
 
 #endif //MALLOC_WORLD_FIGHT_H

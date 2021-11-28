@@ -5,6 +5,7 @@
 #include "map.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // point.c
 #include "npc.h"
@@ -17,16 +18,7 @@
 #include "events.h"
 
 
-// a struct containing the map
-typedef struct Map {
-    int** painting;
-    int rows;
-    int columns;
-} Map;
-
-
-
-int mapArray[ROWS][COLUMNS] = {
+/*int mapArray[ROWS][COLUMNS] = {
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2},
         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 0},
         {0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 0},
@@ -42,9 +34,9 @@ int mapArray[ROWS][COLUMNS] = {
         {0, 0, 1, 0, 0, 0, 0, -1, 0, 0, 0, 0, 12, 12, 0},
         {0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 12, 0},
         {0, 0, 0, 0, 0, 0, 0, -1, 0, 0, 0, 0, 0, 0, 0}
-};
+};*/
 
-void createMap() {
+/*void createMap() {
     Map map = {};
 
     map.painting = malloc(sizeof(int) * ROWS);
@@ -54,28 +46,37 @@ void createMap() {
 
     map.rows = ROWS;
     map.columns = COLUMNS;
-}
+}*/
 
-void defaultMap() {
-    //printf("%d %d \n", map.rows, map.columns);
 
-    /*for (int i = 0; i < map.rows; i++) {
-        for (int j = 0; j < map.columns; j++) {
-            map.painting[i][j] = 0;
-
-            printf("%d " , map.painting[i][j]);
+void initMap(Map *map, int type) {
+    map->rows = ROWS;
+    map->columns = COLUMNS;
+    map->type = type;
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLUMNS; ++j) {
+            map->painting[i][j] = 0;
         }
-        printf("\n");
-    }*/
-
+    }
 }
 
 
-void displayMap() {
+/*void displayMap() {
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLUMNS; j++) {
             printf("%3d", mapArray[i][j]);
             //printf("%d " , map.painting[i][j]);
+        }
+        printf("\n");
+    }
+}*/
+
+void displayMap(Game *game) {
+    int currentMap = game->player.currentMap;
+    printf("---------------------------------ZONE %d---------------------------------\n", game->map[currentMap]->type);
+    for (int j = 0; j < game->map[currentMap]->rows; j++) {
+        for (int k = 0; k < game->map[currentMap]->columns; k++) {
+            printf("%3d", game->map[currentMap]->painting[j][k]);
         }
         printf("\n");
     }
@@ -88,7 +89,8 @@ void displayMap() {
 
 // Check is future position is a portal, a monster, a walkable position, etc...
 
-Game checkFuturePosition(Game* game, int x, int y) {
+
+Game checkFuturePosition(Game *game, int x, int y) {
 
     // Check map borders
     if (x < 0 || y < 0 || x >= ROWS || y >= COLUMNS) {
@@ -96,26 +98,31 @@ Game checkFuturePosition(Game* game, int x, int y) {
     }
 
     // Position is a monster
-    if (mapArray[y][x] >= 12 && mapArray[y][x] <= 98) {
+    if (game->map[game->player.currentMap]->painting[y][x] >= 12 &&
+        game->map[game->player.currentMap]->painting[y][x] <= 98) {
+        // start the fight with a monster
         printf("Do you want to go to the next/precedent zone\n");
-        startFight(&game->player,mapArray[y][x]);
+        startFight(game, game->map[game->player.currentMap]->painting[y][x]);
     }
 
     // Position is a portal
-    if (mapArray[y][x] == -2 || mapArray[y][x] == -3) {
+    if (game->map[game->player.currentMap]->painting[y][x] == -2 ||
+        game->map[game->player.currentMap]->painting[y][x] == -3) {
         // teleport the player
-        *game = teleportPlayer(game, mapArray[y][x], game->player.currentMap); // --> mapArray[y][x] , player zone
+        *game = teleportPlayer(game, game->map[game->player.currentMap]->painting[y][x],
+                               game->player.currentMap); // --> mapArray[y][x] , player zone
+
         printf("Do you want to go to the next/precedent zone\n");
         getchar();
         return *game;
     }
 
-    switch (mapArray[y][x]) {
+    switch (game->map[game->player.currentMap]->painting[y][x]) {
         case -1: // Position is a wall
             return *game;
 
         case 0: // Position is walkable
-            updatePlayerPositionOnMap(game->player.position, x, y);
+            updatePlayerPositionOnMap(game->player.position, x, y, game->map[game->player.currentMap]);
             game->player.position = updatePlayerPosition(game->player.position, x, y);
             return *game;
 
@@ -128,22 +135,22 @@ Game checkFuturePosition(Game* game, int x, int y) {
         case 3: // Position a plant (1, 2 and 3)
         case 6:
         case 9:
-            *game = harvestPlant(game, mapArray[y][x], x, y);
+            *game = harvestPlant(game, game->map[game->player.currentMap]->painting[y][x], x, y);
             break;
         case 4: // Position is a rock (1, 2 and 3)
         case 7:
         case 10:
-            *game = harvestRock(game, mapArray[y][x], x, y);
+            *game = harvestRock(game, game->map[game->player.currentMap]->painting[y][x], x, y);
             break;
         case 5: // Position is a tree (1, 2 and 3)
         case 8:
         case 11:
-            *game = harvestTree(game, mapArray[y][x], x, y);
+            *game = harvestTree(game, game->map[game->player.currentMap]->painting[y][x], x, y);
             break;
 
         case 99:
             // Position is the end boss
-                startFight(&game->player,99);
+            startFight(game, 99);
             break;
 
         default:
@@ -154,20 +161,20 @@ Game checkFuturePosition(Game* game, int x, int y) {
 }
 
 
-int isPositionWalkable(int x, int y) { // Not used anymore !! see --> checkFuturePosition
+int isPositionWalkable(Map *map, int x, int y) { // Not used anymore !! see --> checkFuturePosition
     // Check map borders
     if (x < 0 || y < 0 || x >= ROWS || y >= COLUMNS) {
         return 0;
     }
-    return mapArray[y][x] == 0 || mapArray[y][x] == -2 || mapArray[y][x] == -3;
+    return map->painting[y][x] == 0 || map->painting[y][x] == -2 || map->painting[y][x] == -3;
 }
 
 // Set player's position on his structure
-Point getPlayerPosition() {
-    Point position = {};
+Point getPlayerPosition(Map *map) {
+    Point position;
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLUMNS; j++) {
-            if (mapArray[i][j] == 1) {
+            if (map->painting[i][j] == 1) {
                 position.X = j;
                 position.Y = i;
                 return position;
@@ -178,15 +185,15 @@ Point getPlayerPosition() {
     return position;
 }
 
-void updatePlayerPositionOnMap(Point position, int newX, int newY) {
+void updatePlayerPositionOnMap(Point position, int newX, int newY, Map *map) {
     // reset last position
     //printf("\n%d %d = %d\n", position.X, position.Y, mapArray[position.X][position.Y]);
-    mapArray[position.Y][position.X] = 0;
+    map->painting[position.Y][position.X] = 0;
 
 
     // update new position
     //printf("\n%d %d = %d\n", newX, newY, mapArray[newX][newY]);
-    mapArray[newY][newX] = 1;
+    map->painting[newY][newX] = 1;
 
 }
 
