@@ -17,5 +17,5 @@ void clear_screen() {
 // Clear screen and display the map
 void restore_screen(Game *game) {
     clear_screen();
-    displayMap(game->map);
+    displayMap(game);
 }

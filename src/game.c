@@ -43,7 +43,7 @@ void run(int choice) {
         //displayPlayerPosition(game->player.position);
 
         // Display the map
-        displayMap(game->map);
+        displayMap(game);
         // Display player's inventory
         displayInventoryFromMaxCapacity(game->player.inventory);
         // Display actions that the player can do

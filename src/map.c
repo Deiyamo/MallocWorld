@@ -23,16 +23,14 @@ void initMap(Map *map, int type) {
 }
 
 
-void displayMap(Map **map) {
-    for (int i = 0; i < 3; ++i) {
-        printf("---------------------------------ZONE %d---------------------------------\n", map[i]->type);
-        for (int j = 0; j < ROWS; j++) {
-            for (int k = 0; k < COLUMNS; k++) {
-                printf("%3d", map[i]->painting[j][k]);
-    //            printf("%d " , map.painting[k][k]);
-            }
-            printf("\n");
+void displayMap(Game *game) {
+    int currentMap = game->player.currentMap;
+    printf("---------------------------------ZONE %d---------------------------------\n", game->map[currentMap]->type);
+    for (int j = 0; j < game->map[currentMap]->rows; j++) {
+        for (int k = 0; k < game->map[currentMap]->columns; k++) {
+            printf("%3d", game->map[currentMap]->painting[j][k]);
         }
+        printf("\n");
     }
 }
 

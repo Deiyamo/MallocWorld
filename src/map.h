@@ -12,7 +12,7 @@
 //void createMap();
 void defaultMap();
 void initMap(Map *map, int type);
-void displayMap(Map **map);
+void displayMap(Game *game);
 
 
 // will go to the point.h later
