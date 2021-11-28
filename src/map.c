@@ -10,6 +10,7 @@
 #include "npc.h"
 #include "player.h"
 #include "inventory.h"
+#include "point.h"
 
 
 // a struct containing the map
@@ -99,9 +100,10 @@ Game checkFuturePosition(Game* game, int x, int y) {
     // Position is a portal
     if (mapArray[y][x] == -2 || mapArray[y][x] == -3) {
         // teleport the player
-        //teleportPlayer(portalType, currentZone); --> mapArray[y][x] , player zone
+        *game = teleportPlayer(game, mapArray[y][x], game->player.currentMap); // --> mapArray[y][x] , player zone
         printf("Do you want to go to the next/precedent zone\n");
         getchar();
+        return *game;
     }
 
     switch (mapArray[y][x]) {
@@ -167,6 +169,7 @@ Point getPlayerPosition() {
             }
         }
     }
+    // no player found
 }
 
 void updatePlayerPositionOnMap(Point position, int newX, int newY) {

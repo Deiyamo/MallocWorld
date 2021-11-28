@@ -22,6 +22,15 @@ void restore_screen() {
     displayMap();
 }
 
+/*void getcharAdvanced(void) {
+    int enter;
+
+    do {
+        enter = getchar();
+    } while (enter != '\n' && enter != '\r');
+}*/
+
+
 
 // Display columns name
 void displayColumnsName(char* line, const char* separators) {

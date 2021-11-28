@@ -10,4 +10,6 @@
 //void isPositionWalkable(int x, int y);
 //Point getPlayerPosition();
 
+Game teleportPlayer(Game* game, int portalType, int currentMap);
+
 #endif //MALLOC_WORLD_POINT_H

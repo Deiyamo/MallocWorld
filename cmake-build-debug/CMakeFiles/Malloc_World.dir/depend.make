@@ -69,6 +69,7 @@ CMakeFiles/Malloc_World.dir/src/map.c.obj: \
  ../src/map.h \
  ../src/npc.h \
  ../src/player.h \
+ ../src/point.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/npc.c.obj: \
  ../src/dialog.h \
