@@ -16,6 +16,9 @@ void displayInventoryFromCurrentCapacity(Inventory inventory);
 Game addItemHarvested(Game* game, char** properties);
 Game addItemToInventory(Game* game, char** properties, int quantityHarvested);
 
+Game subtractItemFromInventory(Game* game, const char* name, int quantity);
+Game deleteItem(Game* game, int itemNumber);
+
 Inventory npcStartingInventory();
 
 void repairInventoryStuff(Game* game);

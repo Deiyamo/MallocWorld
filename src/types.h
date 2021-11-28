@@ -63,6 +63,7 @@ typedef struct Player {
     Health health; // player's health
     Inventory inventory; // player's inventory
     Point position; // player's position
+    int currentMap; // Zone where the player is
 } Player;
 
 typedef struct Npc {

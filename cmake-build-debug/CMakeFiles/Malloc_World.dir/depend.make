@@ -7,6 +7,11 @@ CMakeFiles/Malloc_World.dir/src/class.c.obj: \
  ../src/dialog.h \
  ../src/item.h \
  ../src/types.h
+CMakeFiles/Malloc_World.dir/src/craft.c.obj: \
+ ../src/craft.c \
+ ../src/craft.h \
+ ../src/inventory.h \
+ ../src/types.h
 CMakeFiles/Malloc_World.dir/src/dialog.c.obj: \
  ../src/dialog.c \
  ../src/dialog.h \
@@ -41,7 +46,10 @@ CMakeFiles/Malloc_World.dir/src/inventory.c.obj: \
  ../src/npc.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/item.c.obj: \
+ ../src/class.h \
+ ../src/craft.h \
  ../src/events.h \
+ ../src/inventory.h \
  ../src/item.c \
  ../src/item.h \
  ../src/types.h

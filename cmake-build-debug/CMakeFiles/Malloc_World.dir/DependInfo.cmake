@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/class.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/class.c.obj"
+  "D:/3eme_annee/S1/C_challenge/Malloc_World/src/craft.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/craft.c.obj"
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/dialog.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/dialog.c.obj"
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/events.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/events.c.obj"
   "D:/3eme_annee/S1/C_challenge/Malloc_World/src/game.c" "D:/3eme_annee/S1/C_challenge/Malloc_World/cmake-build-debug/CMakeFiles/Malloc_World.dir/src/game.c.obj"

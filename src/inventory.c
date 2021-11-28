@@ -111,7 +111,7 @@ Game addItemHarvested(Game* game, char** properties) {
     int slotAvailable;
 
     // If the item already exists and is stackable
-    for (int i = 1; i <= game->player.inventory.maxCapacity; ++i) {
+    for (int i = 0; i < game->player.inventory.maxCapacity; ++i) {
         if (game->player.inventory.item[i].id == atoi(properties[0])) {
             if (game->player.inventory.item[i].quantity + quantityHarvested <= game->player.inventory.item[i].property.stack) {
                 game->player.inventory.item[i].quantity += quantityHarvested; // Add resource harvested
@@ -132,14 +132,14 @@ Game addItemHarvested(Game* game, char** properties) {
 // Insert new Item to inventory on a NEW slot
 Game addItemToInventory(Game* game, char** properties, int quantityHarvested) {
     // insert new item to inventory
-    for (int i = 1; i <= game->player.inventory.maxCapacity; ++i) {
+    for (int i = 0; i < game->player.inventory.maxCapacity; ++i) {
         if (game->player.inventory.item[i].id == 0) {
 
             game->player.inventory.currentCapacity += 1;
 
             game->player.inventory.item[i].id = atoi(properties[0]); // itemToAdd
             //game->player.inventory.item[i].name = properties[1];
-            game->player.inventory.item[i].name = malloc(sizeof(char) * 15);
+            game->player.inventory.item[i].name = malloc(sizeof(char) * 20);
             strcpy(game->player.inventory.item[i].name, properties[1]);
             game->player.inventory.item[i].quantity = atoi(properties[2]) * quantityHarvested;
             game->player.inventory.item[i].durability = atoi(properties[3]);
@@ -157,6 +157,27 @@ Game addItemToInventory(Game* game, char** properties, int quantityHarvested) {
     return *game;
 }
 
+// Subtract Items needed for the new item from inventory
+Game subtractItemFromInventory(Game* game, const char* name, int quantity) {
+    for (int i = 0; i < game->player.inventory.maxCapacity; ++i) {
+        if (strcmp(game->player.inventory.item[i].name, name) == 0 && game->player.inventory.item[i].quantity >= quantity) {
+            game->player.inventory.item[i].quantity -= quantity; // Subtract resource used
+            if (game->player.inventory.item[i].quantity == 0) {
+                *game = deleteItem(game, i);
+            }
+            return *game;
+        }
+    }
+
+    return *game;
+}
+
+Game deleteItem(Game* game, int itemNumber) {
+    // delete item from inventory and set its slot to 0
+    memset(&game->player.inventory.item[itemNumber], 0, sizeof(Item));
+    game->player.inventory.currentCapacity -= 1;
+    return *game;
+}
 
 /*------------------------------------------------------
     NPC STORAGE
@@ -301,7 +322,7 @@ Game takeOneItemFromStorage(Game* game, int itemNumber) {
             game->player.inventory.currentCapacity += 1;
 
             // insert new item to inventory
-            for (int i = 1; i <= game->player.inventory.maxCapacity; ++i) {
+            for (int i = 0; i < game->player.inventory.maxCapacity; ++i) {
                 if (game->player.inventory.item[i].id == 0) {
                     game->player.inventory.item[i].id = game->npc.storage.item[itemNumber].id;
                     game->player.inventory.item[i].name = game->npc.storage.item[itemNumber].name;

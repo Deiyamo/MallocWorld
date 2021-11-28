@@ -23,12 +23,17 @@ void displayItemName(char* line, const char* separators);
 
 void verifyItemSelected(Game* game, int itemId);
 
-char** getCraftFromFile(char* fileName, const char* separators, int itemId);
+int checkIfItemIsWeapon(Inventory inventory, Class weapon);
+int checkIfItemIsArmor(Inventory inventory, Class armor);
+int compareTwoNumbers(int nb1, int nb2);
 
+Game craftItem(Game* game, char** properties, int itemId);
+
+
+/* dont uses anymore */
+char** getCraftFromFile(char* fileName, const char* separators, int itemId);
 char** getCraftAdvancedProperties(char* itemString, const char* separators);
 char** getCraftItems(char* itemString, const char* separators);
 char** getCraftZones(char* itemString, const char* separators);
-
 void checkIfPlayerHasRequiredItems(int itemId);
-void craftItem();
 #endif //MALLOC_WORLD_ITEM_H

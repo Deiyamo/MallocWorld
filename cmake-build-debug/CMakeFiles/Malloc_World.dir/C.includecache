@@ -6,51 +6,41 @@
 
 #IncludeRegexTransform: 
 
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/events.h
-
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/class.h
 types.h
 D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
 
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/item.c
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/dialog.h
+types.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
+
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.c
+inventory.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.h
+dialog.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/dialog.h
+npc.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/npc.h
+class.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/class.h
 item.h
 D:/3eme_annee/S1/C_challenge/Malloc_World/src/item.h
-events.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/events.h
 stdio.h
+-
+stdlib.h
 -
 string.h
 -
-stdlib.h
--
+
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.h
+types.h
+D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
 
 D:/3eme_annee/S1/C_challenge/Malloc_World/src/item.h
 types.h
 D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
 
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.c
-map.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.h
-stdio.h
--
-stdlib.h
--
-npc.h
 D:/3eme_annee/S1/C_challenge/Malloc_World/src/npc.h
-player.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/player.h
-inventory.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/inventory.h
-
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.h
-types.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
-
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/npc.h
-types.h
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
-
-D:/3eme_annee/S1/C_challenge/Malloc_World/src/player.h
 types.h
 D:/3eme_annee/S1/C_challenge/Malloc_World/src/types.h
 

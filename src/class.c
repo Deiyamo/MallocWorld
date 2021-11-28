@@ -97,6 +97,16 @@ Class stringToEnum(const char* itemType) {
     return -1;
 }
 
+int checkClass(Inventory inventory, Class type) {
+    int res = 1;
+    if (type == Weapon) {
+        res = checkIfItemIsWeapon(inventory, type);
+    } else if (type == Armor) {
+        res = checkIfItemIsWeapon(inventory, type);
+    }
+    return res;
+}
+
 /*------------------------------------------------------
     BILLHOOK
 ------------------------------------------------------*/

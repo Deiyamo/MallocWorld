@@ -152,6 +152,30 @@ src/class.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/class.c.s
 .PHONY : src/class.c.s
 
+src/craft.obj: src/craft.c.obj
+.PHONY : src/craft.obj
+
+# target to build an object file
+src/craft.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/craft.c.obj
+.PHONY : src/craft.c.obj
+
+src/craft.i: src/craft.c.i
+.PHONY : src/craft.i
+
+# target to preprocess a source file
+src/craft.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/craft.c.i
+.PHONY : src/craft.c.i
+
+src/craft.s: src/craft.c.s
+.PHONY : src/craft.s
+
+# target to generate assembly for a file
+src/craft.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/craft.c.s
+.PHONY : src/craft.c.s
+
 src/dialog.obj: src/dialog.c.obj
 .PHONY : src/dialog.obj
 
@@ -476,6 +500,9 @@ help:
 	@echo ... src/class.obj
 	@echo ... src/class.i
 	@echo ... src/class.s
+	@echo ... src/craft.obj
+	@echo ... src/craft.i
+	@echo ... src/craft.s
 	@echo ... src/dialog.obj
 	@echo ... src/dialog.i
 	@echo ... src/dialog.s

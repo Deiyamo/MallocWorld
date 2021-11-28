@@ -4,6 +4,9 @@
 
 #include "item.h"
 #include "events.h"
+#include "craft.h"
+#include "class.h"
+#include "inventory.h"
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -163,58 +166,78 @@ void displayItemName(char* line, const char* separators) {
 /* Verify if player can craft this Item
  *  Required items to craft selected item
  *  3 weapons, 1 armor MAX
- *  Check if the npc is in the right zone
+ *  Check if the npc is in the right zone (by checking the player's zone)
  */
 void verifyItemSelected(Game* game, int itemId) {
-
-    //checkIfPlayerHasRequiredItems(itemId);
-    //getchar();
-    //getItemPropertiesFromFile();
-    /*FILE *fp;
-    const char* separators = "{}"; // separators list
-    fp = fopen("../resources/craftList", "r");
-
-    char** properties = malloc(sizeof(char*) * 10);
-    char line[90]; // maximum line size !
-    int lineNumber = 0;
-
-    if (fp != NULL) {
-        fgets(line, sizeof line, fp);
-        fgets(line, sizeof line, fp);
-        fgets(line, sizeof line, fp);
-        while (fgets(line, sizeof line, fp) != NULL) {
-            if (lineNumber == itemId) {
-                char* strToken = strtok(line, separators);
-
-                for (int j = 0; strToken != NULL ; j++) {
-                    properties[j] = malloc(sizeof(char) * 15);
-                    strcpy(properties[j], strToken); // insert all properties of the item in an array.
-
-                    strToken = strtok(NULL, separators);
+    // if the player has the required item to build itemId
+    if (checkItemRequired(game->player.inventory, itemId)) {
+        if (checkZoneRequired(game->player.currentMap, itemId)) {
+            char** properties = getCraftItemProperties(itemId);
+            if (properties != NULL) {
+                if ( checkClass(game->player.inventory, stringToEnum(properties[4])) ) {
+                    printf("weapon&armor ok");
+                    *game = craftItem(game, properties, itemId);
+                } else {
+                    printf("You can't have more than 3 Weapons and 1 Armor.");
                 }
-                break;
+
+                for(int i = 0; i < 10; i++) {
+                    free(properties[i]);
+                }
+                free(properties);
             }
-            lineNumber++;
+        } else {
+            printf("You can't build this item in this zone.");
         }
-        fclose(fp);
-
-        for (int i = 0; i < 10; i++) {
-            printf("%s ", properties[i]);
-        }
-
     } else {
-        printf("/!\\ Error while opening itemList file...");
+        printf("You don't have the required items.");
     }
-
-    char playerStrChoice[5];
-    long playerChoice = 0;
-    while (playerChoice != -1) {
-        fgets(playerStrChoice, 5, stdin);
-        playerChoice = strtol(playerStrChoice, NULL, 0);
-    }*/
+    getchar();
 }
 
 
+int checkIfItemIsWeapon(Inventory inventory, Class weapon) {
+    int nbItem = 0;
+    for (int i=0; i < inventory.maxCapacity; i++) {
+        if (inventory.item[i].id != 0) {
+            if (inventory.item[i].property.type == weapon) {
+                nbItem++;
+            }
+        }
+    }
+    return compareTwoNumbers(nbItem, 3);
+}
+int checkIfItemIsArmor(Inventory inventory, Class armor) {
+    int nbItem = 0;
+    for (int i=0; i < inventory.maxCapacity; i++) {
+        if (inventory.item[i].id != 0) {
+            if (inventory.item[i].property.type == armor) {
+                nbItem++;
+            }
+        }
+    }
+    return compareTwoNumbers(nbItem, 1);
+}
+
+int compareTwoNumbers(int nb1, int nb2) {
+    if (nb1 >= nb2) {
+        return 0;
+    }
+    return 1;
+}
+
+/* Subtract resources necessary to build the item
+ * Add new Item to inventory
+ */
+Game craftItem(Game* game, char** properties, int itemId) {
+    *game = subtractItemRequired(game, itemId);
+    *game = addItemToInventory(game, properties, 1);
+    return *game;
+}
+
+
+
+/* dont uses anymore */
 char** getCraftFromFile(char* fileName, const char* separators, int itemId) {
     FILE *fp;
     fp = fopen(fileName, "r");
@@ -248,8 +271,6 @@ char** getCraftFromFile(char* fileName, const char* separators, int itemId) {
     }
     return NULL;
 }
-
-
 // Separate craft properties 1 by 1
 char** getCraftItems(char* itemString, const char* separators) {
 
@@ -277,7 +298,6 @@ char** getCraftZones(char* itemString, const char* separators) {
 
     return zones;
 }
-
 void checkIfPlayerHasRequiredItems(int itemId) {
     char** properties = getCraftFromFile("../resources/craftSchema", "{}", itemId);
     if (properties != NULL) {

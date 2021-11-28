@@ -23,6 +23,7 @@ Player newPlayer() {
     player.health = starting_health();
     player.inventory = starting_inventory();
     player.position = getPlayerPosition();
+    player.currentMap = 0;
 
     return player;
 }

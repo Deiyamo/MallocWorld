@@ -24,6 +24,7 @@ void displayHealSimplified(Item item);
 
 
 Class stringToEnum(const char* itemType);
+int checkClass(Inventory inventory, Class type);
 
 int checkBillhookToUse(Inventory inventory, int casePosition, int currentTool);
 int checkBillhook(Inventory inventory, int billhookId, int durabilityNeeded);
