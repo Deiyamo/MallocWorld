@@ -16,7 +16,7 @@
 ------------------------------------------------------*/
 
 Fight newFight(Player *player, Monster *monster) {
-    Fight fight = {};
+    Fight fight;
 
     fight.monster = monster;
     fight.player = player;

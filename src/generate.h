@@ -9,7 +9,7 @@
 #define NB_MONSTERS_MIN 10
 #define NB_ROCKS_MIN 5
 #define NB_PLANTS_MIN 6
-#define NB_TREES_MIN 3
+#define NB_TREES_MIN 5
 #define NB_WALLS (ROWS*COLUMNS)*0.1
 
 #include "map.h"
@@ -22,6 +22,7 @@ void placePlayer(Map *map);
 void placePNJ(Map *map);
 void placePortal(Map *map);
 void placeWalls(Map *map);
+void placeUltimateMonster(Map *map);
 Map **generate();
 
 #endif //MALLOC_WORLD_GENERATE_H

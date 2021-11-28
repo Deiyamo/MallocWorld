@@ -135,7 +135,7 @@ Game addItemToInventory(Game* game, char** properties, int quantityHarvested) {
     // insert new item to inventory
     for (int i = 0; i < game->player.inventory.maxCapacity; ++i) {
         //printf("%d %d", game->player.inventory.currentCapacity, game->player.inventory.maxCapacity);
-        getchar();
+//        getchar();
         if (game->player.inventory.item[i].id == 0) {
 
             game->player.inventory.currentCapacity += 1;

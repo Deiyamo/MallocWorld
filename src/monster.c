@@ -105,7 +105,7 @@ Monster createMonster(int idMonster) {
         {"White Sheep","222","222","120","666666","15"},
     };
 
-    Monster monster = {};
+    Monster monster;
 
     int realIdMonster = idMonster-12;
     monster.id = realIdMonster;

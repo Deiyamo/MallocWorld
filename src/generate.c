@@ -6,6 +6,8 @@
 #include <stdlib.h>
 
 void generateMonsters(Map *map) {
+    time_t t;
+    srand( (unsigned )time( &t ) );
     int countMonsters = 0, randYNum, randXNum;
     while (countMonsters < NB_MONSTERS_MIN){
         for (int x = 0; x < ROWS; ++x) {
@@ -13,8 +15,19 @@ void generateMonsters(Map *map) {
                 randYNum = rand()%COLUMNS;
                 randXNum = rand()%ROWS;
                 if(x == randXNum && y == randYNum && map->painting[x][y] == 0) {
-                    map->painting[x][y] = (rand()%(98-12))+12;
-                    countMonsters++;
+                    switch (map->type) {
+                        case 0:
+                            map->painting[x][y] = (rand()%(40-12))+12;
+                            countMonsters++;
+                            break;
+                        case 1:
+                            map->painting[x][y] = (rand()%(70-41))+41;
+                            countMonsters++;
+                            break;
+                        case 2:
+                            map->painting[x][y] = (rand()%(98-71))+71;
+                            countMonsters++;
+                    }
                 }
             }
         }
@@ -74,6 +87,8 @@ void generatePlants(Map *map) {
 }
 
 void generateTrees(Map *map) {
+    time_t t;
+    srand( (unsigned )time( &t ) );
     int countTrees = 0, randYNum, randXNum;
     while (countTrees < NB_TREES_MIN){
         for (int x = 0; x < ROWS; ++x) {
@@ -162,8 +177,19 @@ void placeWalls(Map *map) {
     }
 }
 
+void placeUltimateMonster(Map *map) {
+    int randX = rand()%ROWS;
+    int randY = rand()%COLUMNS;
+    while  (map->painting[randX][randY] != 0){
+        randX = rand()%ROWS;
+        randY = rand()%COLUMNS;
+    }
+    map->painting[randX][randY] = 99;
+}
+
 Map **generate() {
-    srand( time( NULL ) );
+    time_t t;
+    srand( (unsigned )time( &t ) );
     Map **result = malloc(sizeof(Map*)*3);
     for (int i = 0; i < 3; ++i) {
         result[i] = malloc(sizeof(Map));
@@ -176,6 +202,9 @@ Map **generate() {
         placePNJ(result[i]);
         placePortal(result[i]);
         placeWalls(result[i]);
+        if(i == 2) {
+            placeUltimateMonster(result[i]);
+        }
     }
     return result;
 }
