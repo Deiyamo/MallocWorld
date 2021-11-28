@@ -175,7 +175,6 @@ Map **generate() {
         placePNJ(result[i]);
         placePortal(result[i]);
         placeWalls(result[i]);
-//        displayMap(result[i]);
     }
     return result;
 }

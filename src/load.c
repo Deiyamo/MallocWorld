@@ -64,7 +64,6 @@ Player loadPlayer(FILE *f) {
         ptr = strtok(NULL, delimiter);
     }
     player.currentMap = atoi(ptr);
-    printf("%s\n", ptr);
     ptr = strtok(NULL, delimiter);
     //GET LEVEl
     fgets(currentLine, 20, f);
