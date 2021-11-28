@@ -74,8 +74,8 @@ void initMap(Map *map, int type) {
 void displayMap(Game *game) {
     int currentMap = game->player.currentMap;
     printf("---------------------------------ZONE %d---------------------------------\n", game->map[currentMap]->type);
-    for (int j = 0; j < game->map[currentMap]->rows; j++) {
-        for (int k = 0; k < game->map[currentMap]->columns; k++) {
+    for (int j = 0; j < ROWS; j++) {
+        for (int k = 0; k < COLUMNS; k++) {
             printf("%3d", game->map[currentMap]->painting[j][k]);
         }
         printf("\n");
@@ -109,8 +109,7 @@ Game checkFuturePosition(Game *game, int x, int y) {
     if (game->map[game->player.currentMap]->painting[y][x] == -2 ||
         game->map[game->player.currentMap]->painting[y][x] == -3) {
         // teleport the player
-        *game = teleportPlayer(game, game->map[game->player.currentMap]->painting[y][x],
-                               game->player.currentMap); // --> mapArray[y][x] , player zone
+        *game = teleportPlayer(game, game->map[game->player.currentMap]->painting[y][x], game->player.currentMap); // --> mapArray[y][x] , player zone
 
         printf("Do you want to go to the next/precedent zone\n");
         getchar();

@@ -13,7 +13,7 @@
 Level setLevelToZero() {
     Level level;
 
-    level.floor = 1;
+    level.floor = 7;
     level.maxFloor = 10;
     level.XpCurrent = 0;
     level.XpMax = STARTING_XP;
