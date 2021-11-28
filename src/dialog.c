@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include "events.h"
 #include "inventory.h"
+#include "load.h"
 
 
 // Display the name of the game

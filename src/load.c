@@ -5,10 +5,10 @@
 
 #include "load.h"
 
-void createZones(Map **map) {
+void createZones(Map **map, char* filePath) {
     char buffer[100];
 
-    FILE *loadFile = fopen(MAP_LOAD_FILE_PATH, "r+");
+    FILE *loadFile = fopen(filePath, "r+");
 
     //SKIP === MAP ===
     fgets(buffer, 100, loadFile);
@@ -23,14 +23,79 @@ void createZones(Map **map) {
     fclose(loadFile);
 }
 
-Map** load() {
-    Map **map = malloc(sizeof(Map*)*3);
+Game *load() {
+    Game *game = malloc(sizeof(Game));
+    game->map = malloc(sizeof(Map*)*3);
     for (int i = 0; i < 3; ++i) {
-        map[i] = malloc(sizeof(Map));
+        game->map[i] = malloc(sizeof(Map));
+    }
+    char mapName[100], playerName[100];
+    sprintf(mapName, "%s/MAP.log", LOAD_DIR_PATH);
+    sprintf(playerName, "%s/PLAYER.log", LOAD_DIR_PATH);
+    FILE *f = fopen(playerName, "r");
+    if  (f != NULL) {
+
+        game->player = loadPlayer(f);
+        game->npc = newNpc();
+
+        createZones(game->map, mapName);
+
+    } else {
+        printf("Ce fichier n'existe aps !!! \n");
     }
 
-    createZones(map);
-    return map;
+
+    return game;
+}
+
+Player loadPlayer(FILE *f) {
+    Player player;
+    char buffer[100], *ptr;
+    char currentLine[20];
+    char delimiter[] = "{}/";
+    //SKIP -- PLAYER --
+    fgets(buffer, 100, f);
+    //Get NAME AND CURRENT MAP
+    fgets(currentLine, 20, f);
+    ptr = strtok(currentLine, delimiter);
+    if  (ptr!=NULL){
+        player.name = malloc(sizeof(char)*(strlen(ptr)+1));
+        sprintf(player.name, "%s", ptr);
+        ptr = strtok(NULL, delimiter);
+    }
+    player.currentMap = atoi(ptr);
+    printf("%s\n", ptr);
+    ptr = strtok(NULL, delimiter);
+    //GET LEVEl
+    fgets(currentLine, 20, f);
+    ptr = strtok(currentLine, delimiter);
+    if  (ptr!=NULL) {
+        player.level.floor = atoi(ptr);
+        ptr = strtok(NULL, delimiter);
+    }
+    //GET CURRENT XP AND NEXT XP
+    fgets(currentLine, 20, f);
+    ptr = strtok(currentLine, delimiter);
+    if  (ptr!=NULL) {
+        player.level.XPcurrent = atoi(ptr);
+        ptr = strtok(NULL, delimiter);
+    }
+    player.level.XPmax = atoi(ptr);
+    ptr = strtok(NULL, delimiter);
+    //GET HP CURRENT et HP MAX
+    fgets(currentLine, 20, f);
+    ptr = strtok(currentLine, delimiter);
+    if  (ptr!=NULL) {
+        player.health.HPcurrent = atoi(ptr);
+        ptr = strtok(NULL, delimiter);
+    }
+    player.health.HPmax = atoi(ptr);
+    ptr = strtok(NULL, delimiter);
+
+
+    player.inventory = starting_inventory();
+
+    return player;
 }
 
 void loadMap(Map *map, FILE *mapFile) {

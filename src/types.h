@@ -92,5 +92,10 @@ typedef struct Game {
     //time_t paused; // the amount of seconds the game was paused
     //char* saveFile; // Save file that contains : map, inventory, storage, player's stats, etc...
 } Game;
+
+typedef struct Save {
+    int id;
+    char name[100];
+} Save;
 #endif //MALLOC_WORLD_TYPES_H
 

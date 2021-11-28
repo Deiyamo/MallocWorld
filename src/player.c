@@ -21,9 +21,9 @@ Player newPlayer(Game *game) {
     player.level = set_level_to_zero();
     player.health = starting_health();
     player.inventory = starting_inventory();
+    player.currentMap = 0;
     player.position = getPlayerPosition(game->map[0]);
     printf("\n %d %d \n", player.position.X, player.position.Y);
-    player.currentMap = 0;
     return player;
 }
 

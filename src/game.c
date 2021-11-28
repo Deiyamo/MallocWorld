@@ -11,6 +11,7 @@
 #include "dialog.h"
 #include "npc.h"
 #include "inventory.h"
+#include "save.h"
 
 
 
@@ -18,24 +19,22 @@ void run(int choice) {
     clear_screen();
 
     Game* game = malloc( sizeof(Game) );
-    game->npc = newNpc();
     game->map = malloc(sizeof(Map*)*3);
     for (int i = 0; i < 3; ++i) {
-        game->map = malloc(sizeof(Map));
-        switch (choice) {
-            case '1':
-                game->map = generate();
-                break;
-            case '2':
-                game->map = load();
-                break;
-            default:
-                break;
-        }
+        game->map[i] = malloc(sizeof(Map));
     }
-    game->player = newPlayer(game);
-
-
+    switch (choice) {
+        case '1':
+            game->map = generate();
+            game->npc = newNpc();
+            game->player = newPlayer(game);
+            break;
+        case '2':
+            game = load();
+            break;
+        default:
+            break;
+    }
 
     int playerChoice;
     do {
@@ -115,7 +114,7 @@ int handlePlayerInput(Game* game) {
             getchar();
 
             if (playerChoice == '2') { // Save choice
-                printf("Saving game...\n");
+                saveGame(game);
             }
             break;
 
