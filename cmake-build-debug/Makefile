@@ -224,6 +224,30 @@ src/events.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/events.c.s
 .PHONY : src/events.c.s
 
+src/fight.obj: src/fight.c.obj
+.PHONY : src/fight.obj
+
+# target to build an object file
+src/fight.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/fight.c.obj
+.PHONY : src/fight.c.obj
+
+src/fight.i: src/fight.c.i
+.PHONY : src/fight.i
+
+# target to preprocess a source file
+src/fight.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/fight.c.i
+.PHONY : src/fight.c.i
+
+src/fight.s: src/fight.c.s
+.PHONY : src/fight.s
+
+# target to generate assembly for a file
+src/fight.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/fight.c.s
+.PHONY : src/fight.c.s
+
 src/game.obj: src/game.c.obj
 .PHONY : src/game.obj
 
@@ -392,6 +416,30 @@ src/map.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/map.c.s
 .PHONY : src/map.c.s
 
+src/monster.obj: src/monster.c.obj
+.PHONY : src/monster.obj
+
+# target to build an object file
+src/monster.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/monster.c.obj
+.PHONY : src/monster.c.obj
+
+src/monster.i: src/monster.c.i
+.PHONY : src/monster.i
+
+# target to preprocess a source file
+src/monster.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/monster.c.i
+.PHONY : src/monster.c.i
+
+src/monster.s: src/monster.c.s
+.PHONY : src/monster.s
+
+# target to generate assembly for a file
+src/monster.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Malloc_World.dir\build.make CMakeFiles/Malloc_World.dir/src/monster.c.s
+.PHONY : src/monster.c.s
+
 src/npc.obj: src/npc.c.obj
 .PHONY : src/npc.obj
 
@@ -509,6 +557,9 @@ help:
 	@echo ... src/events.obj
 	@echo ... src/events.i
 	@echo ... src/events.s
+	@echo ... src/fight.obj
+	@echo ... src/fight.i
+	@echo ... src/fight.s
 	@echo ... src/game.obj
 	@echo ... src/game.i
 	@echo ... src/game.s
@@ -530,6 +581,9 @@ help:
 	@echo ... src/map.obj
 	@echo ... src/map.i
 	@echo ... src/map.s
+	@echo ... src/monster.obj
+	@echo ... src/monster.i
+	@echo ... src/monster.s
 	@echo ... src/npc.obj
 	@echo ... src/npc.i
 	@echo ... src/npc.s

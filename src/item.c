@@ -143,6 +143,7 @@ void displayCraftableItems(Game* game) {
     }
 }
 
+
 // Display items name
 void displayItemName(char* line, const char* separators) {
     char** columnName = malloc(sizeof(char*) * 10);
@@ -301,8 +302,8 @@ char** getCraftZones(char* itemString, const char* separators) {
 void checkIfPlayerHasRequiredItems(int itemId) {
     char** properties = getCraftFromFile("../resources/craftSchema", "{}", itemId);
     if (properties != NULL) {
-        char** items = getCraftItems(properties[1], ";");
-        char** zones = getCraftZones(properties[2], ";");
+        char **items = getCraftItems(properties[1], ";");
+        char **zones = getCraftZones(properties[2], ";");
         for (int i = 0; i < 3; i++) {
             if (items[i] != NULL) {
                 printf("%s ", items[i]);
@@ -315,9 +316,9 @@ void checkIfPlayerHasRequiredItems(int itemId) {
             }
             printf("\n");
         }
-        printf("%s %s %s\n", items[0], items[1], items[2]);
-        printf("%s %s %s\n", zones[0], zones[1], zones[2]);
-        /*for (int i = 0; i < 3; i++) {
+        //printf("%s %s %s\n", items[0], items[1], items[2]);
+        //printf("%s %s %s\n", zones[0], zones[1], zones[2]);
+        for (int i = 0; i < 3; i++) {
             if (properties[i] != NULL) {
                 free(properties[i]);
             }
@@ -330,7 +331,26 @@ void checkIfPlayerHasRequiredItems(int itemId) {
         }
         free(properties);
         free(items);
-        free(zones);*/
+        free(zones);
+    }
+}
 
+
+
+
+/*------------------------------------------------------
+    Nicolas update
+------------------------------------------------------*/
+
+void displayPotion(Item item) {
+    printf("[%s]  Quantity : %d - Heal : %d",
+           item.name, item.quantity, item.property.heal);
+}
+
+int isItemOfType(Item item, Class type) {
+    if (item.property.type == type) {
+        return 1;
+    } else {
+        return 0;
     }
 }

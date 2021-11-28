@@ -31,4 +31,10 @@ void takeItemsFromStorage(Game* game);
 void selectItemToTake(Game* game);
 Game takeOneItemFromStorage(Game* game, int itemNumber);
 
+int nbItemInInventory();
+void displayItemInInventoryForFight();
+Item takeItemInInventory();
+void placeItemInHand();
+int findArmor();
+
 #endif //MALLOC_WORLD_INVENTORY_H

@@ -98,6 +98,12 @@
 		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/events.h">
 			<Option target="Malloc_World"/>
 		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/fight.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/fight.h">
+			<Option target="Malloc_World"/>
+		</Unit>
 		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/game.c">
 			<Option target="Malloc_World"/>
 		</Unit>
@@ -135,6 +141,12 @@
 			<Option target="Malloc_World"/>
 		</Unit>
 		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/map.h">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/monster.c">
+			<Option target="Malloc_World"/>
+		</Unit>
+		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/monster.h">
 			<Option target="Malloc_World"/>
 		</Unit>
 		<Unit filename="D:/3eme_annee/S1/C_challenge/Malloc_World/src/npc.c">

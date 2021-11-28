@@ -8,9 +8,6 @@
 #include "types.h"
 
 Player newPlayer();
-void movePlayer();
-void XPincrease_player();
-void levelUp_player();
 
 
 void display_player(Player player);
@@ -22,6 +19,24 @@ Game harvestTree(Game* game, int casePosition, int x, int y);
 
 
 void kill_player();
+
+int chooseWeaponFight();
+void attack();
+void damagePlayer();
+void escapeFight();
+void actionPlayer(); 
+void killPlayer();
+
+void healthPlayer();
+void displayChoosePotion();
+int choosePotionFight();
+
+void displayChooseWeapon();
+void displayPlayer();
+void displayPlayerFight();
+void displayPlayerPosition();
+void displayInteractionPlayer();
+
 
 
 #endif //MALLOC_WORLD_PLAYER_H

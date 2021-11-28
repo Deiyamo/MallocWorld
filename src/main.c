@@ -15,7 +15,9 @@
 
 int main(int argc, char **argv) {
 
-    int choice;
+    runMain();
+
+    /* int choice;
 
     do {
         displayMenu(); // Display the text menu
@@ -46,11 +48,11 @@ int main(int argc, char **argv) {
                 exit(0); // terminates the complete program execution
 
             default:
-                printf("This value is not a choice... Please try again");
+                printf("This value is not a choice... Please try again\n");
                 break;
         }
 
-    } while(1);
+    } while(1); */
 
 
     // SAVE GAME

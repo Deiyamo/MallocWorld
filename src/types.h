@@ -15,13 +15,14 @@ typedef struct Point {
 
 typedef struct Level {
     int floor; // player's level
-    int XPcurrent; // Current player's XP
-    int XPmax; // Max level's XP before the next one
+    int maxFloor; // player's level
+    int XpCurrent; // Current player's XP
+    int XpMax; // Max level's XP before the next one
 } Level;
 
 typedef struct Health {
-    int HPcurrent; // Current player's HP
-    int HPmax; // Max player's HP
+    int currentHp; // Current player's HP
+    int maxHp; // Max player's HP
 } Health;
 
 typedef enum Class {
@@ -47,7 +48,6 @@ typedef struct Item {
     int quantity; // Item's quantity
     int durability; // Item's durability
     Property property; // Item's type
-    //Item* schema; // Craft Schema
 } Item;
 
 typedef struct Inventory {
@@ -57,6 +57,7 @@ typedef struct Inventory {
 } Inventory;
 
 
+
 typedef struct Player {
     char* name; // player's name
     Level level; // player's experience
@@ -64,7 +65,27 @@ typedef struct Player {
     Inventory inventory; // player's inventory
     Point position; // player's position
     int currentMap; // Zone where the player is
+    Item hands; // item grab in them hands
 } Player;
+
+typedef struct Monster {
+    int id; // monster's ID
+    char* name; // monster's name
+    Health health; // monster's health
+    int damage; // Number that define how much damage it deals
+    int xpDrop; // Number that define how much experience it drop when kill
+    int respawn; // Number that define how many turn is left before he can reaper
+    Point position; // monster's position
+} Monster;
+
+typedef struct Fight {
+    Monster *monster; // monster's ID
+    Player *player; // player's ID
+    int laps; // nb laps
+    int status; // the fight is over ? 0 = en cour , 1 = win , 2 = lose , 3 = escape
+    Point position; // fight's position (monster's position)
+} Fight;
+
 
 typedef struct Npc {
     char* name; // npc's name

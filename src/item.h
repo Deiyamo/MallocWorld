@@ -36,4 +36,15 @@ char** getCraftAdvancedProperties(char* itemString, const char* separators);
 char** getCraftItems(char* itemString, const char* separators);
 char** getCraftZones(char* itemString, const char* separators);
 void checkIfPlayerHasRequiredItems(int itemId);
+
+
+void checkItemTypeForDisplay(Item item);
+void displayWeapon(Item item);
+void displayTool(Item item);
+void displayCraft(Item item);
+void displayArmor(Item item);
+void displayHeal(Item item);
+void displayPotion();
+
+int isItemOfType();
 #endif //MALLOC_WORLD_ITEM_H

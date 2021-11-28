@@ -39,6 +39,7 @@ Inventory starting_inventory() {
     inventory.item[2] = billhook; // Wooden billhook
     inventory.item[3] = axe; // Wooden axe
 
+
     // Slots not empty
     inventory.currentCapacity = 4;
 
@@ -352,4 +353,80 @@ Game takeOneItemFromStorage(Game* game, int itemNumber) {
     }
 
     return *game;
+}
+
+/*
+Inventory takeItemsFromStorage(Game* game){
+    return;
+}
+
+Inventory leaveItemsToStorage(Game* game) {
+    return;
+}*/
+
+
+
+
+
+/*------------------------------------------------------
+    Nicolas update
+------------------------------------------------------*/
+
+
+int nbItemInInventory(Player *player, Class type) {
+    int nbItemOfType = 0;
+    for (int i=0; i < player->inventory.currentCapacity; i++) {
+        if(isItemOfType(player->inventory.item[i],type)){
+            nbItemOfType +=1;
+        }
+    }
+    return nbItemOfType;
+}
+
+
+void displayItemInInventoryForFight(Player *player, Class type) {
+    int isItemInInventory = 0;
+    for (int i=0; i < player->inventory.currentCapacity; i++) {
+        if (isItemOfType(player->inventory.item[i],type)) {
+            printf("%d - ", i);
+
+            switch (type) {
+                case Weapon:
+                    displayWeapon(player->inventory.item[i]);
+                    break;
+
+                case Heal:
+                    displayPotion(player->inventory.item[i]);
+                    break;
+                
+                default:
+                    break;
+            }
+            isItemInInventory = 1;
+        }
+    }
+    printf("\n\n");
+    if(!isItemInInventory){
+        printf("There is no %c in your inventory \n",type);
+    }
+}
+
+
+Item takeItemInInventory(Player *player, int idItemInInventory) {
+    Item item = player->inventory.item[idItemInInventory];
+    return item;
+}
+
+void placeItemInHand(Player *player, int idItemInInventory){
+    player->hands = player->inventory.item[idItemInInventory];
+}
+
+int findArmor(Player *player) {
+    int nbItemOfType = 0;
+    for (int i=0; i < player->inventory.currentCapacity; i++) {
+        if(isItemOfType(player->inventory.item[i],Armor)){
+            nbItemOfType = i;
+        }
+    }
+    return nbItemOfType;
 }

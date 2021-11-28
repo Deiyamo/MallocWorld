@@ -7,7 +7,10 @@
 
 #include "types.h"
 
-Level set_level_to_zero();
-Level upgrade_experience();
+Level setLevelToZero();
+Level upgradeExperience();
+
+void increaseXpPlayer();
+void levelUpPlayer();
 
 #endif //MALLOC_WORLD_LEVEL_H

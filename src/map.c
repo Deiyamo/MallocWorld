@@ -11,6 +11,10 @@
 #include "player.h"
 #include "inventory.h"
 #include "point.h"
+#include "dialog.h"
+#include "monster.h"
+#include "fight.h"
+#include "events.h"
 
 
 // a struct containing the map
@@ -71,14 +75,11 @@ void displayMap() {
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLUMNS; j++) {
             printf("%3d", mapArray[i][j]);
-//            printf("%d " , map.painting[i][j]);
+            //printf("%d " , map.painting[i][j]);
         }
         printf("\n");
     }
 }
-
-
-
 
 
 /*------------------------------------------------------
@@ -86,6 +87,7 @@ void displayMap() {
 ------------------------------------------------------*/
 
 // Check is future position is a portal, a monster, a walkable position, etc...
+
 Game checkFuturePosition(Game* game, int x, int y) {
 
     // Check map borders
@@ -95,8 +97,10 @@ Game checkFuturePosition(Game* game, int x, int y) {
 
     // Position is a monster
     if (mapArray[y][x] >= 12 && mapArray[y][x] <= 98) {
-        // start the fight with a monster
+        printf("Do you want to go to the next/precedent zone\n");
+        startFight(&game->player,mapArray[y][x]);
     }
+
     // Position is a portal
     if (mapArray[y][x] == -2 || mapArray[y][x] == -3) {
         // teleport the player
@@ -139,6 +143,7 @@ Game checkFuturePosition(Game* game, int x, int y) {
 
         case 99:
             // Position is the end boss
+                startFight(&game->player,99);
             break;
 
         default:
@@ -159,10 +164,10 @@ int isPositionWalkable(int x, int y) { // Not used anymore !! see --> checkFutur
 
 // Set player's position on his structure
 Point getPlayerPosition() {
+    Point position = {};
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLUMNS; j++) {
             if (mapArray[i][j] == 1) {
-                Point position = {};
                 position.X = j;
                 position.Y = i;
                 return position;
@@ -170,6 +175,7 @@ Point getPlayerPosition() {
         }
     }
     // no player found
+    return position;
 }
 
 void updatePlayerPositionOnMap(Point position, int newX, int newY) {

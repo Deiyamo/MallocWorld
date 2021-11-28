@@ -12,7 +12,45 @@
 #include "npc.h"
 #include "inventory.h"
 
+void runMain() {
+    int choice;
 
+    do {
+        displayMenu(); // Display the text menu
+        choice = getchar();
+        getchar();
+
+        switch(choice) {
+            case '1': // New game
+                //createMap();
+                run();
+
+                break;
+
+            case '2': // Load game
+                printf("Load game from save\n");
+                break;
+
+            case '3': // Display controls
+                displayControls();
+                break;
+
+            case '4': // Display the list of all items (maybe une fonction de tri par type)
+                printf("List of all items\n");
+                break;
+
+            case '5': // Exit
+                printf("\nSee you soon !\n");
+                exit(0); // terminates the complete program execution
+
+            default:
+                printf("This value is not a choice... Please try again\n");
+                break;
+        }
+
+    } while(1);
+
+}
 
 void run() {
     clear_screen();
@@ -20,7 +58,6 @@ void run() {
     Game* game = malloc( sizeof(Game) );
     game->player = newPlayer();
     game->npc = newNpc();
-
 
 
     int playerChoice;
@@ -35,7 +72,6 @@ void run() {
         displayInventoryFromMaxCapacity(game->player.inventory);
         // Display actions that the player can do
         displayPlayerMenu();
-
 
         // Switch (player's actions)
         playerChoice = handlePlayerInput(game);
@@ -101,16 +137,13 @@ int handlePlayerInput(Game* game) {
             break;
 
         default:
-            printf("This value is not a choice... Please try again");
+            printf("This value is not a choice... Please try again\n");
             break;
     }
 
     return playerChoice;
 }
 
-
-
-
-void kill_game() {
-    kill_player();
-}
+/* void kill_game(Game *game) {
+    killPlayer();
+} */

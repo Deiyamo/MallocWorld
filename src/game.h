@@ -7,8 +7,9 @@
 
 #include "types.h"
 
-void kill_game();
+void runMain();
 void run();
+void kill_game(Game* game);
 int handlePlayerInput(Game* game);
 
 

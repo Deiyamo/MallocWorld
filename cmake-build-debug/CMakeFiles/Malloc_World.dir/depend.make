@@ -16,12 +16,25 @@ CMakeFiles/Malloc_World.dir/src/dialog.c.obj: \
  ../src/dialog.c \
  ../src/dialog.h \
  ../src/events.h \
+ ../src/fight.h \
  ../src/inventory.h \
+ ../src/monster.h \
+ ../src/player.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/events.c.obj: \
  ../src/events.c \
  ../src/events.h \
  ../src/map.h \
+ ../src/types.h
+CMakeFiles/Malloc_World.dir/src/fight.c.obj: \
+ ../src/dialog.h \
+ ../src/events.h \
+ ../src/fight.c \
+ ../src/fight.h \
+ ../src/level.h \
+ ../src/map.h \
+ ../src/monster.h \
+ ../src/player.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/game.c.obj: \
  ../src/dialog.h \
@@ -54,6 +67,7 @@ CMakeFiles/Malloc_World.dir/src/item.c.obj: \
  ../src/item.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/level.c.obj: \
+ ../src/health.h \
  ../src/level.c \
  ../src/level.h \
  ../src/types.h
@@ -64,12 +78,25 @@ CMakeFiles/Malloc_World.dir/src/main.c.obj: \
  ../src/save.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/map.c.obj: \
+ ../src/dialog.h \
+ ../src/events.h \
+ ../src/fight.h \
  ../src/inventory.h \
  ../src/map.c \
  ../src/map.h \
+ ../src/monster.h \
  ../src/npc.h \
  ../src/player.h \
  ../src/point.h \
+ ../src/types.h
+CMakeFiles/Malloc_World.dir/src/monster.c.obj: \
+ ../src/fight.h \
+ ../src/health.h \
+ ../src/level.h \
+ ../src/map.h \
+ ../src/monster.c \
+ ../src/monster.h \
+ ../src/player.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/npc.c.obj: \
  ../src/dialog.h \
@@ -81,11 +108,15 @@ CMakeFiles/Malloc_World.dir/src/npc.c.obj: \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/player.c.obj: \
  ../src/class.h \
+ ../src/events.h \
+ ../src/fight.h \
+ ../src/game.h \
  ../src/health.h \
  ../src/inventory.h \
  ../src/item.h \
  ../src/level.h \
  ../src/map.h \
+ ../src/monster.h \
  ../src/player.c \
  ../src/player.h \
  ../src/types.h

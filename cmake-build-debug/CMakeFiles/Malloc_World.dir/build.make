@@ -117,9 +117,22 @@ CMakeFiles/Malloc_World.dir/src/events.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Malloc_World.dir/src/events.c.s"
 	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\3eme_annee\S1\C_challenge\Malloc_World\src\events.c -o CMakeFiles\Malloc_World.dir\src\events.c.s
 
+CMakeFiles/Malloc_World.dir/src/fight.c.obj: CMakeFiles/Malloc_World.dir/flags.make
+CMakeFiles/Malloc_World.dir/src/fight.c.obj: ../src/fight.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Malloc_World.dir/src/fight.c.obj"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Malloc_World.dir\src\fight.c.obj -c D:\3eme_annee\S1\C_challenge\Malloc_World\src\fight.c
+
+CMakeFiles/Malloc_World.dir/src/fight.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Malloc_World.dir/src/fight.c.i"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\3eme_annee\S1\C_challenge\Malloc_World\src\fight.c > CMakeFiles\Malloc_World.dir\src\fight.c.i
+
+CMakeFiles/Malloc_World.dir/src/fight.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Malloc_World.dir/src/fight.c.s"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\3eme_annee\S1\C_challenge\Malloc_World\src\fight.c -o CMakeFiles\Malloc_World.dir\src\fight.c.s
+
 CMakeFiles/Malloc_World.dir/src/game.c.obj: CMakeFiles/Malloc_World.dir/flags.make
 CMakeFiles/Malloc_World.dir/src/game.c.obj: ../src/game.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Malloc_World.dir/src/game.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Malloc_World.dir/src/game.c.obj"
 	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Malloc_World.dir\src\game.c.obj -c D:\3eme_annee\S1\C_challenge\Malloc_World\src\game.c
 
 CMakeFiles/Malloc_World.dir/src/game.c.i: cmake_force
@@ -132,7 +145,7 @@ CMakeFiles/Malloc_World.dir/src/game.c.s: cmake_force
 
 CMakeFiles/Malloc_World.dir/src/health.c.obj: CMakeFiles/Malloc_World.dir/flags.make
 CMakeFiles/Malloc_World.dir/src/health.c.obj: ../src/health.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Malloc_World.dir/src/health.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Malloc_World.dir/src/health.c.obj"
 	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Malloc_World.dir\src\health.c.obj -c D:\3eme_annee\S1\C_challenge\Malloc_World\src\health.c
 
 CMakeFiles/Malloc_World.dir/src/health.c.i: cmake_force
@@ -145,7 +158,7 @@ CMakeFiles/Malloc_World.dir/src/health.c.s: cmake_force
 
 CMakeFiles/Malloc_World.dir/src/inventory.c.obj: CMakeFiles/Malloc_World.dir/flags.make
 CMakeFiles/Malloc_World.dir/src/inventory.c.obj: ../src/inventory.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/Malloc_World.dir/src/inventory.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Malloc_World.dir/src/inventory.c.obj"
 	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Malloc_World.dir\src\inventory.c.obj -c D:\3eme_annee\S1\C_challenge\Malloc_World\src\inventory.c
 
 CMakeFiles/Malloc_World.dir/src/inventory.c.i: cmake_force
@@ -158,7 +171,7 @@ CMakeFiles/Malloc_World.dir/src/inventory.c.s: cmake_force
 
 CMakeFiles/Malloc_World.dir/src/item.c.obj: CMakeFiles/Malloc_World.dir/flags.make
 CMakeFiles/Malloc_World.dir/src/item.c.obj: ../src/item.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/Malloc_World.dir/src/item.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Malloc_World.dir/src/item.c.obj"
 	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Malloc_World.dir\src\item.c.obj -c D:\3eme_annee\S1\C_challenge\Malloc_World\src\item.c
 
 CMakeFiles/Malloc_World.dir/src/item.c.i: cmake_force
@@ -171,7 +184,7 @@ CMakeFiles/Malloc_World.dir/src/item.c.s: cmake_force
 
 CMakeFiles/Malloc_World.dir/src/level.c.obj: CMakeFiles/Malloc_World.dir/flags.make
 CMakeFiles/Malloc_World.dir/src/level.c.obj: ../src/level.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building C object CMakeFiles/Malloc_World.dir/src/level.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Malloc_World.dir/src/level.c.obj"
 	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Malloc_World.dir\src\level.c.obj -c D:\3eme_annee\S1\C_challenge\Malloc_World\src\level.c
 
 CMakeFiles/Malloc_World.dir/src/level.c.i: cmake_force
@@ -184,7 +197,7 @@ CMakeFiles/Malloc_World.dir/src/level.c.s: cmake_force
 
 CMakeFiles/Malloc_World.dir/src/main.c.obj: CMakeFiles/Malloc_World.dir/flags.make
 CMakeFiles/Malloc_World.dir/src/main.c.obj: ../src/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building C object CMakeFiles/Malloc_World.dir/src/main.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Malloc_World.dir/src/main.c.obj"
 	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Malloc_World.dir\src\main.c.obj -c D:\3eme_annee\S1\C_challenge\Malloc_World\src\main.c
 
 CMakeFiles/Malloc_World.dir/src/main.c.i: cmake_force
@@ -197,7 +210,7 @@ CMakeFiles/Malloc_World.dir/src/main.c.s: cmake_force
 
 CMakeFiles/Malloc_World.dir/src/map.c.obj: CMakeFiles/Malloc_World.dir/flags.make
 CMakeFiles/Malloc_World.dir/src/map.c.obj: ../src/map.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building C object CMakeFiles/Malloc_World.dir/src/map.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Malloc_World.dir/src/map.c.obj"
 	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Malloc_World.dir\src\map.c.obj -c D:\3eme_annee\S1\C_challenge\Malloc_World\src\map.c
 
 CMakeFiles/Malloc_World.dir/src/map.c.i: cmake_force
@@ -208,9 +221,22 @@ CMakeFiles/Malloc_World.dir/src/map.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Malloc_World.dir/src/map.c.s"
 	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\3eme_annee\S1\C_challenge\Malloc_World\src\map.c -o CMakeFiles\Malloc_World.dir\src\map.c.s
 
+CMakeFiles/Malloc_World.dir/src/monster.c.obj: CMakeFiles/Malloc_World.dir/flags.make
+CMakeFiles/Malloc_World.dir/src/monster.c.obj: ../src/monster.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/Malloc_World.dir/src/monster.c.obj"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Malloc_World.dir\src\monster.c.obj -c D:\3eme_annee\S1\C_challenge\Malloc_World\src\monster.c
+
+CMakeFiles/Malloc_World.dir/src/monster.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Malloc_World.dir/src/monster.c.i"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E D:\3eme_annee\S1\C_challenge\Malloc_World\src\monster.c > CMakeFiles\Malloc_World.dir\src\monster.c.i
+
+CMakeFiles/Malloc_World.dir/src/monster.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Malloc_World.dir/src/monster.c.s"
+	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S D:\3eme_annee\S1\C_challenge\Malloc_World\src\monster.c -o CMakeFiles\Malloc_World.dir\src\monster.c.s
+
 CMakeFiles/Malloc_World.dir/src/npc.c.obj: CMakeFiles/Malloc_World.dir/flags.make
 CMakeFiles/Malloc_World.dir/src/npc.c.obj: ../src/npc.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building C object CMakeFiles/Malloc_World.dir/src/npc.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/Malloc_World.dir/src/npc.c.obj"
 	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Malloc_World.dir\src\npc.c.obj -c D:\3eme_annee\S1\C_challenge\Malloc_World\src\npc.c
 
 CMakeFiles/Malloc_World.dir/src/npc.c.i: cmake_force
@@ -223,7 +249,7 @@ CMakeFiles/Malloc_World.dir/src/npc.c.s: cmake_force
 
 CMakeFiles/Malloc_World.dir/src/player.c.obj: CMakeFiles/Malloc_World.dir/flags.make
 CMakeFiles/Malloc_World.dir/src/player.c.obj: ../src/player.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object CMakeFiles/Malloc_World.dir/src/player.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/Malloc_World.dir/src/player.c.obj"
 	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Malloc_World.dir\src\player.c.obj -c D:\3eme_annee\S1\C_challenge\Malloc_World\src\player.c
 
 CMakeFiles/Malloc_World.dir/src/player.c.i: cmake_force
@@ -236,7 +262,7 @@ CMakeFiles/Malloc_World.dir/src/player.c.s: cmake_force
 
 CMakeFiles/Malloc_World.dir/src/point.c.obj: CMakeFiles/Malloc_World.dir/flags.make
 CMakeFiles/Malloc_World.dir/src/point.c.obj: ../src/point.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object CMakeFiles/Malloc_World.dir/src/point.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building C object CMakeFiles/Malloc_World.dir/src/point.c.obj"
 	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Malloc_World.dir\src\point.c.obj -c D:\3eme_annee\S1\C_challenge\Malloc_World\src\point.c
 
 CMakeFiles/Malloc_World.dir/src/point.c.i: cmake_force
@@ -249,7 +275,7 @@ CMakeFiles/Malloc_World.dir/src/point.c.s: cmake_force
 
 CMakeFiles/Malloc_World.dir/src/save.c.obj: CMakeFiles/Malloc_World.dir/flags.make
 CMakeFiles/Malloc_World.dir/src/save.c.obj: ../src/save.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building C object CMakeFiles/Malloc_World.dir/src/save.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/Malloc_World.dir/src/save.c.obj"
 	D:\MinGW\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Malloc_World.dir\src\save.c.obj -c D:\3eme_annee\S1\C_challenge\Malloc_World\src\save.c
 
 CMakeFiles/Malloc_World.dir/src/save.c.i: cmake_force
@@ -266,6 +292,7 @@ Malloc_World_OBJECTS = \
 "CMakeFiles/Malloc_World.dir/src/craft.c.obj" \
 "CMakeFiles/Malloc_World.dir/src/dialog.c.obj" \
 "CMakeFiles/Malloc_World.dir/src/events.c.obj" \
+"CMakeFiles/Malloc_World.dir/src/fight.c.obj" \
 "CMakeFiles/Malloc_World.dir/src/game.c.obj" \
 "CMakeFiles/Malloc_World.dir/src/health.c.obj" \
 "CMakeFiles/Malloc_World.dir/src/inventory.c.obj" \
@@ -273,6 +300,7 @@ Malloc_World_OBJECTS = \
 "CMakeFiles/Malloc_World.dir/src/level.c.obj" \
 "CMakeFiles/Malloc_World.dir/src/main.c.obj" \
 "CMakeFiles/Malloc_World.dir/src/map.c.obj" \
+"CMakeFiles/Malloc_World.dir/src/monster.c.obj" \
 "CMakeFiles/Malloc_World.dir/src/npc.c.obj" \
 "CMakeFiles/Malloc_World.dir/src/player.c.obj" \
 "CMakeFiles/Malloc_World.dir/src/point.c.obj" \
@@ -285,6 +313,7 @@ Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/class.c.obj
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/craft.c.obj
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/dialog.c.obj
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/events.c.obj
+Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/fight.c.obj
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/game.c.obj
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/health.c.obj
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/inventory.c.obj
@@ -292,6 +321,7 @@ Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/item.c.obj
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/level.c.obj
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/main.c.obj
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/map.c.obj
+Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/monster.c.obj
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/npc.c.obj
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/player.c.obj
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/src/point.c.obj
@@ -300,7 +330,7 @@ Malloc_World.exe: CMakeFiles/Malloc_World.dir/build.make
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/linklibs.rsp
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/objects1.rsp
 Malloc_World.exe: CMakeFiles/Malloc_World.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking C executable Malloc_World.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\3eme_annee\S1\C_challenge\Malloc_World\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking C executable Malloc_World.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Malloc_World.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

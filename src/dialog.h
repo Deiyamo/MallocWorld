@@ -12,6 +12,7 @@ void displayMenu();
 void displayPlayerMenu();
 void displayPauseMenu();
 void displayControls();
+void displayFight();
 void displayInventoryMenu(Inventory inventory);
 
 void displayHelloDialog(char* npcName);
