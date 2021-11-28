@@ -1,4 +1,4 @@
-{ID}{Name}{Quantity}{Durability}@{Type}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
+{ID}{Name}{Quantity}{Durability}{Type}{Dur_Max}{Damage}{Stack}{Heal}{Resistance}
 
 --- Item Craftable ---
 {1}{Wooden sword}{1}{10}{Weapon}{10}{1}{1}{0}{0}
@@ -26,31 +26,3 @@
 {15}{Health potion I}{1}{0}{Heal}{0}{0}{1}{30}{0}
 {26}{Health potion II}{1}{0}{Heal}{0}{0}{1}{80}{0}
 {34}{Health potion III}{1}{0}{Heal}{0}{0}{1}{200}{0}
-
-
-{Id}{Resources}{Zone}
-{1}{Fir*3}{1;2;3}
-{8}{Fir*2;Stone*3}{1;2;3}
-{19}{Beech*2;Iron*4}{2;3}
-{30}{Oak*2;Diamond*5}{3}
-{9}{Fir*3;Stone*4}{1;2;3}
-{20}{Beech*3;Iron*5}{2;3}
-{31}{Oak*3;Diamond*6}{3}
-{10}{Fir*2;Stone*6}{1;2;3}
-{21}{Beech*2;Iron*7}{2;3}
-{32}{Oak*2;Diamond*8}{3}
-{11}{Stone*10}{1;2;3}
-{22}{Iron*12}{2;3}
-{33}{Diamond*16}{3}
-{2}{Fir*3}{1;2;3}
-{12}{Fir*2;Stone*3}{1;2;3}
-{23}{Beech*2;Iron*4}{2;3}
-{3}{Fir*3}{1;2;3}
-{13}{Fir*2;Stone*3}{1;2;3}
-{24}{Beech*2;Iron*4}{2;3}
-{4}{Fir*3}{1;2;3}
-{14}{Fir*2;Stone*3}{1;2;3}
-{25}{Beech*2;Iron*4}{2;3}
-{15}{Grass*2}{1;2;3}
-{26}{Lavender*2}{2;3}
-{34}{Hemp*2}{3}

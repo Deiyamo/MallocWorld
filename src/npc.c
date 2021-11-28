@@ -5,8 +5,10 @@
 #include "npc.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "inventory.h"
+#include "item.h"
 #include "dialog.h"
 #include "events.h"
 
@@ -31,7 +33,6 @@ Game interactWithNpc(Game* game) {
 }
 
 void npcMenuInteractions(Game* game) {
-
     int npcMenuChoice = getchar();
     getchar();
 
@@ -42,7 +43,8 @@ void npcMenuInteractions(Game* game) {
             getchar();
             break;
         case '2': // Craft item
-            printf("Craft item");
+            printf("Craft item\n");
+            npcCraftItemMenu(game);
             break;
         case '3': // Storage
             displayNpcStorageMenu();
@@ -55,6 +57,35 @@ void npcMenuInteractions(Game* game) {
             displayNpcMenu();
             npcMenuInteractions(game);
     }
+}
+
+void npcCraftItemMenu(Game* game) {
+    clear_screen();
+    displayCraftableItems(game); // Display all craftable items
+
+    printf("\nEnter the item's ID you want to craft. Or press \"-1\" to return to the menu.\n:");
+
+    char playerStrChoice[5];
+    long playerChoice = 0;
+    while (playerChoice != -1) {
+        fgets(playerStrChoice, 5, stdin);
+        playerChoice = strtol(playerStrChoice, NULL, 0);
+
+        if (playerChoice >= 1 && playerChoice <= 25) {
+
+            verifyItemSelected(game, playerChoice-1);
+            break;
+
+        } else if ( playerChoice == -1 ) {
+            clear_screen();
+            displayNpcMenu();
+            npcMenuInteractions(game);
+        } else {
+            npcCraftItemMenu(game);
+        }
+    }
+    printf("done verifying");
+
 }
 
 void npcStorageMenuInteractions(Game* game) {

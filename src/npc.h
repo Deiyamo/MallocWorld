@@ -10,6 +10,7 @@
 Npc newNpc();
 Game interactWithNpc(Game* game);
 void npcMenuInteractions();
+void npcCraftItemMenu(Game* game);
 void npcStorageMenuInteractions();
 
 #endif //MALLOC_WORLD_NPC_H

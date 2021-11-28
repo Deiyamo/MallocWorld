@@ -8,4 +8,6 @@
 void clear_screen();
 void restore_screen();
 
+void displayColumnsName(char* line, const char* separators);
+
 #endif //MALLOC_WORLD_EVENTS_H

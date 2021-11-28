@@ -4,6 +4,8 @@
 
 #include "events.h"
 #include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
 
 #include "map.h"
 
@@ -18,4 +20,27 @@ void clear_screen() {
 void restore_screen() {
     clear_screen();
     displayMap();
+}
+
+
+// Display columns name
+void displayColumnsName(char* line, const char* separators) {
+    char** columnName = malloc(sizeof(char*) * 10);
+    char* strToken = strtok(line, separators);
+
+    for (int j = 0 ; strToken != NULL ; j++) {
+        columnName[j] = malloc(sizeof(char) * 15);
+        strcpy(columnName[j], strToken);
+
+        strToken = strtok(NULL, separators);
+    }
+    printf("%3s   ", columnName[0]);
+    printf("%s", columnName[1]);
+
+    for (int j = 0; j < 10; j++) {
+        free(columnName[j]);
+    }
+    free(columnName);
+
+    printf("\n\n");
 }

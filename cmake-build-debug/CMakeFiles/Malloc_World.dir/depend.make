@@ -37,9 +37,11 @@ CMakeFiles/Malloc_World.dir/src/inventory.c.obj: \
  ../src/dialog.h \
  ../src/inventory.c \
  ../src/inventory.h \
+ ../src/item.h \
  ../src/npc.h \
  ../src/types.h
 CMakeFiles/Malloc_World.dir/src/item.c.obj: \
+ ../src/events.h \
  ../src/item.c \
  ../src/item.h \
  ../src/types.h
@@ -64,6 +66,7 @@ CMakeFiles/Malloc_World.dir/src/npc.c.obj: \
  ../src/dialog.h \
  ../src/events.h \
  ../src/inventory.h \
+ ../src/item.h \
  ../src/npc.c \
  ../src/npc.h \
  ../src/types.h
